@@ -1,0 +1,27 @@
+.BookInfo, .BookHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    padding: 0;
+    box-sizing: border-box;
+}
+.BookHeader {
+    border: 1px solid black;
+}
+.BookInfo div,.BookHeader div {
+    width: 20%;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+}
+.BookInfo div p {
+    text-align: center;
+    font-size: 16px;
+}
+.BookHeader div p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}

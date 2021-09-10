@@ -1,0 +1,27 @@
+.AuthorInfo, .AuthorHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    padding: 0;
+    box-sizing: border-box;
+}
+.AuthorHeader {
+    border: 1px solid black;
+}
+.AuthorInfo div,.AuthorHeader div {
+    width: 50%;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+}
+.AuthorInfo div p {
+    text-align: center;
+    font-size: 16px;
+}
+.AuthorHeader div p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}

@@ -1,0 +1,29 @@
+.TopMenu {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    border-bottom: 1px solid black;
+    background-color: #77a;
+    width: 100vw;
+    height: 100px;
+    box-sizing: border-box;
+}
+.TopMenu div {
+    width: 30%;
+    height: 80%;
+    text-align: center;
+    border: 1px solid black;
+    background-color: #cce;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-end-end-radius: 10% 20%;
+}
+.TopMenu div a {
+    display: flex;
+    font-size: 3vw;
+    text-decoration: none;
+    color: #113;
+    font-weight: bold;
+}
