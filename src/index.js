@@ -19,7 +19,7 @@ ReactDOM.render(
                     <Route path={'/'} exact component={MainPage}/>
                     <Route path={'/authors'} component={AuthorsPage}/>
                     <Route path={'/books'} component={BooksPage}/>
-                    <Route path={'/books/book/?:id'} component={BookLone}/>
+                    <Route path={'/book/:id'} component={BookLone}/>
                     <Redirect to={'/'}/>
                 </Switch>
             </React.StrictMode>

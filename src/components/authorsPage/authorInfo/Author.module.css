@@ -1,7 +1,6 @@
 .AuthorInfo, .AuthorHeader {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     width: 100%;
     border-bottom: 1px solid black;
     border-left: 1px solid black;
@@ -9,7 +8,7 @@
     box-sizing: border-box;
 }
 .AuthorHeader {
-    border: 1px solid black;
+    border-top: 1px solid black;
 }
 .AuthorInfo div,.AuthorHeader div {
     width: 50%;

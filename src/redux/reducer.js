@@ -7,7 +7,8 @@ const initialState = {
             last_name: 'Кинг',
             first_name: 'Стивен',
             books: [
-                110101
+                110101,
+                110102
             ]
         },
         {
@@ -48,7 +49,14 @@ const initialState = {
 }
 
 const rootReducer = (state=initialState,action) => {
-    return state
+    switch (action.type) {
+        case C.DELETE_BOOK:
+            return {
+                books: state.books.filter(b=>b.id!==action.id)
+            }
+        default:
+            return state
+    }
 }
 
 export default rootReducer

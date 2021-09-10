@@ -1,3 +1,31 @@
 .BookLone {
-
+    width: 90vw;
+    margin: auto;
+}
+.BookLone div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.buttonDiv {
+    justify-content: space-between;
+}
+.BookLone div p {
+    margin: 5px 0;
+}
+.BookLone div input, .BookLone div select {
+    outline: none;
+    margin-left: 10px;
+    padding: 0 5px;
+    text-align: center;
+    border: 1px solid #ccc
+}
+.started_at {
+    width: 50px;
+}
+.BookLone img {
+    width: 50vw;
+    border: 1px solid black;
+    margin-top: 10px;
+    box-sizing: border-box;
 }

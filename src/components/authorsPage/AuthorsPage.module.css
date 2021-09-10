@@ -1,0 +1,7 @@
+.AuthorsPage h1 {
+    margin-left: 2vw;
+}
+.AuthorsPage>div {
+    width: 90vw;
+    margin: auto;
+}

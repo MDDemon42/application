@@ -1,10 +1,10 @@
 import {connect} from 'react-redux'
-import './BooksPage.css';
+import classes from './BooksPage.module.css';
 import BookInfo from "./bookInfo/BookInfo";
 import BookHeader from "./bookInfo/BookHeader";
 
 const BooksPage = (props) => (
-    <div>
+    <div className={classes.BooksPage}>
         <h1>
             Книги нашей библиотеки:
         </h1>

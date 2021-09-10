@@ -1,0 +1,7 @@
+.BooksPage h1{
+    margin-left: 2vw;
+}
+.BooksPage>div {
+    width: 90vw;
+    margin: auto;
+}

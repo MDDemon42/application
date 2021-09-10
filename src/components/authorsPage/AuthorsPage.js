@@ -1,11 +1,11 @@
 import {connect} from 'react-redux'
-import './AuthorsPage.css';
+import classes from './AuthorsPage.module.css';
 
 import AuthorHeader from "./authorInfo/AuthorHeader";
 import AuthorInfo from "./authorInfo/AuthorInfo";
 
 const AuthorsPage = (props) => (
-    <div>
+    <div className={classes.AuthorsPage}>
         <h1>
             Авторы в нашей библиотеке:
         </h1>
