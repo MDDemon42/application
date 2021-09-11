@@ -1,7 +1,7 @@
 import {createStore,applyMiddleware} from 'redux'
 import rootReducer from "./reducer";
-import logger from './middleware'
+import {logger,saver} from './middleware'
 
-const store = createStore(rootReducer,applyMiddleware(logger))
+const store = createStore(rootReducer,applyMiddleware(logger,saver))
 
 export default store

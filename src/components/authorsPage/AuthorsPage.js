@@ -26,8 +26,7 @@ const AuthorsPage = (props) => (
 
 function mapStateToProps (state) {
     return {
-        authors:state.authors,
-        books:state.books
+        authors:state.authors
     }
 }
 

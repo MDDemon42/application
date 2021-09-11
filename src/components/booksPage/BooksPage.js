@@ -5,31 +5,38 @@ import BookHeader from "./bookInfo/BookHeader";
 
 const BooksPage = (props) => (
     <div className={classes.BooksPage}>
-        <h1>
-            Книги нашей библиотеки:
-        </h1>
-        <div>
-            <BookHeader/>
-            {
-                props.books.map((item)=> {
-                    const {last_name,first_name} = props.authors.filter(o=>o.id===item.author)[0]
-                    return <BookInfo
-                        key={item.id}
-                        title={item.title}
-                        id={item.id}
-                        last_name={last_name}
-                        first_name={first_name}
-                        year={item.year}
-                    />
-                })
-            }
-        </div>
+        {
+            props.books.length ?
+                <>
+                    <h1>
+                        Книги нашей библиотеки:
+                    </h1>
+                    <div>
+                        <BookHeader/>
+                        {
+
+                            props.books.map((item)=> {
+                                return <BookInfo
+                                    key={item.id}
+                                    title={item.title}
+                                    id={item.id}
+                                    last_name={item.last_name}
+                                    first_name={item.first_name}
+                                    year={item.year}
+                                />
+                            })
+                        }
+                    </div>
+                </> :
+                <h1>
+                    Книги отсутствуют
+                </h1>
+        }
     </div>
   )
 
 function mapStateToProps (state) {
     return {
-        authors:state.authors,
         books:state.books
     }
 }
