@@ -5,3 +5,13 @@
     width: 90vw;
     margin: auto;
 }
+.buttonAdd {
+    margin-top: 20px;
+    width: 150px;
+    background-color: darkgreen;
+    margin-right: 20px;
+    border: 1px solid black;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}

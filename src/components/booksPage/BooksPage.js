@@ -2,19 +2,26 @@ import {connect} from 'react-redux'
 import classes from './BooksPage.module.css';
 import BookInfo from "./bookInfo/BookInfo";
 import BookHeader from "./bookInfo/BookHeader";
+import {NavLink} from "react-router-dom";
 
 const BooksPage = (props) => (
     <div className={classes.BooksPage}>
         {
             props.books.length ?
                 <>
-                    <h1>
-                        Книги нашей библиотеки:
-                    </h1>
+                    <span style={{display:'flex',justifyContent:'space-between',}}>
+                        <h1>
+                            Книги нашей библиотеки:
+                        </h1>
+                        <NavLink to={'/books/creation'}>
+                            <button className={classes.buttonAdd}>
+                                <p>Добавить книгу</p>
+                            </button>
+                        </NavLink>
+                    </span>
                     <div>
                         <BookHeader/>
                         {
-
                             props.books.map((item)=> {
                                 return <BookInfo
                                     key={item.id}
@@ -22,7 +29,7 @@ const BooksPage = (props) => (
                                     id={item.id}
                                     last_name={item.last_name}
                                     first_name={item.first_name}
-                                    year={item.year}
+                                    created_at={item.created_at}
                                 />
                             })
                         }

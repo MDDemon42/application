@@ -1,0 +1,42 @@
+.AuthorLone h1 {
+    margin-left: 2vw;
+}
+.AuthorLone div {
+    width: 90vw;
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: row;
+}
+.buttonDel, .buttonSave {
+    margin-top: 20px;
+    width: 150px;
+    min-height: 100%;
+    background-color: firebrick;
+    border: 1px solid black;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.buttonSave {
+    background-color: darkgreen;
+    margin-right: 10px;
+    transition: background-color,color .3s ease-in;
+}
+.buttonDiv {
+    justify-content: space-between;
+}
+.AuthorLone div p {
+    margin: 5px 0;
+}
+.AuthorLone div input {
+    outline: none;
+    margin-left: 10px;
+    padding: 0 5px;
+    text-align: center;
+    border: 1px solid #ccc
+}
+
+.grayBackground {
+    background-color: #ccc;
+    color: black;
+}

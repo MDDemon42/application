@@ -1,7 +1,8 @@
 import {connect} from 'react-redux'
 import classes from './BookLone.module.css'
-import {delBook, saveBook} from '../../redux/actions'
+import {addBook, delBook, saveBook} from '../../redux/actions'
 import {useState} from "react";
+import SaveBookButton from "./SaveBookButton";
 
 const emptyBook = {
     title:'',
@@ -13,8 +14,16 @@ const emptyBook = {
 
 const BookLone = (props) => {
     const id = Number(props.match.params.id)
-    const book = props.books.filter(o=>o.id===id)[0]
-    const {title, last_name, first_name, created_at, image} = book ?? emptyBook
+
+    const book = id && props.books.filter(o=>o.id===id)[0]
+    let {title, last_name, first_name, created_at, image} = emptyBook
+    if (book) {
+        title=book.title
+        last_name=book.last_name
+        first_name=book.first_name
+        created_at=book.created_at
+        image=book.image
+    }
 
     const [bookTitle, setBookTitle] = useState(title)
     const [bookCreatedAt, setBookCreatedAt] = useState(created_at)
@@ -22,14 +31,19 @@ const BookLone = (props) => {
     const [bookFirstName, setBookFirstName] = useState(first_name)
     const [bookImage, setBookImage] = useState(image)
 
-    const [saved,setSaved]=useState(false)
-    const saveClasses = [classes.buttonSave]
+    let creation = false
+    let readyText='Изменения сохранены!'
+    let toMakeText='Сохранить изменения'
+    let func = props.onSave
 
-    if (saved) {
-        saveClasses.push(classes.grayBackground)
+    if (props.match.path==='/books/creation') {
+        creation = true
+        readyText='Книга добавлена!'
+        toMakeText='Добавить книгу'
+        func=props.onAdd
     }
 
-    if (book) {
+    if (book || creation) {
         const otherAuthors = props.authors.filter(o => o.id !== Math.floor(id / 100))
         return (
             <div className={classes.BookLone}>
@@ -41,28 +55,25 @@ const BookLone = (props) => {
                                onChange={e => setBookTitle(e.target.value)}
                         />
                     </div>
-                    <button className={saveClasses.join(' ')}
-                            onClick={() => {
-                                props.onSave(id, bookTitle, bookLastName, bookFirstName, bookCreatedAt, bookImage)
-                                setSaved(true)
-                                setTimeout(()=>setSaved(false),1000)
-                            }}
-                    >
-                        {
-                            saved ?
-                                <span>
-                                    Изменения сохранены!
-                                </span> :
-                                <span>
-                                    Сохранить изменения
-                                </span>
-                        }
-                    </button>
-                    <button onClick={() => props.onDelete(id)}
-                            className={classes.buttonDel}
-                    >
-                        Удалить книгу
-                    </button>
+                    <SaveBookButton onFunc={func}
+                                id={id}
+                                bookTitle={bookTitle}
+                                bookLastName={bookLastName}
+                                bookFirstName={bookFirstName}
+                                bookCreatedAt={bookCreatedAt}
+                                bookImage={bookImage}
+                                readyText={readyText}
+                                toMakeText={toMakeText}
+                    />
+                    {
+                        !creation ?
+                            <button onClick={() => props.onDelete(id)}
+                                    className={classes.buttonDel}
+                            >
+                                Удалить книгу
+                            </button> :
+                            null
+                    }
                 </div>
                 <div>
                     <p>Автор:</p>
@@ -71,7 +82,11 @@ const BookLone = (props) => {
                         setBookLastName(e.target.value.split(' ')[1])
                     }
                         }>
-                        <option> {first_name + ' ' + last_name}</option>
+                        {
+                            !creation ?
+                                <option> {first_name + ' ' + last_name}</option> :
+                                <option disabled selected>Выберите автора</option>
+                        }
                         {otherAuthors.map((a) => (
                             <option value={a.first_name + ' ' + a.last_name}
                                     key={a.id}
@@ -90,10 +105,15 @@ const BookLone = (props) => {
                     />
                 </div>
                 <div>
-                    <img src={image} alt={title + '_image'}/>
-                    <button>Сменить обложку</button>
+                    {
+                        !creation ?
+                            <>
+                                <img src={image} alt={title + '_image'}/>
+                                <button>Сменить обложку</button>
+                            </>:
+                            <button>Добавить обложку</button>
+                    }
                 </div>
-
             </div>
         )
     }
@@ -119,7 +139,8 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch) {
     return {
         onDelete: id => dispatch(delBook(id)),
-        onSave: (id,title,last_name,first_name,created_at,image)=> dispatch(saveBook(id,title,last_name,first_name,created_at,image))
+        onSave: (id,title,last_name,first_name,created_at,image)=> dispatch(saveBook(id,title,last_name,first_name,created_at,image)),
+        onAdd: (id,title,last_name,first_name,created_at,image) => dispatch(addBook(id,title,last_name,first_name,created_at,image))
     }
 }
 

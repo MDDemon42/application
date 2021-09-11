@@ -2,7 +2,7 @@ import {NavLink} from 'react-router-dom'
 import classes from './Book.module.css';
 
 const BookInfo = (props) => {
-    const {id,title,last_name,first_name,year} = props
+    const {id,title,last_name,first_name,created_at} = props
     return (
         <div className={classes.BookInfo}>
             <div>
@@ -24,7 +24,7 @@ const BookInfo = (props) => {
             </div>
             <div>
                 <p>
-                    {year}
+                    {created_at}
                 </p>
             </div>
         </div>
