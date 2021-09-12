@@ -1,4 +1,5 @@
 import C from './constants'
+import images from '../uploads/images/images'
 
 let initialState
 
@@ -26,7 +27,7 @@ if (localStorage['garpix-test']) {
                 first_name: 'Стивен',
                 created_at: 1974,
                 year: 2021,
-                image: '',
+                image: images.carry,
             },
             {
                 id: 110102,
@@ -35,7 +36,7 @@ if (localStorage['garpix-test']) {
                 first_name: 'Стивен',
                 created_at: 1978,
                 year: 2021,
-                image: '',
+                image: images.protiv,
             },
             {
                 id: 110201,
@@ -44,7 +45,7 @@ if (localStorage['garpix-test']) {
                 first_name: 'Терри',
                 created_at: 1989,
                 year: 2021,
-                image: '',
+                image: images.guard,
             }
         ]
     }

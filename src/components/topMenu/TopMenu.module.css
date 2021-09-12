@@ -4,7 +4,7 @@
     margin: 0;
     border-bottom: 1px solid black;
     background-color: #77a;
-    width: 100vw;
+    width: 100%;
     height: 100px;
     box-sizing: border-box;
 }
@@ -22,7 +22,6 @@
 }
 .TopMenu div a {
     display: flex;
-    font-size: 3vw;
     text-decoration: none;
     color: #113;
     font-weight: bold;

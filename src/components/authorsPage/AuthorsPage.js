@@ -10,7 +10,7 @@ const AuthorsPage = (props) => (
         {
             props.authors.length ?
                 <>
-                    <span style={{display:'flex',justifyContent:'space-between',}}>
+                    <span style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap'}}>
                         <h1>
                             Авторы в нашей библиотеке:
                         </h1>

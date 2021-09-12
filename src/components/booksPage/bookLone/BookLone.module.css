@@ -1,4 +1,4 @@
-.AuthorLone {
+.BookLone {
     width: 80vw;
     margin: 20px auto;
     padding-bottom: 20px;
@@ -7,10 +7,10 @@
     border-end-end-radius: 10% 20%;
     position: relative;
 }
-.AuthorLone h1 {
+.BookLone h1 {
     margin-left: 2vw;
 }
-.AuthorLone div {
+.BookLone div {
     width: 80%;
     margin: 20px auto;
     display: flex;
@@ -37,29 +37,55 @@
     top: 0;
     right: 10%;
 }
-.AuthorLone div p {
+.BookLone div p {
     margin: 5px 0;
     font-weight: bold;
 }
-.AuthorLone div input {
+.BookLone div input, .BookLone div select {
     outline: none;
     margin-left: 10px;
     padding: 0 5px;
     text-align: center;
     border: 1px solid #ccc
 }
+.started_at {
+    width: 50px;
+}
+.BookLone img {
+    width: 50%;
+    border: 1px solid black;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
 
 .grayBackground {
     background-color: #ccc;
     color: black;
 }
+.spanAddImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 150px;
+    padding: 10px;
+}
+.spanAddImage input {
+    padding: 10px;
+    margin: 10px;
+}
+.spanAddImage button {
+    padding: 10px;
+}
+.errorInInput {
+    border: 1px solid red
+}
 
 @media only screen and (max-width: 450px) {
-    .AuthorLone, .AuthorLone input, .AuthorLone button {
+    .BookLone, .BookLone input, .BookLone select, .BookLone button {
         font-size: 16px;
         min-height: 30px;
     }
-    .AuthorLone div {
+    .BookLone div {
         flex-wrap: wrap;
     }
     .buttonDiv {

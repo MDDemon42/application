@@ -38,20 +38,27 @@ const AuthorLone = (props) => {
     if (author || creation) {
         return (
             <div className={classes.AuthorLone}>
-                <div className={classes.buttonDiv}>
-                    <div>
-                        <p>Фамилия автора:</p>
-                        <input value={authorLastName}
-                               type={'text'}
-                               onChange={e => setAuthorLastName(e.target.value)}
-                        />
-                    </div>
+                <div>
+                    <p>Фамилия автора:</p>
+                    <input value={authorLastName}
+                           type={'text'}
+                           onChange={e => setAuthorLastName(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <p>Имя автора:</p>
+                    <input value={authorFirstName}
+                           type={'text'}
+                           onChange={e => setAuthorFirstName(e.target.value)}
+                    />
+                </div>
+                <span className={classes.buttonDiv}>
                     <SaveAuthorButton onFunc={func}
-                                    id={id}
-                                    authorLastName={authorLastName}
-                                    authorFirstName={authorFirstName}
-                                    readyText={readyText}
-                                    toMakeText={toMakeText}
+                                      id={id}
+                                      authorLastName={authorLastName}
+                                      authorFirstName={authorFirstName}
+                                      readyText={readyText}
+                                      toMakeText={toMakeText}
                     />
                     {
                         !creation ?
@@ -62,14 +69,7 @@ const AuthorLone = (props) => {
                             </button> :
                             null
                     }
-                </div>
-                <div>
-                    <p>Имя автора:</p>
-                    <input value={authorFirstName}
-                           type={'text'}
-                           onChange={e => setAuthorFirstName(e.target.value)}
-                    />
-                </div>
+                </span>
             </div>
         )
     } else {

@@ -14,6 +14,9 @@
     width: 50%;
     border-right: 1px solid black;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .AuthorInfo div p {
     text-align: center;

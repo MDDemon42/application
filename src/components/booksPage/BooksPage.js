@@ -9,7 +9,7 @@ const BooksPage = (props) => (
         {
             props.books.length ?
                 <>
-                    <span style={{display:'flex',justifyContent:'space-between',}}>
+                    <span style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap'}}>
                         <h1>
                             Книги нашей библиотеки:
                         </h1>
@@ -19,7 +19,7 @@ const BooksPage = (props) => (
                             </button>
                         </NavLink>
                     </span>
-                    <div>
+                    <div className={classes.mobileScroll}>
                         <BookHeader/>
                         {
                             props.books.map((item)=> {
