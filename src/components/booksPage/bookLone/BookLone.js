@@ -3,7 +3,7 @@ import classes from './BookLone.module.css'
 import {addBook, delBook, saveBook} from '../../../redux/actions'
 import {useState} from "react";
 import SaveBookButton from "./SaveBookButton";
-//import axios from 'axios'
+import axios from 'axios'
 
 const emptyBook = {
     title:'',
@@ -28,44 +28,59 @@ const BookLone = (props) => {
 
     const [bookTitle, setBookTitle] = useState(title)
     const [bookCreatedAt, setBookCreatedAt] = useState(created_at)
-    const [yearValid,setYearValid] = useState(false)
-    const [titleValid,setTitleValid] = useState(false)
-    const yearValidation = (value) => {
-        setBookCreatedAt(value)
-        if (Number.isInteger(Number(value)) &&
-            value<=new Date().getFullYear() &&
-            value.length
-        ) {
-            setYearValid(true)
-        }
-        else {
-            setYearValid(false)
-        }
-    }
-    const titleValidation = (value) => {
-        setBookTitle(value)
-        if (bookTitle.length) {
-            setTitleValid(true)
-        }
-        else {
-            setTitleValid(false)
-        }
-    }
     const [bookLastName, setBookLastName] = useState(last_name)
     const [bookFirstName, setBookFirstName] = useState(first_name)
 
-    // const [file,setFile] = useState('')
-    // const imageChanger = (e) => {
-    //     console.log(e.target.files[0])
-    //     setFile(e.target.files[0])
-    // }
-    // const imageLoader = () => {
-    //     const data = new FormData()
-    //     data.append('file', file)
-    //     axios.post('http://localhost:3000/api/upload', data, {}).then(res => { // then print response status
-    //         console.log(res.statusText)
-    //     })
-    // }
+    const [valid,setValid] = useState(false)
+
+    const yearValidation = (value) => {
+        setBookCreatedAt(value)
+        console.log('y',!!value)
+        validAll(bookLastName.length>0,bookTitle.length>0,Number(value)<=new Date().getFullYear() &&
+            value.length>0)
+    }
+    const titleValidation = (value) => {
+        setBookTitle(value)
+        console.log('t',!!value)
+        validAll(bookLastName.length>0,!!value,Number(bookCreatedAt)<=new Date().getFullYear() &&
+            bookCreatedAt.length>0)
+    }
+    const authorValidation = (value) => {
+        setBookFirstName(value.split(' ')[0])
+        setBookLastName(value.split(' ')[1])
+        console.log('a',!!value)
+        validAll(!!value,bookTitle.length>0,Number(bookCreatedAt)<=new Date().getFullYear() &&
+            bookCreatedAt.length>0)
+
+    }
+    const validAll = (a,t,y) => {
+        if (a && t && y) {
+            setValid(true)
+        }
+        else {
+            setValid(false)
+        }
+        console.log('valid?', valid, a,t,y)
+    }
+
+    const [file,setFile] = useState('')
+    const imageChanger = (e) => {
+        console.log(e.target.files[0])
+        if (e.target.files[0] && e.target.files[0].type==='image/jpeg') {
+            setFile(e.target.files[0])
+        }
+        else {
+            alert('Не jpeg!')
+        }
+    }
+    const imageLoader = () => {
+        const data = new FormData()
+        data.append('file', file)
+        axios.post('http://localhost:3005/api/upload', data, {})
+            .then(res => { // then print response status
+                console.log(res.statusText)
+            })
+    }
 
     let creation = false
     let readyText='Изменения сохранены!'
@@ -86,21 +101,23 @@ const BookLone = (props) => {
                 <div>
                     <p>Название:</p>
                     <input value={bookTitle}
+                           name={'title'}
                            type={'text'}
                            onChange={e => titleValidation(e.target.value)}
                     />
                 </div>
                 <div>
                     <p>Автор:</p>
-                    <select onChange={e=> {
-                        setBookFirstName(e.target.value.split(' ')[0])
-                        setBookLastName(e.target.value.split(' ')[1])
-                    }
-                        }>
+                    <select onChange={e=> authorValidation(e.target.value)}>
                         {
                             !creation ?
-                                <option> {first_name + ' ' + last_name}</option> :
-                                <option disabled selected>Выберите автора</option>
+                                <option value={first_name + ' ' + last_name}> {first_name + ' ' + last_name}</option> :
+                                <option disabled
+                                        selected
+                                        value={''}
+                                >
+                                    Выберите автора
+                                </option>
                         }
                         {otherAuthors.map((a) => (
                             <option value={a.first_name + ' ' + a.last_name}
@@ -114,6 +131,7 @@ const BookLone = (props) => {
                 <div>
                     <p>Первая публикация:</p>
                     <input value={bookCreatedAt}
+                           name={'started_at'}
                            type={'text'}
                            className={classes.started_at}
                            onChange={(e => yearValidation(e.target.value))}
@@ -124,17 +142,16 @@ const BookLone = (props) => {
                         !creation ?
                             <>
                                 <img src={image} alt={title + '_image'}/>
-                                {/*<span className={classes.spanAddImage}>*/}
-                                {/*    <input type={'file'} onChange={imageChanger}/>*/}
-                                {/*    <button onClick={()=>imageLoader}>Сменить обложку</button>*/}
-                                {/*</span>*/}
+                                <span className={classes.spanAddImage}>
+                                    <input type={'file'} onChange={imageChanger}/>
+                                    <button onClick={()=>imageLoader}>Сменить обложку</button>
+                                </span>
                             </>
                             :
-                            // <span className={classes.spanAddImage}>
-                            //     <input type={'file'} onChange={imageChanger}/>
-                            //     <button onClick={imageLoader}>Добавить обложку</button>
-                            // </span>
-                        null
+                            <span className={classes.spanAddImage}>
+                                <input type={'file'} onChange={imageChanger}/>
+                                <button onClick={imageLoader}>Добавить обложку</button>
+                            </span>
                     }
                 </div>
                 <span className={classes.buttonDiv}>
@@ -147,7 +164,7 @@ const BookLone = (props) => {
                                     bookImage={image}
                                     readyText={readyText}
                                     toMakeText={toMakeText}
-                                    isValid={titleValid && yearValid}
+                                    isValid={valid}
                     />
                     {
                         !creation ?

@@ -18,7 +18,7 @@ app.use(function(request, response, next){
 
 app.use(function (request, response,next) {
 
-    let path = `src/uploads/images`;
+    let path = 'src/uploads/images';
 
     if (!fs.existsSync(path)){
         fs.mkdirSync(path)
@@ -32,16 +32,16 @@ app.use(cors())
 const storage = multer.diskStorage( {
 
     destination: (request,file,cb) => {
-        let pathDate = `src/uploads/images`
+        let path = 'src/uploads/images'
 
-        cb(null, {pathDate})
+        cb(null, {path})
     },
     filename: (request,file,cb) => {
         cb(null, file.originalname)
     }
 })
 
-const upload = multer ( { storage:storage}).single('file')
+const upload = multer ( { storage:storage}).array('file')
 
 app.post("/api/upload", (request,response) => {
 
@@ -56,4 +56,4 @@ app.post("/api/upload", (request,response) => {
     })
 })
 
-app.listen(3000)
+app.listen(3005)
