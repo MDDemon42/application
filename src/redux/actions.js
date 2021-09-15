@@ -1,4 +1,5 @@
 import C from './constants'
+import axios from 'axios'
 
 export function delBook(id) {
     return {
@@ -34,5 +35,16 @@ export function addAuthor(id,last_name,first_name) {
     return {
         type: C.ADD_AUTHOR,
         id, last_name, first_name
+    }
+}
+export function getExternalData(url) {
+    return dispatch => {
+        axios.get(url).then(response => dispatch(setExternalData(response.data)))
+    }
+}
+export function setExternalData(data) {
+    return {
+        type: 'ADD_EX_DATA',
+        data
     }
 }

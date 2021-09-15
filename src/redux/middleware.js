@@ -1,4 +1,4 @@
-export const logger = store => next => action => console.log(next(action))
+export const logger = store => next => action => console.log(next(action),store.getState())
 
 export const saver = store => next => action => {
     const result = next(action)

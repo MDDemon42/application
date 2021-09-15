@@ -5,11 +5,11 @@ import {Provider} from 'react-redux'
 import './index.css'
 import MainPage from './components/mainPage/MainPage'
 import AuthorsPage from './components/authorsPage/AuthorsPage'
-import BooksPage from "./components/booksPage/BooksPage";
-import TopMenu from "./components/topMenu/TopMenu";
-import BookLone from "./components/booksPage/bookLone/BookLone";
+import BooksPage from "./components/booksPage/BooksPage"
+import TopMenu from "./components/topMenu/TopMenu"
+import BookLone from "./components/booksPage/bookLone/BookLone"
 import store from './redux/store'
-import AuthorLone from "./components/authorsPage/authorLone/AuthorLone";
+import AuthorLone from "./components/authorsPage/authorLone/AuthorLone"
 
 render(
     <BrowserRouter>
@@ -28,6 +28,6 @@ render(
                 </Switch>
             </React.StrictMode>
         </Provider>
-    </BrowserRouter>
-, document.getElementById('root'));
+    </BrowserRouter>,
+document.getElementById('root'))
 

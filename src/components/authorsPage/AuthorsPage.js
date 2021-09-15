@@ -16,14 +16,16 @@ const AuthorsPage = (props) => (
                         </h1>
                         <NavLink to={'/authors/creation'}>
                             <button className={classes.buttonAdd}>
-                                <p>Добавить автора</p>
+                                <p>
+                                    Добавить автора
+                                </p>
                             </button>
                         </NavLink>
                     </span>
                     <div>
                         <AuthorHeader/>
                         {
-                            props.authors.map((item)=> {
+                            props.authors.map((item) => {
                                 return <AuthorInfo
                                     key={item.id}
                                     id={item.id}
@@ -43,7 +45,7 @@ const AuthorsPage = (props) => (
 
 function mapStateToProps (state) {
     return {
-        authors:state.authors
+        authors: state.rootReducer.authors
     }
 }
 

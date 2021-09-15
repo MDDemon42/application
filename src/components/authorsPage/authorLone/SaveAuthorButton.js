@@ -3,12 +3,12 @@ import {useState} from "react";
 
 const SaveAuthorButton = (props) => {
     const {id, authorLastName, authorFirstName} = props
-    let newId=id
+    let newId = id
     if (!newId) {
-        newId=Math.floor(Math.random()*1000+Math.random()*10)
+        newId = Math.floor(Math.random()*1000 + Math.random()*10)
     }
     const saveClasses = [classes.buttonSave]
-    const [saved,setSaved]=useState(false)
+    const [saved,setSaved] = useState(false)
     if (saved) {
         saveClasses.push(classes.grayBackground)
     }
@@ -18,7 +18,7 @@ const SaveAuthorButton = (props) => {
                 onClick={() => {
                     props.onFunc(newId, authorLastName, authorFirstName)
                     setSaved(true)
-                    setTimeout(()=>setSaved(false),1000)
+                    setTimeout(() => setSaved(false),1000)
                 }}
         >
             {

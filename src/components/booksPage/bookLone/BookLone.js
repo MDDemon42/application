@@ -14,16 +14,16 @@ const emptyBook = {
 }
 
 const BookLone = (props) => {
-    const id = Number(props.match.params.id)
-
-    const book = id && props.books.filter(o=>o.id===id)[0]
     let {title, last_name, first_name, created_at, image} = emptyBook
+
+    const id = Number(props.match.params.id)
+    const book = id && props.books.filter(o => o.id === id)[0]
     if (book) {
-        title=book.title
-        last_name=book.last_name
-        first_name=book.first_name
-        created_at=book.created_at
-        image=book.image
+        title = book.title
+        last_name = book.last_name
+        first_name = book.first_name
+        created_at = book.created_at
+        image = book.image
     }
 
     const [bookTitle, setBookTitle] = useState(title)
@@ -35,20 +35,17 @@ const BookLone = (props) => {
 
     const yearValidation = (value) => {
         setBookCreatedAt(value)
-        console.log('y',!!value)
         validAll(bookLastName.length>0,bookTitle.length>0,Number(value)<=new Date().getFullYear() &&
             value.length>0)
     }
     const titleValidation = (value) => {
         setBookTitle(value)
-        console.log('t',!!value)
         validAll(bookLastName.length>0,!!value,Number(bookCreatedAt)<=new Date().getFullYear() &&
             bookCreatedAt.length>0)
     }
     const authorValidation = (value) => {
         setBookFirstName(value.split(' ')[0])
         setBookLastName(value.split(' ')[1])
-        console.log('a',!!value)
         validAll(!!value,bookTitle.length>0,Number(bookCreatedAt)<=new Date().getFullYear() &&
             bookCreatedAt.length>0)
 
@@ -60,13 +57,12 @@ const BookLone = (props) => {
         else {
             setValid(false)
         }
-        console.log('valid?', valid, a,t,y)
     }
 
     const [file,setFile] = useState('')
     const imageChanger = (e) => {
         console.log(e.target.files[0])
-        if (e.target.files[0] && e.target.files[0].type==='image/jpeg') {
+        if (e.target.files[0] && e.target.files[0].type === 'image/jpeg') {
             setFile(e.target.files[0])
         }
         else {
@@ -77,21 +73,21 @@ const BookLone = (props) => {
         const data = new FormData()
         data.append('file', file)
         axios.post('http://localhost:3005/api/upload', data, {})
-            .then(res => { // then print response status
+            .then(res => {
                 console.log(res.statusText)
             })
     }
 
     let creation = false
-    let readyText='Изменения сохранены!'
-    let toMakeText='Сохранить изменения'
+    let readyText = 'Изменения сохранены!'
+    let toMakeText = 'Сохранить изменения'
     let func = props.onSave
 
-    if (props.match.path==='/books/creation') {
+    if (props.match.path === '/books/creation') {
         creation = true
-        readyText='Книга добавлена!'
-        toMakeText='Добавить книгу'
-        func=props.onAdd
+        readyText = 'Книга добавлена!'
+        toMakeText = 'Добавить книгу'
+        func = props.onAdd
     }
 
     if (book || creation) {
@@ -99,7 +95,9 @@ const BookLone = (props) => {
         return (
             <div className={classes.BookLone}>
                 <div>
-                    <p>Название:</p>
+                    <p>
+                        Название:
+                    </p>
                     <input value={bookTitle}
                            name={'title'}
                            type={'text'}
@@ -107,11 +105,15 @@ const BookLone = (props) => {
                     />
                 </div>
                 <div>
-                    <p>Автор:</p>
+                    <p>
+                        Автор:
+                    </p>
                     <select onChange={e=> authorValidation(e.target.value)}>
                         {
                             !creation ?
-                                <option value={first_name + ' ' + last_name}> {first_name + ' ' + last_name}</option> :
+                                <option value={first_name + ' ' + last_name}>
+                                    {first_name + ' ' + last_name}
+                                </option> :
                                 <option disabled
                                         selected
                                         value={''}
@@ -119,7 +121,7 @@ const BookLone = (props) => {
                                     Выберите автора
                                 </option>
                         }
-                        {otherAuthors.map((a) => (
+                        {otherAuthors.map(a => (
                             <option value={a.first_name + ' ' + a.last_name}
                                     key={a.id}
                             >
@@ -134,7 +136,7 @@ const BookLone = (props) => {
                            name={'started_at'}
                            type={'text'}
                            className={classes.started_at}
-                           onChange={(e => yearValidation(e.target.value))}
+                           onChange={e => yearValidation(e.target.value)}
                     />
                 </div>
                 <div style={{justifyContent:'space-between'}}>
@@ -144,13 +146,17 @@ const BookLone = (props) => {
                                 <img src={image} alt={title + '_image'}/>
                                 <span className={classes.spanAddImage}>
                                     <input type={'file'} onChange={imageChanger}/>
-                                    <button onClick={()=>imageLoader}>Сменить обложку</button>
+                                    <button onClick={() => imageLoader}>
+                                        Сменить обложку
+                                    </button>
                                 </span>
                             </>
                             :
                             <span className={classes.spanAddImage}>
                                 <input type={'file'} onChange={imageChanger}/>
-                                <button onClick={imageLoader}>Добавить обложку</button>
+                                <button onClick={imageLoader}>
+                                    Добавить обложку
+                                </button>
                             </span>
                     }
                 </div>
@@ -193,15 +199,15 @@ const BookLone = (props) => {
 
 function mapStateToProps (state) {
     return {
-        authors:state.authors,
-        books:state.books
+        authors: state.rootReducer.authors,
+        books: state.rootReducer.books
     }
 }
 
 function mapDispatchToProps (dispatch) {
     return {
         onDelete: id => dispatch(delBook(id)),
-        onSave: (id,title,last_name,first_name,created_at,image)=> dispatch(saveBook(id,title,last_name,first_name,created_at,image)),
+        onSave: (id,title,last_name,first_name,created_at,image) => dispatch(saveBook(id,title,last_name,first_name,created_at,image)),
         onAdd: (id,title,last_name,first_name,created_at,image) => dispatch(addBook(id,title,last_name,first_name,created_at,image))
     }
 }

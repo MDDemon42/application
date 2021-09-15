@@ -1,5 +1,6 @@
 import C from './constants'
 import images from '../uploads/images/images'
+import { combineReducers } from 'redux';
 
 let initialState
 
@@ -7,7 +8,7 @@ if (localStorage['garpix-test']) {
     initialState = JSON.parse(localStorage['garpix-test'])
 } else {
     initialState = {
-        authors:[
+        authors: [
             {
                 id: 1101,
                 last_name: 'Кинг',
@@ -47,28 +48,31 @@ if (localStorage['garpix-test']) {
                 year: 2021,
                 image: images.guard,
             }
-        ]
+        ],
+        externalData: {
+            id: 0
+        }
     }
-    localStorage['garpix-test']=JSON.stringify(initialState)
+    localStorage['garpix-test'] = JSON.stringify(initialState)
 }
 
-const rootReducer = (state=initialState,action) => {
+const rootReducer = (state=initialState, action) => {
     let books = [...state.books]
     let authors = [...state.authors]
     switch (action.type) {
         case C.DELETE_BOOK:
             return {
                 ...state,
-                books: books.filter(b=>b.id!==action.id)
+                books: books.filter(b => b.id !== action.id)
             }
         case C.SAVE_BOOK:
-            books.forEach(b=>{
-                if (b.id===action.id) {
-                    b.title=action.title
-                    b.last_name=action.last_name
-                    b.first_name=action.first_name
-                    b.created_at=action.created_at
-                    b.image=action.image
+            books.forEach(b => {
+                if (b.id === action.id) {
+                    b.title = action.title
+                    b.last_name = action.last_name
+                    b.first_name = action.first_name
+                    b.created_at = action.created_at
+                    b.image = action.image
                 }
             })
             return {
@@ -78,12 +82,12 @@ const rootReducer = (state=initialState,action) => {
         case C.ADD_BOOK:
             const year = new Date().getFullYear()
             books = books.concat({
-                id:action.id,
-                title:action.title,
-                last_name:action.last_name,
-                first_name:action.first_name,
-                created_at:action.created_at,
-                image:action.image,
+                id: action.id,
+                title: action.title,
+                last_name: action.last_name,
+                first_name: action.first_name,
+                created_at: action.created_at,
+                image: action.image,
                 year
             })
             return {
@@ -93,13 +97,13 @@ const rootReducer = (state=initialState,action) => {
         case C.DELETE_AUTHOR:
             return {
                 ...state,
-                authors: authors.filter(a=>a.id!==action.id)
+                authors: authors.filter(a => a.id !== action.id)
             }
         case C.SAVE_AUTHOR:
-            authors.forEach(a=>{
-                if (a.id===action.id) {
-                    a.last_name=action.last_name
-                    a.first_name=action.first_name
+            authors.forEach(a => {
+                if (a.id === action.id) {
+                    a.last_name = action.last_name
+                    a.first_name = action.first_name
                 }
             })
             return {
@@ -108,17 +112,24 @@ const rootReducer = (state=initialState,action) => {
             }
         case C.ADD_AUTHOR:
             authors = authors.concat({
-                id:action.id,
-                last_name:action.last_name,
-                first_name:action.first_name,
+                id: action.id,
+                last_name: action.last_name,
+                first_name: action.first_name,
             })
             return {
                 ...state,
                 authors
+            }
+        case C.ADD_EX_DATA:
+            return {
+                ...state,
+                externalData: action.data
             }
         default:
             return state
     }
 }
 
-export default rootReducer
+export default combineReducers({
+    rootReducer
+});
