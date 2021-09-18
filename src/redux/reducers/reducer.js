@@ -1,6 +1,5 @@
-import C from './constants'
-import images from '../uploads/images/images'
-import { combineReducers } from 'redux';
+import C from '../constants'
+import images from '../../uploads/images/images'
 
 let initialState
 
@@ -56,23 +55,23 @@ if (localStorage['garpix-test']) {
     localStorage['garpix-test'] = JSON.stringify(initialState)
 }
 
-const rootReducer = (state=initialState, action) => {
+export const rootReducer = (state=initialState, action) => {
     let books = [...state.books]
     let authors = [...state.authors]
     switch (action.type) {
         case C.DELETE_BOOK:
             return {
                 ...state,
-                books: books.filter(b => b.id !== action.id)
+                books: books.filter(book => book.id !== action.id)
             }
         case C.SAVE_BOOK:
-            books.forEach(b => {
-                if (b.id === action.id) {
-                    b.title = action.title
-                    b.last_name = action.last_name
-                    b.first_name = action.first_name
-                    b.created_at = action.created_at
-                    b.image = action.image
+            books.forEach(book => {
+                if (book.id === action.id) {
+                    book.title = action.title
+                    book.last_name = action.last_name
+                    book.first_name = action.first_name
+                    book.created_at = action.created_at
+                    book.image = action.image
                 }
             })
             return {
@@ -97,13 +96,13 @@ const rootReducer = (state=initialState, action) => {
         case C.DELETE_AUTHOR:
             return {
                 ...state,
-                authors: authors.filter(a => a.id !== action.id)
+                authors: authors.filter(author => author.id !== action.id)
             }
         case C.SAVE_AUTHOR:
-            authors.forEach(a => {
-                if (a.id === action.id) {
-                    a.last_name = action.last_name
-                    a.first_name = action.first_name
+            authors.forEach(author => {
+                if (author.id === action.id) {
+                    author.last_name = action.last_name
+                    author.first_name = action.first_name
                 }
             })
             return {
@@ -129,7 +128,3 @@ const rootReducer = (state=initialState, action) => {
             return state
     }
 }
-
-export default combineReducers({
-    rootReducer
-});

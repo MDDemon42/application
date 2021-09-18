@@ -5,7 +5,6 @@ import BookInfo from "./bookInfo/BookInfo"
 import BookHeader from "./bookInfo/BookHeader"
 import {NavLink} from "react-router-dom"
 import {getExternalData} from "../../redux/actions"
-import rootReducer from "../../redux/reducer";
 
 const BooksPage = (props) => {
 
@@ -16,9 +15,7 @@ const BooksPage = (props) => {
     return (
         <div className={classes.BooksPage}>
             {
-                props.externalData[0] ?
-                    console.log(new Date(props.externalData[0].birthdate*1000).toDateString()) :
-                    null
+                props.externalData[0] && console.log(new Date(props.externalData[0].birthdate*1000).toDateString())
             }
             {
                 props.books.length ?

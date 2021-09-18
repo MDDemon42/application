@@ -1,5 +1,5 @@
 import {createStore, compose, applyMiddleware} from 'redux'
-import rootReducer from "./reducer"
+import rootReducer from "./reducers/index"
 import thunk from 'redux-thunk'
 import {logger, saver} from './middleware'
 
@@ -10,5 +10,7 @@ const store = createStore(
     undefined,
     composeEnhancers(applyMiddleware(thunk, logger, saver))
 )
+
+console.log(store.getState())
 
 export default store

@@ -3,95 +3,39 @@ import classes from './BookLone.module.css'
 import {addBook, delBook, saveBook} from '../../../redux/actions'
 import {useState} from "react";
 import SaveBookButton from "./SaveBookButton";
-import axios from 'axios'
-
-const emptyBook = {
-    title:'',
-    last_name:'',
-    first_name:'',
-    created_at:'',
-    image:''
-}
+import {setSaveButtonData,
+    setFinalBookData,
+    setStartingBookData,
+    getFullName,
+    imageLoader,
+    imageChanger,
+    getOtherAuthors
+} from './bookLoneHelpers'
 
 const BookLone = (props) => {
-    let {title, last_name, first_name, created_at, image} = emptyBook
+    const theBook = setStartingBookData(props.match.params.id, props.books)
 
-    const id = Number(props.match.params.id)
-    const book = id && props.books.filter(o => o.id === id)[0]
-    if (book) {
-        title = book.title
-        last_name = book.last_name
-        first_name = book.first_name
-        created_at = book.created_at
-        image = book.image
-    }
+    const [bookTitle, setBookTitle] = useState(theBook.title)
+    const [bookCreatedAt, setBookCreatedAt] = useState(theBook.created_at)
+    const [bookLastName, setBookLastName] = useState(theBook.last_name)
+    const [bookFirstName, setBookFirstName] = useState(theBook.first_name)
+    const [bookImage, setBookImage] = useState(theBook.image)
 
-    const [bookTitle, setBookTitle] = useState(title)
-    const [bookCreatedAt, setBookCreatedAt] = useState(created_at)
-    const [bookLastName, setBookLastName] = useState(last_name)
-    const [bookFirstName, setBookFirstName] = useState(first_name)
-
-    const [valid,setValid] = useState(false)
-
-    const yearValidation = (value) => {
-        setBookCreatedAt(value)
-        validAll(bookLastName.length>0,bookTitle.length>0,Number(value)<=new Date().getFullYear() &&
-            value.length>0)
-    }
-    const titleValidation = (value) => {
-        setBookTitle(value)
-        validAll(bookLastName.length>0,!!value,Number(bookCreatedAt)<=new Date().getFullYear() &&
-            bookCreatedAt.length>0)
-    }
-    const authorValidation = (value) => {
+    const handlerAuthorChange = value => {
         setBookFirstName(value.split(' ')[0])
         setBookLastName(value.split(' ')[1])
-        validAll(!!value,bookTitle.length>0,Number(bookCreatedAt)<=new Date().getFullYear() &&
-            bookCreatedAt.length>0)
-
-    }
-    const validAll = (a,t,y) => {
-        if (a && t && y) {
-            setValid(true)
-        }
-        else {
-            setValid(false)
-        }
     }
 
     const [file,setFile] = useState('')
-    const imageChanger = (e) => {
-        console.log(e.target.files[0])
-        if (e.target.files[0] && e.target.files[0].type === 'image/jpeg') {
-            setFile(e.target.files[0])
-        }
-        else {
-            alert('Не jpeg!')
-        }
-    }
-    const imageLoader = () => {
-        const data = new FormData()
-        data.append('file', file)
-        axios.post('http://localhost:3005/api/upload', data, {})
-            .then(res => {
-                console.log(res.statusText)
-            })
-    }
 
-    let creation = false
-    let readyText = 'Изменения сохранены!'
-    let toMakeText = 'Сохранить изменения'
-    let func = props.onSave
+    const bookData = setFinalBookData(theBook.id, bookTitle, bookLastName, bookFirstName, bookCreatedAt, bookImage)
+    const initialSaveButtonData = setSaveButtonData(props)
+    const creation = initialSaveButtonData.creation
 
-    if (props.match.path === '/books/creation') {
-        creation = true
-        readyText = 'Книга добавлена!'
-        toMakeText = 'Добавить книгу'
-        func = props.onAdd
-    }
+    const defaultAuthor = getFullName(theBook)
 
-    if (book || creation) {
-        const otherAuthors = props.authors.filter(o => o.id !== Math.floor(id / 100))
+    if (theBook || creation) {
+        const otherAuthors = getOtherAuthors(props.authors, theBook.last_name, theBook.first_name)
         return (
             <div className={classes.BookLone}>
                 <div>
@@ -101,85 +45,86 @@ const BookLone = (props) => {
                     <input value={bookTitle}
                            name={'title'}
                            type={'text'}
-                           onChange={e => titleValidation(e.target.value)}
+                           onChange={event => setBookTitle(event.target.value)}
                     />
                 </div>
                 <div>
                     <p>
                         Автор:
                     </p>
-                    <select onChange={e=> authorValidation(e.target.value)}>
+                    <select onChange={event => handlerAuthorChange(event.target.value)}>
                         {
-                            !creation ?
-                                <option value={first_name + ' ' + last_name}>
-                                    {first_name + ' ' + last_name}
-                                </option> :
+                            creation ?
                                 <option disabled
                                         selected
                                         value={''}
                                 >
                                     Выберите автора
+                                </option> :
+                                <option value={defaultAuthor}>
+                                    {defaultAuthor}
                                 </option>
                         }
-                        {otherAuthors.map(a => (
-                            <option value={a.first_name + ' ' + a.last_name}
-                                    key={a.id}
+                        {otherAuthors.map(author => (
+                            <option value={getFullName(author)}
+                                    key={author.id}
                             >
-                                {a.first_name + ' ' + a.last_name}
+                                {getFullName(author)}
                             </option>
                         ))}
                     </select>
                 </div>
                 <div>
-                    <p>Первая публикация:</p>
+                    <p>
+                        Первая публикация:
+                    </p>
                     <input value={bookCreatedAt}
                            name={'started_at'}
                            type={'text'}
                            className={classes.started_at}
-                           onChange={e => yearValidation(e.target.value)}
+                           onChange={event => setBookCreatedAt(event.target.value)}
                     />
                 </div>
                 <div style={{justifyContent:'space-between'}}>
                     {
-                        !creation ?
+                        creation ?
+                            <span className={classes.spanAddImage}>
+                                <input type={'file'}
+                                       onChange={event => {
+                                           const newFile = imageChanger(event)
+                                           setFile(newFile)
+                                       }}
+                                />
+                                <button onClick={() => imageLoader(file)}>
+                                    Добавить обложку
+                                </button>
+                            </span>
+                            :
                             <>
-                                <img src={image} alt={title + '_image'}/>
+                                <img src={theBook.image} alt={theBook.title + '_image'}/>
                                 <span className={classes.spanAddImage}>
-                                    <input type={'file'} onChange={imageChanger}/>
-                                    <button onClick={() => imageLoader}>
+                                    <input type={'file'}
+                                           onChange={event => {
+                                               const newFile = imageChanger(event)
+                                               setFile(newFile)
+                                           }}
+                                    />
+                                    <button onClick={() => imageLoader(file)}>
                                         Сменить обложку
                                     </button>
                                 </span>
                             </>
-                            :
-                            <span className={classes.spanAddImage}>
-                                <input type={'file'} onChange={imageChanger}/>
-                                <button onClick={imageLoader}>
-                                    Добавить обложку
-                                </button>
-                            </span>
                     }
                 </div>
                 <span className={classes.buttonDiv}>
-                    <SaveBookButton onFunc={func}
-                                    id={id}
-                                    bookTitle={bookTitle}
-                                    bookLastName={bookLastName}
-                                    bookFirstName={bookFirstName}
-                                    bookCreatedAt={bookCreatedAt}
-                                    bookImage={image}
-                                    readyText={readyText}
-                                    toMakeText={toMakeText}
-                                    isValid={valid}
+                    <SaveBookButton bookData={bookData}
+                                    initialSaveButtonData={initialSaveButtonData}
                     />
                     {
-                        !creation ?
-                            <button onClick={() => props.onDelete(id)}
-                                    className={classes.buttonDel}
-                            >
-                                Удалить книгу
-                            </button> :
-                            null
+                        !creation && <button onClick={() => props.onDelete(theBook.id)}
+                                             className={classes.buttonDel}>
+                            Удалить книгу
+                        </button>
                     }
                 </span>
             </div>

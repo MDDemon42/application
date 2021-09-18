@@ -1,6 +1,5 @@
 import {connect} from 'react-redux'
 import classes from './AuthorsPage.module.css';
-
 import AuthorHeader from "./authorInfo/AuthorHeader";
 import AuthorInfo from "./authorInfo/AuthorInfo";
 import {NavLink} from "react-router-dom";
