@@ -44,7 +44,7 @@ const AuthorsPage = (props) => (
 
 function mapStateToProps (state) {
     return {
-        authors: state.rootReducer.authors
+        authors: state.authorReducer.authors
     }
 }
 

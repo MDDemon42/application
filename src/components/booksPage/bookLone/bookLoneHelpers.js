@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const creationURL = '/books/creation'
+export const creationURL = '/books/creation'
 
 export const setStartingBookData = (URLid, books) => {
     let {title, last_name, first_name, created_at, image} = emptyBook
 
-    const id = Number(URLid) || ''
+    const id = Number(URLid) || Math.floor(Math.random()*100000+Math.random()*100)
     const theBook = id && books.filter(book => book.id === id)[0]
     if (theBook) {
         title = theBook.title
@@ -36,21 +36,19 @@ export const setFinalBookData = (id, bookTitle, bookLastName, bookFirstName, boo
     }
 }
 
-export const setSaveButtonData = (props) => {
-    let creation = false
+export const setSaveButtonData = (onSave, onAdd, creation) => {
+
     let readyText = 'Изменения сохранены!'
     let toMakeText = 'Сохранить изменения'
-    let func = props.onSave
+    let func = onSave
 
-    if (props.match.path === creationURL) {
-        creation = true
+    if (creation) {
         readyText = 'Книга добавлена!'
         toMakeText = 'Добавить книгу'
-        func = props.onAdd
+        func = onAdd
     }
 
     return {
-        creation,
         readyText,
         toMakeText,
         func
@@ -85,7 +83,6 @@ export const getOtherAuthors = (authors, last_name, first_name) => {
 }
 
 export const getValidationResult = (title, last_name, year) => {
-    console.log(title, last_name, year)
     return title.length > 0 &&
         last_name.length > 0 &&
         year.length > 0 &&

@@ -1,6 +1,10 @@
 import {combineReducers} from "redux";
-import {rootReducer} from "./reducer";
+import bookReducer from "./bookReducer";
+import authorReducer from "./authorReducer";
+import externalDataReducer from "./externalDataReducer";
 
 export default combineReducers({
-    rootReducer
+    bookReducer,
+    authorReducer,
+    externalDataReducer
 });

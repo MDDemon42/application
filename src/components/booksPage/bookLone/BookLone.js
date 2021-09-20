@@ -9,7 +9,8 @@ import {setSaveButtonData,
     getFullName,
     imageLoader,
     imageChanger,
-    getOtherAuthors
+    getOtherAuthors,
+    creationURL
 } from './bookLoneHelpers'
 
 const BookLone = (props) => {
@@ -29,8 +30,9 @@ const BookLone = (props) => {
     const [file,setFile] = useState('')
 
     const bookData = setFinalBookData(theBook.id, bookTitle, bookLastName, bookFirstName, bookCreatedAt, bookImage)
-    const initialSaveButtonData = setSaveButtonData(props)
-    const creation = initialSaveButtonData.creation
+
+    const creation = props.match.path === creationURL
+    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation)
 
     const defaultAuthor = getFullName(theBook)
 
@@ -144,8 +146,8 @@ const BookLone = (props) => {
 
 function mapStateToProps (state) {
     return {
-        authors: state.rootReducer.authors,
-        books: state.rootReducer.books
+        authors: state.authorReducer.authors,
+        books: state.bookReducer.books
     }
 }
 

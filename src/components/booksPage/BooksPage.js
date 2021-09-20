@@ -58,8 +58,8 @@ const BooksPage = (props) => {
 
 function mapStateToProps (state) {
     return {
-        books: state.rootReducer.books,
-        externalData: state.rootReducer.externalData
+        books: state.bookReducer.books,
+        externalData: state.externalDataReducer.externalData
     }
 }
 
