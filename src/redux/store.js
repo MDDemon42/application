@@ -11,6 +11,4 @@ const store = createStore(
     composeEnhancers(applyMiddleware(thunk, logger, saver))
 )
 
-console.log(store.getState())
-
 export default store
