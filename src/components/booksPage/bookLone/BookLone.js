@@ -3,18 +3,19 @@ import classes from './BookLone.module.css'
 import {addBook, delBook, saveBook} from '../../../redux/actions'
 import {useState} from "react";
 import SaveBookButton from "./SaveBookButton";
-import {setSaveButtonData,
-    setFinalBookData,
-    setStartingBookData,
+import {
+    setSaveButtonData,
+    setFinalItemData,
     getFullName,
     imageLoader,
     imageChanger,
     getOtherAuthors,
-    creationURL
-} from './bookLoneHelpers'
+    setStartingItemData
+} from '../../helpFunctions/helpFunctions'
+import C from '../../../redux/constants'
 
 const BookLone = (props) => {
-    const theBook = setStartingBookData(props.match.params.id, props.books)
+    const theBook = setStartingItemData(props.match.params.id, props.books, C.BOOK)
 
     const [bookTitle, setBookTitle] = useState(theBook.title)
     const [bookCreatedAt, setBookCreatedAt] = useState(theBook.created_at)
@@ -29,10 +30,10 @@ const BookLone = (props) => {
 
     const [file,setFile] = useState('')
 
-    const bookData = setFinalBookData(theBook.id, bookTitle, bookLastName, bookFirstName, bookCreatedAt, bookImage)
+    const bookData = setFinalItemData(C.BOOK, theBook.id, bookLastName, bookFirstName, bookTitle, bookCreatedAt, bookImage)
 
-    const creation = props.match.path === creationURL
-    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation)
+    const creation = props.match.path === C.bookCreationURL
+    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, 'book')
 
     const defaultAuthor = getFullName(theBook)
 
@@ -54,11 +55,13 @@ const BookLone = (props) => {
                     <p>
                         Автор:
                     </p>
-                    <select onChange={event => handlerAuthorChange(event.target.value)}>
+                    <select onChange={event => handlerAuthorChange(event.target.value)}
+                            value={''}
+                    >
                         {
                             creation ?
                                 <option disabled
-                                        selected
+                                        // selected
                                         value={''}
                                 >
                                     Выберите автора

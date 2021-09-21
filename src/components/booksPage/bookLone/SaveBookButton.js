@@ -1,9 +1,14 @@
 import classes from "./BookLone.module.css";
 import {useState} from "react";
-import {getValidationResult} from './bookLoneHelpers'
+import {getValidationResult} from '../../helpFunctions/helpFunctions'
 
 const SaveBookButton = (props) => {
-    const {id, bookTitle, bookLastName, bookFirstName, bookCreatedAt, bookImage} = props.bookData
+    const {id,
+        itemLastName,
+        itemFirstName,
+        bookTitle,
+        bookCreatedAt,
+        bookImage} = props.bookData
     const {readyText, toMakeText, func} = props.initialSaveButtonData
 
     const saveClasses = [classes.buttonSave]
@@ -13,12 +18,12 @@ const SaveBookButton = (props) => {
     const defaultClasses = [classes.buttonSave,classes.grayBackground].join(' ')
 
     const handlerButtonClick = () => {
-        func(id, bookTitle, bookLastName, bookFirstName, bookCreatedAt, bookImage)
+        func(id, bookTitle, itemLastName, itemFirstName, bookCreatedAt, bookImage)
         setSaved(true)
         setTimeout(() => setSaved(false),1000)
     }
 
-    const valid = getValidationResult(bookTitle, bookLastName, bookCreatedAt)
+    const valid = getValidationResult(bookTitle, itemLastName, bookCreatedAt)
 
     return (
         <>

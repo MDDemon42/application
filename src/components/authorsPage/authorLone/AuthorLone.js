@@ -3,6 +3,12 @@ import classes from './AuthorLone.module.css'
 import {useState} from "react";
 import SaveAuthorButton from "./SaveAuthorButton";
 import {addAuthor, delAuthor, saveAuthor} from "../../../redux/actions";
+import {
+    setFinalItemData,
+    setSaveButtonData,
+    setStartingItemData
+} from "../../helpFunctions/helpFunctions";
+import C from '../../../redux/constants'
 
 const emptyAuthor = {
     first_name:'',
@@ -10,32 +16,17 @@ const emptyAuthor = {
 }
 
 const AuthorLone = (props) => {
-    const id = Number(props.match.params.id)
+    const theAuthor = setStartingItemData(props.match.params.id, props.authors, C.AUTHOR)
 
-    const author = id && props.authors.filter(o => o.id === id)[0]
-    let {last_name, first_name} = emptyAuthor
+    const [authorLastName, setAuthorLastName] = useState(theAuthor.last_name)
+    const [authorFirstName, setAuthorFirstName] = useState(theAuthor.first_name)
 
-    if (author) {
-        last_name=author.last_name
-        first_name=author.first_name
-    }
+    const creation = props.match.path === C.authorCreationURL
+    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, 'author')
 
-    const [authorLastName, setAuthorLastName] = useState(last_name)
-    const [authorFirstName, setAuthorFirstName] = useState(first_name)
+    const authorData = setFinalItemData(C.AUTHOR, theAuthor.id, authorLastName, authorFirstName)
 
-    let creation = false
-    let readyText = 'Изменения сохранены!'
-    let toMakeText = 'Сохранить изменения'
-    let func = props.onSave
-
-    if (props.match.path === '/authors/creation') {
-        creation = true
-        readyText = 'Автор добавлен!'
-        toMakeText = 'Добавить автора'
-        func = props.onAdd
-    }
-
-    if (author || creation) {
+    if (theAuthor || creation) {
         return (
             <div className={classes.AuthorLone}>
                 <div>
@@ -57,16 +48,12 @@ const AuthorLone = (props) => {
                     />
                 </div>
                 <span className={classes.buttonDiv}>
-                    <SaveAuthorButton onFunc={func}
-                                      id={id}
-                                      authorLastName={authorLastName}
-                                      authorFirstName={authorFirstName}
-                                      readyText={readyText}
-                                      toMakeText={toMakeText}
+                    <SaveAuthorButton authorData={authorData}
+                                      initialSaveButtonData={initialSaveButtonData}
                     />
                     {
                         !creation ?
-                            <button onClick={() => props.onDelete(id)}
+                            <button onClick={() => props.onDelete(theAuthor.id)}
                                     className={classes.buttonDel}
                             >
                                 Удалить автора

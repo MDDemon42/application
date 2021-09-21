@@ -1,36 +1,49 @@
 import classes from "./AuthorLone.module.css";
 import {useState} from "react";
+import {getValidationResult} from "../../helpFunctions/helpFunctions";
 
 const SaveAuthorButton = (props) => {
-    const {id, authorLastName, authorFirstName} = props
-    let newId = id
-    if (!newId) {
-        newId = Math.floor(Math.random()*1000 + Math.random()*10)
-    }
+    const {id, itemLastName, itemFirstName} = props.authorData
+    const {readyText, toMakeText, func} = props.initialSaveButtonData
+
     const saveClasses = [classes.buttonSave]
     const [saved,setSaved] = useState(false)
-    if (saved) {
-        saveClasses.push(classes.grayBackground)
+    saved && saveClasses.push(classes.grayBackground)
+
+    const defaultClasses = [classes.buttonSave,classes.grayBackground].join(' ')
+
+    const handlerButtonClick = () => {
+        func(id, itemLastName, itemFirstName)
+        setSaved(true)
+        setTimeout(() => setSaved(false),1000)
     }
 
+    const valid = getValidationResult(itemLastName, itemFirstName)
+
     return (
-        <button className={saveClasses.join(' ')}
-                onClick={() => {
-                    props.onFunc(newId, authorLastName, authorFirstName)
-                    setSaved(true)
-                    setTimeout(() => setSaved(false),1000)
-                }}
-        >
+        <>
             {
-                saved ?
-                    <span>
-                        {props.readyText}
+                valid ?
+                    <button className={saveClasses.join(' ')}
+                            onClick={() => handlerButtonClick()}
+                    >
+                        {
+                            saved ?
+                                <span>
+                        {readyText}
                     </span> :
-                    <span>
-                        {props.toMakeText}
+                                <span>
+                        {toMakeText}
                     </span>
+                        }
+                    </button> :
+                    <button className={defaultClasses}
+                            disabled
+                    >
+                        Введите верные значения
+                    </button>
             }
-        </button>
+        </>
     )
 }
 
