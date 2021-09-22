@@ -1,6 +1,6 @@
-import classes from "./BookLone.module.css";
 import {useState} from "react";
 import {getValidationResult} from '../../helpFunctions/helpFunctions'
+import Button from "react-bootstrap/Button";
 
 const SaveBookButton = (props) => {
     const {id,
@@ -11,16 +11,12 @@ const SaveBookButton = (props) => {
         bookImage} = props.bookData
     const {readyText, toMakeText, func} = props.initialSaveButtonData
 
-    const saveClasses = [classes.buttonSave]
-    const [saved,setSaved] = useState(false)
-    saved && saveClasses.push(classes.grayBackground)
-
-    const defaultClasses = [classes.buttonSave,classes.grayBackground].join(' ')
+    const [saveButtonVariant, setSaveButtonVariant] = useState('success')
 
     const handlerButtonClick = () => {
         func(id, bookTitle, itemLastName, itemFirstName, bookCreatedAt, bookImage)
-        setSaved(true)
-        setTimeout(() => setSaved(false),1000)
+        setSaveButtonVariant('secondary')
+        setTimeout(() => setSaveButtonVariant('success'),1000)
     }
 
     const valid = getValidationResult(bookTitle, itemLastName, bookCreatedAt)
@@ -29,11 +25,11 @@ const SaveBookButton = (props) => {
         <>
             {
                  valid ?
-                    <button className={saveClasses.join(' ')}
+                    <Button variant={saveButtonVariant}
                             onClick={() => handlerButtonClick()}
                     >
                         {
-                            saved ?
+                            saveButtonVariant === 'secondary' ?
                                 <span>
                                     {readyText}
                                 </span> :
@@ -41,12 +37,12 @@ const SaveBookButton = (props) => {
                                     {toMakeText}
                                 </span>
                         }
-                    </button> :
-                    <button className={defaultClasses}
+                    </Button> :
+                    <Button variant={'secondary'}
                             disabled
                     >
                         Введите верные значения
-                    </button>
+                    </Button>
             }
         </>
     )

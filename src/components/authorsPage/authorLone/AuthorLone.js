@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import classes from './AuthorLone.module.css'
 import {useState} from "react";
+import Button from "react-bootstrap/Button";
 import SaveAuthorButton from "./SaveAuthorButton";
 import {addAuthor, delAuthor, saveAuthor} from "../../../redux/actions";
 import {
@@ -9,11 +10,6 @@ import {
     setStartingItemData
 } from "../../helpFunctions/helpFunctions";
 import C from '../../../redux/constants'
-
-const emptyAuthor = {
-    first_name:'',
-    last_name:''
-}
 
 const AuthorLone = (props) => {
     const theAuthor = setStartingItemData(props.match.params.id, props.authors, C.AUTHOR)
@@ -53,11 +49,11 @@ const AuthorLone = (props) => {
                     />
                     {
                         !creation ?
-                            <button onClick={() => props.onDelete(theAuthor.id)}
-                                    className={classes.buttonDel}
+                            <Button onClick={() => props.onDelete(theAuthor.id)}
+                                    variant={'danger'}
                             >
                                 Удалить автора
-                            </button> :
+                            </Button> :
                             null
                     }
                 </span>

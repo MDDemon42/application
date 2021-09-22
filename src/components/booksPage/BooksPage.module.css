@@ -1,9 +1,9 @@
 .BooksPage {
     width: 80vw;
     margin: 20px auto;
-    padding-bottom: 20px;
+    padding: 20px 10px;
     border: 1px solid black;
-    background-color: #77a;
+    background: linear-gradient(to right, #77a, #aaf);
     border-end-end-radius: 10% 20%;
 }
 .BooksPage h1{
@@ -14,20 +14,14 @@
     margin: 0 auto;
     background-color: #cce;
 }
-.buttonAdd {
+.BooksPage p {
+    margin: 5px;
+}
+.BooksPage button {
     margin: 20px;
-    width: 150px;
-    background-color: darkgreen;
-    border: 1px solid black;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
 }
 
 @media only screen and (max-width: 450px) {
-    .buttonAdd {
-        margin-top: 0;
-    }
     .mobileScroll {
         overflow-x: scroll;
     }

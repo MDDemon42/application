@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import classes from './BooksPage.module.css'
 import BookInfo from "./bookInfo/BookInfo"
 import BookHeader from "./bookInfo/BookHeader"
+import Button from "react-bootstrap/Button";
 import {NavLink} from "react-router-dom"
 
 const BooksPage = ({books}) => (
@@ -15,11 +16,11 @@ const BooksPage = ({books}) => (
                             Книги нашей библиотеки:
                         </h1>
                         <NavLink to={'/books/creation'}>
-                            <button className={classes.buttonAdd}>
+                            <Button variant={'success'}>
                                 <p>
                                     Добавить книгу
                                 </p>
-                            </button>
+                            </Button>
                         </NavLink>
                     </span>
                     <div className={classes.mobileScroll}>

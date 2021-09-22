@@ -3,6 +3,7 @@ import classes from './AuthorsPage.module.css';
 import AuthorHeader from "./authorInfo/AuthorHeader";
 import AuthorInfo from "./authorInfo/AuthorInfo";
 import {NavLink} from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 const AuthorsPage = ({authors}) => (
     <div className={classes.AuthorsPage}>
@@ -14,11 +15,11 @@ const AuthorsPage = ({authors}) => (
                         Авторы в нашей библиотеке:
                     </h1>
                     <NavLink to={'/authors/creation'}>
-                        <button className={classes.buttonAdd}>
+                        <Button variant={'success'}>
                             <p>
                                 Добавить автора
                             </p>
-                        </button>
+                        </Button>
                     </NavLink>
                 </span>
                 <div>

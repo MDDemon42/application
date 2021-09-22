@@ -3,7 +3,7 @@ import C from '../../redux/constants'
 
 export const setStartingItemData = (URLid, content, type) => {
     const id = Number(URLid) ||
-        Math.floor(Math.random()*1000 + Math.random()) * (type === C.BOOK ? 100 : 1)
+        Math.floor(Math.random()*10000) * (type === C.BOOK ? 100 : 1)
     const theItem = id && content.filter(item => item.id === id)[0]
 
     const last_name = theItem ? theItem.last_name : ''
@@ -91,8 +91,8 @@ export const imageLoader = file => {
         })
 }
 
-export const getOtherAuthors = (authors, last_name, first_name) => {
-    return authors.filter(author => author.last_name !== last_name && author.first_name !== first_name)
+export const getOtherAuthors = (authors, theBook) => {
+    return authors.filter(author => author.last_name !== theBook.last_name && author.first_name !== theBook.first_name)
 }
 
 export const getValidationResult = (criterion_1= '', criterion_2= '', criterion_3= 0) => {

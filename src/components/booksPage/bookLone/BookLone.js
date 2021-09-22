@@ -3,13 +3,13 @@ import classes from './BookLone.module.css'
 import {addBook, delBook, saveBook} from '../../../redux/actions'
 import {useState} from "react";
 import SaveBookButton from "./SaveBookButton";
+import AuthorSelect from "./AuthorSelect";
+import Button from "react-bootstrap/Button";
 import {
     setSaveButtonData,
     setFinalItemData,
-    getFullName,
     imageLoader,
     imageChanger,
-    getOtherAuthors,
     setStartingItemData
 } from '../../helpFunctions/helpFunctions'
 import C from '../../../redux/constants'
@@ -35,10 +35,7 @@ const BookLone = (props) => {
     const creation = props.match.path === C.bookCreationURL
     const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, 'book')
 
-    const defaultAuthor = getFullName(theBook)
-
     if (theBook || creation) {
-        const otherAuthors = getOtherAuthors(props.authors, theBook.last_name, theBook.first_name)
         return (
             <div className={classes.BookLone}>
                 <div>
@@ -51,34 +48,11 @@ const BookLone = (props) => {
                            onChange={event => setBookTitle(event.target.value)}
                     />
                 </div>
-                <div>
-                    <p>
-                        Автор:
-                    </p>
-                    <select onChange={event => handlerAuthorChange(event.target.value)}
-                            value={''}
-                    >
-                        {
-                            creation ?
-                                <option disabled
-                                        // selected
-                                        value={''}
-                                >
-                                    Выберите автора
-                                </option> :
-                                <option value={defaultAuthor}>
-                                    {defaultAuthor}
-                                </option>
-                        }
-                        {otherAuthors.map(author => (
-                            <option value={getFullName(author)}
-                                    key={author.id}
-                            >
-                                {getFullName(author)}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+                <AuthorSelect handlerAuthorChange={handlerAuthorChange}
+                              creation={creation}
+                              theBook={theBook}
+                              authors={props.authors}
+                />
                 <div>
                     <p>
                         Первая публикация:
@@ -100,9 +74,11 @@ const BookLone = (props) => {
                                            setFile(newFile)
                                        }}
                                 />
-                                <button onClick={() => imageLoader(file)}>
+                                <Button onClick={() => imageLoader(file)}
+                                        variant={'secondary'}
+                                >
                                     Добавить обложку
-                                </button>
+                                </Button>
                             </span>
                             :
                             <>
@@ -114,9 +90,11 @@ const BookLone = (props) => {
                                                setFile(newFile)
                                            }}
                                     />
-                                    <button onClick={() => imageLoader(file)}>
+                                    <Button onClick={() => imageLoader(file)}
+                                            variant={'secondary'}
+                                    >
                                         Сменить обложку
-                                    </button>
+                                    </Button>
                                 </span>
                             </>
                     }
@@ -126,10 +104,11 @@ const BookLone = (props) => {
                                     initialSaveButtonData={initialSaveButtonData}
                     />
                     {
-                        !creation && <button onClick={() => props.onDelete(theBook.id)}
-                                             className={classes.buttonDel}>
+                        !creation && <Button onClick={() => props.onDelete(theBook.id)}
+                                             variant="danger"
+                        >
                             Удалить книгу
-                        </button>
+                        </Button>
                     }
                 </span>
             </div>
