@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useCallback, useState} from 'react'
 import {getFullName, getOtherAuthors} from "../../helpFunctions/helpFunctions";
 
 const AuthorSelect = (props) => {
@@ -18,7 +18,7 @@ const AuthorSelect = (props) => {
             <p>
                 Автор:
             </p>
-            <select onChange={event => authorChange(event.target.value)}
+            <select onChange={useCallback(event => authorChange(event.target.value),[])}
                     value={selectValue}
             >
                 {

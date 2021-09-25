@@ -3,6 +3,7 @@ import classes from './AuthorLone.module.css'
 import {useState} from "react";
 import Button from "react-bootstrap/Button";
 import SaveAuthorButton from "./SaveAuthorButton";
+import LoneDeleted from "../../helpFunctions/LoneDeleted";
 import {addAuthor, delAuthor, saveAuthor} from "../../../redux/actions";
 import {
     setFinalItemData,
@@ -10,9 +11,12 @@ import {
     setStartingItemData
 } from "../../helpFunctions/helpFunctions";
 import C from '../../../redux/constants'
+import LoneInput from "../../helpFunctions/LoneInput";
 
 const AuthorLone = (props) => {
     const theAuthor = setStartingItemData(props.match.params.id, props.authors, C.AUTHOR)
+
+    const [deleted, setDeleted] = useState(false)
 
     const [authorLastName, setAuthorLastName] = useState(theAuthor.last_name)
     const [authorFirstName, setAuthorFirstName] = useState(theAuthor.first_name)
@@ -22,52 +26,40 @@ const AuthorLone = (props) => {
 
     const authorData = setFinalItemData(C.AUTHOR, theAuthor.id, authorLastName, authorFirstName)
 
-    if (theAuthor || creation) {
-        return (
-            <div className={classes.AuthorLone}>
-                <div>
-                    <p>
-                        Фамилия автора:
-                    </p>
-                    <input value={authorLastName}
-                           type={'text'}
-                           onChange={e => setAuthorLastName(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <p>
-                        Имя автора:
-                    </p>
-                    <input value={authorFirstName}
-                           type={'text'}
-                           onChange={e => setAuthorFirstName(e.target.value)}
-                    />
-                </div>
-                <span className={classes.buttonDiv}>
-                    <SaveAuthorButton authorData={authorData}
-                                      initialSaveButtonData={initialSaveButtonData}
-                    />
-                    {
-                        !creation ?
-                            <Button onClick={() => props.onDelete(theAuthor.id)}
-                                    variant={'danger'}
-                            >
-                                Удалить автора
-                            </Button> :
-                            null
-                    }
-                </span>
-            </div>
-        )
-    } else {
-        return (
-            <div className={classes.AuthorLone}>
-                <h1>
-                    Автор удалён
-                </h1>
-            </div>
-        )
-    }
+    if (deleted)
+        return <LoneDeleted text={'Автор удалён'}
+                            className={classes.AuthorLone}
+        />
+
+    return (
+        <div className={classes.AuthorLone}>
+            <LoneInput value={authorLastName}
+                       name={'authorLastName'}
+                       handler={setAuthorLastName}
+                       text={'Фамилия автора:'}
+            />
+            <LoneInput value={authorFirstName}
+                       name={'authorFirstName'}
+                       handler={setAuthorFirstName}
+                       text={'Имя автора:'}
+            />
+            <span className={classes.buttonDiv}>
+                <SaveAuthorButton authorData={authorData}
+                                  initialSaveButtonData={initialSaveButtonData}
+                />
+                {
+                    !creation && <Button onClick={() => {
+                        props.onDelete(theAuthor.id)
+                        setDeleted(true)
+                    }}
+                                         variant={'danger'}
+                    >
+                        Удалить автора
+                    </Button>
+                }
+            </span>
+        </div>
+    )
 }
 
 function mapStateToProps (state) {

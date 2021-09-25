@@ -1,21 +1,25 @@
 import {connect} from 'react-redux'
 import classes from './BookLone.module.css'
 import {addBook, delBook, saveBook} from '../../../redux/actions'
-import {useState} from "react";
+import {useState, useCallback} from "react";
 import SaveBookButton from "./SaveBookButton";
 import AuthorSelect from "./AuthorSelect";
+import LoneInput from "../../helpFunctions/LoneInput";
 import Button from "react-bootstrap/Button";
 import {
     setSaveButtonData,
     setFinalItemData,
     imageLoader,
     imageChanger,
-    setStartingItemData
+    setStartingItemData,
 } from '../../helpFunctions/helpFunctions'
 import C from '../../../redux/constants'
+import LoneDeleted from "../../helpFunctions/LoneDeleted";
 
 const BookLone = (props) => {
     const theBook = setStartingItemData(props.match.params.id, props.books, C.BOOK)
+
+    const [deleted, setDeleted] = useState(false)
 
     const [bookTitle, setBookTitle] = useState(theBook.title)
     const [bookCreatedAt, setBookCreatedAt] = useState(theBook.created_at)
@@ -35,94 +39,66 @@ const BookLone = (props) => {
     const creation = props.match.path === C.bookCreationURL
     const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, 'book')
 
-    if (theBook || creation) {
-        return (
-            <div className={classes.BookLone}>
-                <div>
-                    <p>
-                        Название:
-                    </p>
-                    <input value={bookTitle}
-                           name={'title'}
-                           type={'text'}
-                           onChange={event => setBookTitle(event.target.value)}
+    const handleFileChange = useCallback(event => {
+        const newFile = imageChanger(event)
+        setFile(newFile)
+    }, [])
+
+    if (deleted)
+        return <LoneDeleted text={'Книга удалена'}
+                            className={classes.BookLone}
+        />
+
+    return (
+        <div className={classes.BookLone}>
+            <LoneInput value={bookTitle}
+                       name={'title'}
+                       handler={setBookTitle}
+                       text={'Название:'}
+            />
+            <AuthorSelect handlerAuthorChange={handlerAuthorChange}
+                          creation={creation}
+                          theBook={theBook}
+                          authors={props.authors}
+            />
+            <LoneInput value={bookCreatedAt}
+                       name={'started_at'}
+                       className={classes.started_at}
+                       handler={setBookCreatedAt}
+                       text={'Первая публикация:'}
+            />
+            <div style={{justifyContent:'space-between'}}>
+                {
+                    !creation && <img src={theBook.image} alt={theBook.title + '_image'}/>
+                }
+                <span className={classes.spanAddImage}>
+                    <input type={'file'}
+                           onChange={handleFileChange}
                     />
-                </div>
-                <AuthorSelect handlerAuthorChange={handlerAuthorChange}
-                              creation={creation}
-                              theBook={theBook}
-                              authors={props.authors}
-                />
-                <div>
-                    <p>
-                        Первая публикация:
-                    </p>
-                    <input value={bookCreatedAt}
-                           name={'started_at'}
-                           type={'text'}
-                           className={classes.started_at}
-                           onChange={event => setBookCreatedAt(event.target.value)}
-                    />
-                </div>
-                <div style={{justifyContent:'space-between'}}>
-                    {
-                        creation ?
-                            <span className={classes.spanAddImage}>
-                                <input type={'file'}
-                                       onChange={event => {
-                                           const newFile = imageChanger(event)
-                                           setFile(newFile)
-                                       }}
-                                />
-                                <Button onClick={() => imageLoader(file)}
-                                        variant={'secondary'}
-                                >
-                                    Добавить обложку
-                                </Button>
-                            </span>
-                            :
-                            <>
-                                <img src={theBook.image} alt={theBook.title + '_image'}/>
-                                <span className={classes.spanAddImage}>
-                                    <input type={'file'}
-                                           onChange={event => {
-                                               const newFile = imageChanger(event)
-                                               setFile(newFile)
-                                           }}
-                                    />
-                                    <Button onClick={() => imageLoader(file)}
-                                            variant={'secondary'}
-                                    >
-                                        Сменить обложку
-                                    </Button>
-                                </span>
-                            </>
-                    }
-                </div>
-                <span className={classes.buttonDiv}>
-                    <SaveBookButton bookData={bookData}
-                                    initialSaveButtonData={initialSaveButtonData}
-                    />
-                    {
-                        !creation && <Button onClick={() => props.onDelete(theBook.id)}
-                                             variant="danger"
-                        >
-                            Удалить книгу
-                        </Button>
-                    }
+                    <Button onClick={() => imageLoader(file)}
+                            variant={'secondary'}
+                    >
+                        Сменить обложку
+                    </Button>
                 </span>
             </div>
-        )
-    }
-    else {
-        return (
-            <div className={classes.BookLone}>
-                <h1>
-                    Книга удалена
-                </h1>
-            </div>
-        )
-    }
+            <span className={classes.buttonDiv}>
+                <SaveBookButton bookData={bookData}
+                                initialSaveButtonData={initialSaveButtonData}
+                />
+                {
+                    !creation && <Button onClick={() => {
+                        props.onDelete(theBook.id)
+                        setDeleted(true)
+                    }}
+                                         variant="danger"
+                    >
+                        Удалить книгу
+                    </Button>
+                }
+            </span>
+        </div>
+    )
 }
 
 

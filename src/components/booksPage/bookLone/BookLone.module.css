@@ -1,13 +1,14 @@
 .BookLone {
     width: 80vw;
     margin: 20px auto;
-    padding-bottom: 20px;
+    padding: 0 10px 20px;
     border: 1px solid black;
     background: linear-gradient(to right, #77a, #aaf);
     border-end-end-radius: 10% 20%;
     position: relative;
 }
 .BookLone h1 {
+    margin-top: 20px;
     margin-left: 2vw;
 }
 .BookLone div {

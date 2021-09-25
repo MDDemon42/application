@@ -101,11 +101,3 @@ export const getValidationResult = (criterion_1= '', criterion_2= '', criterion_
         String(criterion_3).length > 0 &&
         criterion_3 <= new Date().getFullYear()
 }
-
-const emptyBook = {
-    title: '',
-    last_name: '',
-    first_name: '',
-    created_at: '',
-    image: ''
-}

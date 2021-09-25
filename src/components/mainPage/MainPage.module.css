@@ -9,6 +9,9 @@
     background: linear-gradient(to right, #77a, #aaf);
     border-end-end-radius: 10% 20%;
 }
+.MainPage h1 {
+    margin-top: 20px;
+}
 .MainPage div {
     width: 40%;
     padding: 15px;
