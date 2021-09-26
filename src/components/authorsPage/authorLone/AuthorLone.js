@@ -1,9 +1,7 @@
 import {connect} from 'react-redux'
 import classes from './AuthorLone.module.css'
-import {useState} from "react";
+import React, {useState, lazy, Suspense} from "react";
 import Button from "react-bootstrap/Button";
-import SaveAuthorButton from "./SaveAuthorButton";
-import LoneDeleted from "../../helpFunctions/LoneDeleted";
 import {addAuthor, delAuthor, saveAuthor} from "../../../redux/actions";
 import {
     setFinalItemData,
@@ -11,7 +9,11 @@ import {
     setStartingItemData
 } from "../../helpFunctions/helpFunctions";
 import C from '../../../redux/constants'
-import LoneInput from "../../helpFunctions/LoneInput";
+
+const SaveAuthorButton = lazy( () => import("./SaveAuthorButton"))
+const LoneInput = lazy( () => import("../../helpFunctions/LoneInput"))
+const LoneDeleted = lazy( () => import("../../helpFunctions/LoneDeleted"))
+
 
 const AuthorLone = (props) => {
     const theAuthor = setStartingItemData(props.match.params.id, props.authors, C.AUTHOR)
@@ -27,26 +29,32 @@ const AuthorLone = (props) => {
     const authorData = setFinalItemData(C.AUTHOR, theAuthor.id, authorLastName, authorFirstName)
 
     if (deleted)
-        return <LoneDeleted text={'Автор удалён'}
-                            className={classes.AuthorLone}
-        />
+        return <Suspense fallback={<div>Загрузка...</div>}>
+            <LoneDeleted text={'Автор удалён'}
+                         className={classes.AuthorLone}
+            />
+    </Suspense>
 
     return (
         <div className={classes.AuthorLone}>
-            <LoneInput value={authorLastName}
-                       name={'authorLastName'}
-                       handler={setAuthorLastName}
-                       text={'Фамилия автора:'}
-            />
-            <LoneInput value={authorFirstName}
-                       name={'authorFirstName'}
-                       handler={setAuthorFirstName}
-                       text={'Имя автора:'}
-            />
-            <span className={classes.buttonDiv}>
-                <SaveAuthorButton authorData={authorData}
-                                  initialSaveButtonData={initialSaveButtonData}
+            <Suspense fallback={<div>Загрузка...</div>}>
+                <LoneInput value={authorLastName}
+                           name={'authorLastName'}
+                           handler={setAuthorLastName}
+                           text={'Фамилия автора:'}
                 />
+                <LoneInput value={authorFirstName}
+                           name={'authorFirstName'}
+                           handler={setAuthorFirstName}
+                           text={'Имя автора:'}
+                />
+            </Suspense>
+            <span className={classes.buttonDiv}>
+                <Suspense fallback={<div>Загрузка...</div>}>
+                    <SaveAuthorButton authorData={authorData}
+                                      initialSaveButtonData={initialSaveButtonData}
+                    />
+                </Suspense>
                 {
                     !creation && <Button onClick={() => {
                         props.onDelete(theAuthor.id)
