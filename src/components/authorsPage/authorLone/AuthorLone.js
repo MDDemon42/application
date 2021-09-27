@@ -10,9 +10,14 @@ import {
 } from "../../helpFunctions/helpFunctions";
 import C from '../../../redux/constants'
 
-const SaveAuthorButton = lazy( () => import("./SaveAuthorButton"))
-const LoneInput = lazy( () => import("../../helpFunctions/LoneInput"))
-const LoneDeleted = lazy( () => import("../../helpFunctions/LoneDeleted"))
+import loadable from '@loadable/component'
+// active loading
+const SaveAuthorButton = loadable( () =>
+    import(/*webpackChunkName: "SaveAuthorButton"*/ './SaveAuthorButton'))
+const LoneInput = loadable( () =>
+    import(/*webpackChunkName: "LoneInput"*/ '../../helpFunctions/LoneInput'))
+const LoneDeleted = loadable( () =>
+    import(/*webpackChunkName: "LoneDeleted"*/ '../../helpFunctions/LoneDeleted'))
 
 
 const AuthorLone = (props) => {
@@ -37,24 +42,20 @@ const AuthorLone = (props) => {
 
     return (
         <div className={classes.AuthorLone}>
-            <Suspense fallback={<div>Загрузка...</div>}>
-                <LoneInput value={authorLastName}
-                           name={'authorLastName'}
-                           handler={setAuthorLastName}
-                           text={'Фамилия автора:'}
-                />
-                <LoneInput value={authorFirstName}
-                           name={'authorFirstName'}
-                           handler={setAuthorFirstName}
-                           text={'Имя автора:'}
-                />
-            </Suspense>
+            <LoneInput value={authorLastName}
+                       name={'authorLastName'}
+                       handler={setAuthorLastName}
+                       text={'Фамилия автора:'}
+            />
+            <LoneInput value={authorFirstName}
+                       name={'authorFirstName'}
+                       handler={setAuthorFirstName}
+                       text={'Имя автора:'}
+            />
             <span className={classes.buttonDiv}>
-                <Suspense fallback={<div>Загрузка...</div>}>
-                    <SaveAuthorButton authorData={authorData}
-                                      initialSaveButtonData={initialSaveButtonData}
-                    />
-                </Suspense>
+                <SaveAuthorButton authorData={authorData}
+                                  initialSaveButtonData={initialSaveButtonData}
+                />
                 {
                     !creation && <Button onClick={() => {
                         props.onDelete(theAuthor.id)

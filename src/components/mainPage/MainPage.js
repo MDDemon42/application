@@ -3,12 +3,31 @@ import Button from "react-bootstrap/Button";
 import {NavLink} from 'react-router-dom'
 import {getExternalData} from "../../redux/actions";
 import {connect} from "react-redux";
-import {useCallback} from "react";
+import {useCallback, useEffect} from "react";
+
+import loadable from '@loadable/component'
+// passive preloading
+const BookInfo = loadable( () =>
+    import(/*webpackChunkName: "BookInfo"*/ '../booksPage/bookInfo/BookInfo'))
+const BookHeader = loadable( () =>
+    import(/*webpackChunkName: "BookHeader"*/ '../booksPage/bookInfo/BookHeader'))
+const AuthorInfo = loadable( () =>
+    import(/*webpackChunkName: "AuthorInfo"*/ '../authorsPage/authorInfo/AuthorInfo'))
+const AuthorHeader = loadable( () =>
+    import(/*webpackChunkName: "AuthorHeader"*/ '../authorsPage/authorInfo/AuthorHeader'))
+const preload = component => component.preload && component.preload()
 
 const MainPage = ({externalData, onGetData}) => {
 
     const dependency = externalData[0]
     const getExternalData = useCallback( () => onGetData(), [dependency])
+
+    useEffect( () => {
+        preload(BookInfo)
+        preload(BookHeader)
+        preload(AuthorInfo)
+        preload(AuthorHeader)
+    }, [])
 
     return (
         <div className={classes.MainPage}>

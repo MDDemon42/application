@@ -12,10 +12,16 @@ import {
 } from '../../helpFunctions/helpFunctions'
 import C from '../../../redux/constants'
 
-const SaveBookButton = lazy( () => import("./SaveBookButton"))
-const AuthorSelect = lazy( () => import("./AuthorSelect"))
-const LoneInput = lazy( () => import("../../helpFunctions/LoneInput"))
-const LoneDeleted = lazy( () => import("../../helpFunctions/LoneDeleted"))
+import loadable from '@loadable/component'
+// active loading
+const SaveBookButton = loadable( () =>
+    import(/*webpackChunkName: "SaveBookButton"*/ './SaveBookButton'))
+const AuthorSelect = loadable( () =>
+    import(/*webpackChunkName: "AuthorSelect"*/ './AuthorSelect'))
+const LoneInput = loadable( () =>
+    import(/*webpackChunkName: "LoneInput"*/ '../../helpFunctions/LoneInput'))
+const LoneDeleted = loadable( () =>
+    import(/*webpackChunkName: "LoneDeleted"*/ '../../helpFunctions/LoneDeleted'))
 
 const BookLone = (props) => {
     const theBook = setStartingItemData(props.match.params.id, props.books, C.BOOK)
@@ -55,24 +61,22 @@ const BookLone = (props) => {
 
     return (
         <div className={classes.BookLone}>
-            <Suspense fallback={<div>Загрузка...</div>}>
-                <LoneInput value={bookTitle}
-                           name={'title'}
-                           handler={setBookTitle}
-                           text={'Название:'}
-                />
-                <AuthorSelect handlerAuthorChange={handlerAuthorChange}
-                              creation={creation}
-                              theBook={theBook}
-                              authors={props.authors}
-                />
-                <LoneInput value={bookCreatedAt}
-                           name={'started_at'}
-                           className={classes.started_at}
-                           handler={setBookCreatedAt}
-                           text={'Первая публикация:'}
-                />
-            </Suspense>
+            <LoneInput value={bookTitle}
+                       name={'title'}
+                       handler={setBookTitle}
+                       text={'Название:'}
+            />
+            <AuthorSelect handlerAuthorChange={handlerAuthorChange}
+                          creation={creation}
+                          theBook={theBook}
+                          authors={props.authors}
+            />
+            <LoneInput value={bookCreatedAt}
+                       name={'started_at'}
+                       className={classes.started_at}
+                       handler={setBookCreatedAt}
+                       text={'Первая публикация:'}
+            />
             <div style={{justifyContent:'space-between'}}>
                 {
                     !creation && <img src={theBook.image} alt={theBook.title + '_image'}/>
@@ -89,11 +93,9 @@ const BookLone = (props) => {
                 </span>
             </div>
             <span className={classes.buttonDiv}>
-                <Suspense fallback={<div>Загрузка...</div>}>
-                    <SaveBookButton bookData={bookData}
-                                    initialSaveButtonData={initialSaveButtonData}
-                    />
-                </Suspense>
+                <SaveBookButton bookData={bookData}
+                                initialSaveButtonData={initialSaveButtonData}
+                />
                 {
                     !creation && <Button onClick={() => {
                         props.onDelete(theBook.id)

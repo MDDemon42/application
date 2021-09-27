@@ -1,17 +1,41 @@
-import React, {lazy, Suspense} from "react"
+import React, {useEffect} from "react"
 import {connect} from 'react-redux'
 import classes from './BooksPage.module.css'
 import Button from "react-bootstrap/Button";
 import {NavLink} from "react-router-dom"
 
-const BookInfo = lazy( () => import("./bookInfo/BookInfo"))
-const BookHeader = lazy( () => import("./bookInfo/BookHeader"))
+import loadable from '@loadable/component'
+// active loading
+const BookInfo = loadable( () =>
+    import(/*webpackChunkName: "BookInfo"*/ './bookInfo/BookInfo'))
+const BookHeader = loadable( () =>
+    import(/*webpackChunkName: "BookHeader"*/ './bookInfo/BookHeader'))
 
-const BooksPage = ({books}) => (
-    <div className={classes.BooksPage}>
-        {
-            books.length ?
-                <>
+// passive preloading
+const SaveBookButton = loadable( () =>
+    import(/*webpackChunkName: "SaveBookButton"*/ './bookLone/SaveBookButton'))
+const AuthorSelect = loadable( () =>
+    import(/*webpackChunkName: "AuthorSelect"*/ './bookLone/AuthorSelect'))
+const LoneInput = loadable( () =>
+    import(/*webpackChunkName: "LoneInput"*/ '../helpFunctions/LoneInput'))
+const LoneDeleted = loadable( () =>
+    import(/*webpackChunkName: "LoneDeleted"*/ '../helpFunctions/LoneDeleted'))
+const preload = component => component.preload && component.preload()
+
+const BooksPage = ({books}) => {
+
+    useEffect( () => {
+        preload(SaveBookButton)
+        preload(AuthorSelect)
+        preload(LoneInput)
+        preload(LoneDeleted)
+    }, [])
+
+    return (
+        <div className={classes.BooksPage}>
+            {
+                books.length ?
+                    <>
                     <span style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
                         <h1>
                             Книги нашей библиотеки:
@@ -24,8 +48,7 @@ const BooksPage = ({books}) => (
                             </Button>
                         </NavLink>
                     </span>
-                    <div className={classes.mobileScroll}>
-                        <Suspense fallback={<div>Загрузка...</div>}>
+                        <div className={classes.mobileScroll}>
                             <BookHeader/>
                             {
                                 books.map((item) => {
@@ -39,15 +62,15 @@ const BooksPage = ({books}) => (
                                     />
                                 })
                             }
-                        </Suspense>
-                    </div>
-                </> :
-                <h1>
-                    Книги отсутствуют
-                </h1>
-        }
-    </div>
-)
+                        </div>
+                    </> :
+                    <h1>
+                        Книги отсутствуют
+                    </h1>
+            }
+        </div>
+    )
+}
 
 function mapStateToProps (state) {
     return {
