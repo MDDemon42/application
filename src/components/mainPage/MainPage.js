@@ -25,19 +25,24 @@ const MainPage = ({externalData, onGetData}) => {
         preload(AuthorInfo);
     }, []);
 
+    const items = [
+        {path: '/authors', text: 'Авторы'},
+        {path: '/books', text: 'Книги'},
+        {path: '/lines', text: 'Линии'}
+    ];
+
     return (
         <div className={classes.MainPage}>
             <h1>Это главная страница.</h1>
-            <div>
-                <NavLink to={'/authors'}>
-                    Авторы
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to={'/books'}>
-                    Книги
-                </NavLink>
-            </div>
+            {
+                items.map( (item, index) => (
+                    <div key={index}>
+                        <NavLink to={item.path}>
+                            {item.text}
+                        </NavLink>
+                    </div> 
+                ))
+            }
             {
                 !externalData[0]?.birthdate ?
                     <Button onClick={() => getExternalDataCallback()}

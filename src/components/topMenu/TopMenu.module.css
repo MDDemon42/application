@@ -1,6 +1,7 @@
 .TopMenu {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     margin: 0;
     border-bottom: 1px solid black;
     background: linear-gradient(to right, #77a, #aaf);
@@ -9,7 +10,6 @@
     box-sizing: border-box;
 }
 .TopMenu div {
-    width: 30%;
     height: 80%;
     text-align: center;
     border: 1px solid black;
