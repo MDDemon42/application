@@ -1,13 +1,12 @@
 import {NavLink} from 'react-router-dom';
 import classes from './Book.module.css';
 
-const BookInfo = (props) => {
-    const {id,title,last_name,first_name,created_at} = props;
+const BookInfo = ({id, title, last_name, first_name, created_at}) => {
     return (
         <div className={classes.BookInfo}>
             <div>
                 <p>
-                    <NavLink to={'/book/'+id}>
+                    <NavLink to={'/book/' + id}>
                         {title}
                     </NavLink>
                 </p>

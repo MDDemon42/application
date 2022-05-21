@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import helpFunctions from "../helpFunctions";
 import C from '../../redux/constants';
@@ -19,9 +20,13 @@ const SaveButton = ({itemData, initialSaveButtonData, type}) => {
 
     const [saved, setSaved] = useState(false);
 
+    const history = useHistory();
+
     const handlerButtonClick = () => {
-        func(itemData);
+        console.log(itemData, ...Object.values(itemData))
+        func(...Object.values(itemData));
         setSaved(true);
+        setTimeout(() => history.goBack(), 1000);
     };
 
     return (

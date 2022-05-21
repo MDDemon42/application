@@ -34,18 +34,18 @@ const BookLone = (props) => {
 
     const [bookTitle, setBookTitle] = useState(theBook.title);
     const [bookCreatedAt, setBookCreatedAt] = useState(theBook.created_at);
-    const [bookLastName, setBookLastName] = useState(theBook.last_name);
-    const [bookFirstName, setBookFirstName] = useState(theBook.first_name);
+    const [authorLastName, setAuthorLastName] = useState(theBook.last_name);
+    const [authorFirstName, setAuthorFirstName] = useState(theBook.first_name);
     const [bookImage, setBookImage] = useState(theBook.image);
 
     const handlerAuthorChange = value => {
-        setBookFirstName(value.split(' ')[0]);
-        setBookLastName(value.split(' ')[1]);
+        setAuthorFirstName(value.split(' ')[0]);
+        setAuthorLastName(value.split(' ')[1]);
     };
 
-    const [file,setFile] = useState('');
+    const [file, setFile] = useState('');
 
-    const bookData = setFinalItemData(C.BOOK, theBook.id, bookLastName, bookFirstName, bookTitle, bookCreatedAt, bookImage);
+    const bookData = setFinalItemData(C.BOOK, theBook.id, authorLastName, authorFirstName, bookTitle, bookCreatedAt, bookImage);
 
     const creation = props.match.path === C.bookCreationURL;
     const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, C.BOOK);
