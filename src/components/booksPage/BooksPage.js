@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import classes from './BooksPage.module.css';
 import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
+import C from '../../redux/constants';
 
 import loadable from '@loadable/component';
 // active loading
 const Info = loadable( () =>
     import(/*webpackChunkName: "BookInfo"*/ './blocks/Info'));
 const Header = loadable( () =>
-    import(/*webpackChunkName: "BookHeader"*/ './blocks/Header'));
+    import(/*webpackChunkName: "BookHeader"*/ '../loneComponents/LoneHeader'));
 
 // passive preloading
 const SaveButton = loadable( () =>
@@ -31,6 +32,8 @@ const BooksPage = ({books}) => {
         preload(LoneDeleted);
     }, []);
 
+    const headerItems = ['Название книги', 'Фамилия автора', 'Имя автора', 'Первая публикация'];
+
     return (
         <div className={classes.BooksPage}>
             {
@@ -49,7 +52,7 @@ const BooksPage = ({books}) => {
                         </NavLink>
                     </span>
                         <div className={classes.mobileScroll}>
-                            <Header/>
+                            <Header type={C.BOOK} items={headerItems}/>
                             {
                                 books.map((item) => {
                                     return <Info

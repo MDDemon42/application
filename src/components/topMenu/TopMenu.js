@@ -1,24 +1,26 @@
+import React from 'react';
 import classes from './TopMenu.module.css';
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-const TopMenu = () => (
-    <div className={classes.TopMenu}>
-        <div>
-            <NavLink to={'/'}>
-                Главная страница
-            </NavLink>
+const TopMenu = () => {
+    const items = [
+        {path: '/', text: 'Главная страница'},
+        {path: '/authors', text: 'Авторы'},
+        {path: '/books', text: 'Книги'}
+    ];
+    return (
+        <div className={classes.TopMenu}>
+            {
+                items.map( (item, index) => (
+                    <div key={index}>
+                        <NavLink to={item.path}>
+                            {item.text}
+                        </NavLink>
+                    </div> 
+                ))
+            }
         </div>
-        <div>
-            <NavLink to={'/authors'}>
-                Авторы
-            </NavLink>
-        </div>
-        <div>
-            <NavLink to={'/books'}>
-                Книги
-            </NavLink>
-        </div>
-    </div>
-  )
+    )
+};
 
-export default TopMenu
+export default TopMenu;

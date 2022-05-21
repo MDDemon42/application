@@ -1,15 +1,16 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import classes from './AuthorsPage.module.css';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
+import C from '../../redux/constants';
 
 import loadable from '@loadable/component';
 // active loading
 const Info = loadable( () =>
     import(/*webpackChunkName: "AuthorInfo"*/ './blocks/Info'));
 const Header = loadable( () =>
-    import(/*webpackChunkName: "AuthorHeader"*/ './blocks/Header'));
+    import(/*webpackChunkName: "AuthorHeader"*/ '../loneComponents/LoneHeader'));
 
 // passive preloading
 const SaveButton = loadable( () =>
@@ -27,6 +28,8 @@ const AuthorsPage = ({authors}) => {
         preload(LoneInput);
         preload(LoneDeleted);
     }, []);
+
+    const headerItems = ['Фамилия автора', 'Имя автора'];
 
     return (
         <div className={classes.AuthorsPage}>
@@ -46,7 +49,7 @@ const AuthorsPage = ({authors}) => {
                         </NavLink>
                     </span>
                     <div>
-                        <Header/>
+                        <Header type={C.AUTHOR} items={headerItems}/>
                         {
                             authors.map((item) => {
                                 return <Info

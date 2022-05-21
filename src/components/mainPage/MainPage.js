@@ -9,12 +9,10 @@ import loadable from '@loadable/component';
 // passive preloading
 const BookInfo = loadable( () =>
     import(/*webpackChunkName: "BookInfo"*/ '../booksPage/blocks/Info'));
-const BookHeader = loadable( () =>
-    import(/*webpackChunkName: "BookHeader"*/ '../booksPage/blocks/Header'));
+const Header = loadable( () =>
+    import(/*webpackChunkName: "BookHeader"*/ '../loneComponents/LoneHeader'));
 const AuthorInfo = loadable( () =>
     import(/*webpackChunkName: "AuthorInfo"*/ '../authorsPage/blocks/Info'));
-const AuthorHeader = loadable( () =>
-    import(/*webpackChunkName: "AuthorHeader"*/ '../authorsPage/blocks/Header'));
 const preload = component => component.preload && component.preload();
 
 const MainPage = ({externalData, onGetData}) => {
@@ -23,9 +21,8 @@ const MainPage = ({externalData, onGetData}) => {
 
     useEffect( () => {
         preload(BookInfo);
-        preload(BookHeader);
+        preload(Header);
         preload(AuthorInfo);
-        preload(AuthorHeader);
     }, []);
 
     return (

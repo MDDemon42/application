@@ -10,7 +10,7 @@
 .AuthorHeader {
     border-top: 1px solid black;
 }
-.AuthorInfo div,.AuthorHeader div {
+.AuthorInfo div, .AuthorHeader div {
     width: 50%;
     border-right: 1px solid black;
     box-sizing: border-box;

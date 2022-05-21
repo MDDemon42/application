@@ -23,7 +23,6 @@ const SaveButton = ({itemData, initialSaveButtonData, type}) => {
     const history = useHistory();
 
     const handlerButtonClick = () => {
-        console.log(itemData, ...Object.values(itemData))
         func(...Object.values(itemData));
         setSaved(true);
         setTimeout(() => history.goBack(), 1000);
