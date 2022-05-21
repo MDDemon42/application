@@ -1,5 +1,6 @@
-import {connect} from 'react-redux';
-import classes from './AuthorLone.module.css';
+import { connect } from 'react-redux';
+import {useLocation, useParams} from 'react-router-dom';
+import classes from './SingleAuthor.module.css';
 import React, {useState, Suspense} from "react";
 import actions from "../../../redux/actions";
 import helpFunctions from '../../helpFunctions';
@@ -16,23 +17,25 @@ const LoneInput = loadable( () =>
 const LoneDeleted = loadable( () =>
     import(/*webpackChunkName: "LoneDeleted"*/ '../../loneComponents/LoneDeleted'));
 
+const AuthorLone = ({authors, onSave, onAdd, onDelete}) => {
+    const { id } = useParams();
+    const location = useLocation();
 
-const AuthorLone = (props) => {
     const {
         setStartingItemData,
         setSaveButtonData,
         setFinalItemData
     } = helpFunctions;
 
-    const theAuthor = setStartingItemData(props.match.params.id, props.authors, C.AUTHOR);
+    const theAuthor = setStartingItemData(id, authors, C.AUTHOR);
 
     const [deleted, setDeleted] = useState(false);
 
     const [authorLastName, setAuthorLastName] = useState(theAuthor.last_name);
     const [authorFirstName, setAuthorFirstName] = useState(theAuthor.first_name);
 
-    const creation = props.match.path === C.authorCreationURL;
-    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, C.AUTHOR);
+    const creation = location.pathname === C.authorCreationURL;
+    const initialSaveButtonData = setSaveButtonData(onSave, onAdd, creation, C.AUTHOR);
 
     const authorData = setFinalItemData(C.AUTHOR, theAuthor.id, authorLastName, authorFirstName);
 
@@ -47,7 +50,7 @@ const AuthorLone = (props) => {
     };
 
     const onDeleteButtonClick = () => {
-        props.onDelete(theAuthor.id)
+        onDelete(theAuthor.id)
         setDeleted(true)
     };
 
@@ -89,8 +92,8 @@ const {addAuthor, delAuthor, saveAuthor} = actions;
 function mapDispatchToProps (dispatch) {
     return {
         onDelete: id => dispatch(delAuthor(id)),
-        onSave: (id,last_name,first_name) => dispatch(saveAuthor(id,last_name,first_name)),
-        onAdd: (id,last_name,first_name) => dispatch(addAuthor(id,last_name,first_name))
+        onSave: (id, last_name, first_name) => dispatch(saveAuthor(id, last_name, first_name)),
+        onAdd: (id, last_name, first_name) => dispatch(addAuthor(id, last_name, first_name))
     };
 };
 

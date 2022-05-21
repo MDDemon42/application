@@ -1,10 +1,8 @@
 import React, {useCallback, useState} from 'react';
 import helpFunctions from "../../helpFunctions";
 
-const AuthorSelect = (props) => {
+const AuthorSelect = ({handlerAuthorChange, creation, theBook, authors}) => {
     const { getFullName, getOtherAuthors } = helpFunctions;
-
-    const {handlerAuthorChange, creation, theBook, authors} = props;
 
     const otherAuthors = getOtherAuthors(authors, theBook);
     const defaultAuthor = getFullName(theBook);
@@ -35,13 +33,15 @@ const AuthorSelect = (props) => {
                             {defaultAuthor}
                         </option>
                 }
-                {otherAuthors.map(author => (
-                    <option value={getFullName(author)}
-                            key={author.id}
-                    >
-                        {getFullName(author)}
-                    </option>
-                ))}
+                {
+                    otherAuthors.map(author => (
+                        <option value={getFullName(author)}
+                                key={author.id}
+                        >
+                            {getFullName(author)}
+                        </option>
+                    ))
+                }
             </select>
         </div>
     )

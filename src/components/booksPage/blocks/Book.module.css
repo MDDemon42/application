@@ -9,7 +9,7 @@
 .BookHeader div {
     border-top: 1px solid black;
 }
-.BookInfo div,.BookHeader div {
+.BookInfo div, .BookHeader div {
     width: 25%;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
@@ -30,7 +30,7 @@
 }
 
 @media only screen and (max-width: 450px) {
-    .BookInfo div,.BookHeader div {
+    .BookInfo div, .BookHeader div {
         min-width: 200px;
     }
 }

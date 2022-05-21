@@ -6,14 +6,14 @@ import React, {useEffect} from "react";
 
 import loadable from '@loadable/component';
 // active loading
-const AuthorInfo = loadable( () =>
-    import(/*webpackChunkName: "AuthorInfo"*/ './authorInfo/AuthorInfo'));
-const AuthorHeader = loadable( () =>
-    import(/*webpackChunkName: "AuthorHeader"*/ './authorInfo/AuthorHeader'));
+const Info = loadable( () =>
+    import(/*webpackChunkName: "AuthorInfo"*/ './blocks/Info'));
+const Header = loadable( () =>
+    import(/*webpackChunkName: "AuthorHeader"*/ './blocks/Header'));
 
 // passive preloading
 const SaveButton = loadable( () =>
-    import(/*webpackChunkName: "SaveAuthorButton"*/ '../loneComponents/SaveButton'));
+    import(/*webpackChunkName: "SaveButton"*/ '../loneComponents/SaveButton'));
 const LoneInput = loadable( () =>
     import(/*webpackChunkName: "LoneInput"*/ '../loneComponents/LoneInput'));
 const LoneDeleted = loadable( () =>
@@ -46,10 +46,10 @@ const AuthorsPage = ({authors}) => {
                         </NavLink>
                     </span>
                     <div>
-                        <AuthorHeader/>
+                        <Header/>
                         {
                             authors.map((item) => {
-                                return <AuthorInfo
+                                return <Info
                                     key={item.id}
                                     id={item.id}
                                     last_name={item.last_name}

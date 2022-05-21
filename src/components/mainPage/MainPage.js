@@ -1,20 +1,20 @@
 import classes from './MainPage.module.css';
 import Button from "react-bootstrap/Button";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import actions from "../../redux/actions";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import {useCallback, useEffect} from "react";
 
 import loadable from '@loadable/component';
 // passive preloading
 const BookInfo = loadable( () =>
-    import(/*webpackChunkName: "BookInfo"*/ '../booksPage/bookInfo/BookInfo'));
+    import(/*webpackChunkName: "BookInfo"*/ '../booksPage/blocks/Info'));
 const BookHeader = loadable( () =>
-    import(/*webpackChunkName: "BookHeader"*/ '../booksPage/bookInfo/BookHeader'));
+    import(/*webpackChunkName: "BookHeader"*/ '../booksPage/blocks/Header'));
 const AuthorInfo = loadable( () =>
-    import(/*webpackChunkName: "AuthorInfo"*/ '../authorsPage/authorInfo/AuthorInfo'));
+    import(/*webpackChunkName: "AuthorInfo"*/ '../authorsPage/blocks/Info'));
 const AuthorHeader = loadable( () =>
-    import(/*webpackChunkName: "AuthorHeader"*/ '../authorsPage/authorInfo/AuthorHeader'));
+    import(/*webpackChunkName: "AuthorHeader"*/ '../authorsPage/blocks/Header'));
 const preload = component => component.preload && component.preload();
 
 const MainPage = ({externalData, onGetData}) => {

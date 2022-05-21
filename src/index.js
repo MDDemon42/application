@@ -1,14 +1,14 @@
 import React from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import './index.css';
 import MainPage from './components/mainPage/MainPage';
 import AuthorsPage from './components/authorsPage/AuthorsPage';
 import BooksPage from "./components/booksPage/BooksPage";
 import TopMenu from "./components/topMenu/TopMenu";
-import BookLone from "./components/booksPage/bookLone/BookLone";
-import AuthorLone from "./components/authorsPage/authorLone/AuthorLone";
+import BookLone from "./components/booksPage/singleBook/SingleBook";
+import AuthorLone from "./components/authorsPage/singleAuthor/SingleAuthor";
 import store from './redux/store';
 
 render(

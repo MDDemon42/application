@@ -1,5 +1,6 @@
-import {connect} from 'react-redux';
-import classes from './BookLone.module.css';
+import { connect } from 'react-redux';
+import {useParams, useLocation} from "react-router-dom";
+import classes from './SingleBook.module.css';
 import actions from '../../../redux/actions';
 import React, {useState, useCallback, Suspense} from "react";
 import Button from "react-bootstrap/Button";
@@ -19,7 +20,10 @@ const LoneInput = loadable( () =>
 const LoneDeleted = loadable( () =>
     import(/*webpackChunkName: "LoneDeleted"*/ '../../loneComponents/LoneDeleted'));
 
-const BookLone = (props) => {
+const BookLone = ({books, authors, onAdd, onSave, onDelete}) => {
+    const { id } = useParams();
+    const location = useLocation();
+
     const {
         setSaveButtonData,
         setFinalItemData,
@@ -28,7 +32,7 @@ const BookLone = (props) => {
         setStartingItemData,
     } = helpFunctions;
 
-    const theBook = setStartingItemData(props.match.params.id, props.books, C.BOOK);
+    const theBook = setStartingItemData(id, books, C.BOOK);
 
     const [deleted, setDeleted] = useState(false);
 
@@ -47,8 +51,8 @@ const BookLone = (props) => {
 
     const bookData = setFinalItemData(C.BOOK, theBook.id, authorLastName, authorFirstName, bookTitle, bookCreatedAt, bookImage);
 
-    const creation = props.match.path === C.bookCreationURL;
-    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, C.BOOK);
+    const creation = location.pathname === C.bookCreationURL;
+    const initialSaveButtonData = setSaveButtonData(onSave, onAdd, creation, C.BOOK);
 
     const handleFileChange = useCallback(event => {
         const newFile = imageChanger(event);
@@ -66,7 +70,7 @@ const BookLone = (props) => {
     };
 
     const onDeleteButtonClick = () => {
-        props.onDelete(theBook.id)
+        onDelete(theBook.id)
         setDeleted(true)
     };
 
@@ -80,7 +84,7 @@ const BookLone = (props) => {
             <AuthorSelect handlerAuthorChange={handlerAuthorChange}
                           creation={creation}
                           theBook={theBook}
-                          authors={props.authors}
+                          authors={authors}
             />
             <LoneInput value={bookCreatedAt}
                        name={'started_at'}
@@ -131,8 +135,8 @@ const {addBook, delBook, saveBook} = actions;
 function mapDispatchToProps (dispatch) {
     return {
         onDelete: id => dispatch(delBook(id)),
-        onSave: (id,title,last_name,first_name,created_at,image) => dispatch(saveBook(id,title,last_name,first_name,created_at,image)),
-        onAdd: (id,title,last_name,first_name,created_at,image) => dispatch(addBook(id,title,last_name,first_name,created_at,image))
+        onSave: (id, title, last_name, first_name, created_at, image) => dispatch(saveBook(id, title, last_name, first_name, created_at, image)),
+        onAdd: (id, title, last_name, first_name, created_at, image) => dispatch(addBook(id, title, last_name, first_name, created_at, image))
     };
 };
 
