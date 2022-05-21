@@ -8,8 +8,10 @@ import C from '../../../redux/constants';
 
 import loadable from '@loadable/component';
 // active loading
-const SaveBookButton = loadable( () =>
-    import(/*webpackChunkName: "SaveBookButton"*/ './SaveBookButton'));
+const SaveButton = loadable( () =>
+    import(/*webpackChunkName: "SaveButton"*/ '../../loneComponents/SaveButton'));
+const DeleteButton = loadable( () =>
+    import(/*webpackChunkName: "DeleteButton"*/ '../../loneComponents/DeleteButton'));
 const AuthorSelect = loadable( () =>
     import(/*webpackChunkName: "AuthorSelect"*/ './AuthorSelect'));
 const LoneInput = loadable( () =>
@@ -46,7 +48,7 @@ const BookLone = (props) => {
     const bookData = setFinalItemData(C.BOOK, theBook.id, bookLastName, bookFirstName, bookTitle, bookCreatedAt, bookImage);
 
     const creation = props.match.path === C.bookCreationURL;
-    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, 'book');
+    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, C.BOOK);
 
     const handleFileChange = useCallback(event => {
         const newFile = imageChanger(event);
@@ -54,11 +56,18 @@ const BookLone = (props) => {
     }, []);
 
     if (deleted) {
-        return (<Suspense fallback={<div>Загрузка...</div>}>
-                    <LoneDeleted text={'Книга удалена'}
-                                className={classes.BookLone}
-                    />
-                </Suspense>)
+        return (
+        <Suspense fallback={<div>Загрузка...</div>}>
+            <LoneDeleted text={'Книга удалена'}
+                        className={classes.BookLone}
+            />
+        </Suspense>
+        )
+    };
+
+    const onDeleteButtonClick = () => {
+        props.onDelete(theBook.id)
+        setDeleted(true)
     };
 
     return (
@@ -95,18 +104,15 @@ const BookLone = (props) => {
                 </span>
             </div>
             <span className={classes.buttonDiv}>
-                <SaveBookButton bookData={bookData}
-                                initialSaveButtonData={initialSaveButtonData}
+                <SaveButton itemData={bookData}
+                            initialSaveButtonData={initialSaveButtonData}
+                            type={C.BOOK}
                 />
                 {
-                    !creation && <Button onClick={() => {
-                        props.onDelete(theBook.id)
-                        setDeleted(true)
-                    }}
-                                         variant="danger"
-                    >
-                        Удалить книгу
-                    </Button>
+                    !creation && 
+                    <DeleteButton delFunction={onDeleteButtonClick}
+                                    delText={'Удалить книгу'}
+                    />
                 }
             </span>
         </div>

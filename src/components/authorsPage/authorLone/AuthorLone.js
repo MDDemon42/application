@@ -1,15 +1,16 @@
 import {connect} from 'react-redux';
 import classes from './AuthorLone.module.css';
 import React, {useState, Suspense} from "react";
-import Button from "react-bootstrap/Button";
 import actions from "../../../redux/actions";
 import helpFunctions from '../../helpFunctions';
 import C from '../../../redux/constants';
 
 import loadable from '@loadable/component'
 // active loading
-const SaveAuthorButton = loadable( () =>
-    import(/*webpackChunkName: "SaveAuthorButton"*/ './SaveAuthorButton'));
+const SaveButton = loadable( () =>
+    import(/*webpackChunkName: "SaveAuthorButton"*/ '../../loneComponents/SaveButton'));
+const DeleteButton = loadable( () =>
+    import(/*webpackChunkName: "DeleteButton"*/ '../../loneComponents/DeleteButton'));
 const LoneInput = loadable( () =>
     import(/*webpackChunkName: "LoneInput"*/ '../../loneComponents/LoneInput'));
 const LoneDeleted = loadable( () =>
@@ -31,16 +32,24 @@ const AuthorLone = (props) => {
     const [authorFirstName, setAuthorFirstName] = useState(theAuthor.first_name);
 
     const creation = props.match.path === C.authorCreationURL;
-    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, 'author');
+    const initialSaveButtonData = setSaveButtonData(props.onSave, props.onAdd, creation, C.AUTHOR);
 
     const authorData = setFinalItemData(C.AUTHOR, theAuthor.id, authorLastName, authorFirstName);
 
-    if (deleted)
-        return <Suspense fallback={<div>Загрузка...</div>}>
+    if (deleted) {
+        return (
+        <Suspense fallback={<div>Загрузка...</div>}>
             <LoneDeleted text={'Автор удалён'}
                          className={classes.AuthorLone}
             />
-    </Suspense>
+        </Suspense>
+        )
+    };
+
+    const onDeleteButtonClick = () => {
+        props.onDelete(theAuthor.id)
+        setDeleted(true)
+    };
 
     return (
         <div className={classes.AuthorLone}>
@@ -55,19 +64,15 @@ const AuthorLone = (props) => {
                        text={'Имя автора:'}
             />
             <span className={classes.buttonDiv}>
-                <SaveAuthorButton authorData={authorData}
-                                  initialSaveButtonData={initialSaveButtonData}
+                <SaveButton itemData={authorData}
+                            initialSaveButtonData={initialSaveButtonData}
+                            type={C.AUTHOR}
                 />
                 {
                     !creation && 
-                    <Button onClick={() => {
-                        props.onDelete(theAuthor.id)
-                        setDeleted(true)
-                    }}
-                    variant={'danger'}
-                    >
-                        Удалить автора
-                    </Button>
+                    <DeleteButton delFunction={onDeleteButtonClick}
+                                    delText={'Удалить автора'}
+                    />
                 }
             </span>
         </div>

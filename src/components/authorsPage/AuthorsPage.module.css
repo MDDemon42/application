@@ -6,7 +6,15 @@
     background: linear-gradient(to right, #77a, #aaf);
     border-end-end-radius: 10% 20%;
 }
+
+.AuthorsPage_Header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .AuthorsPage h1 {
+    line-height: 2;
     margin-left: 2vw;
 }
 .AuthorsPage>div {

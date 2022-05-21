@@ -12,8 +12,8 @@ const BookHeader = loadable( () =>
     import(/*webpackChunkName: "BookHeader"*/ './bookInfo/BookHeader'));
 
 // passive preloading
-const SaveBookButton = loadable( () =>
-    import(/*webpackChunkName: "SaveBookButton"*/ './bookLone/SaveBookButton'));
+const SaveButton = loadable( () =>
+    import(/*webpackChunkName: "SaveBookButton"*/ '../loneComponents/SaveButton'));
 const AuthorSelect = loadable( () =>
     import(/*webpackChunkName: "AuthorSelect"*/ './bookLone/AuthorSelect'));
 const LoneInput = loadable( () =>
@@ -25,7 +25,7 @@ const preload = component => component.preload && component.preload();
 const BooksPage = ({books}) => {
 
     useEffect( () => {
-        preload(SaveBookButton);
+        preload(SaveButton);
         preload(AuthorSelect);
         preload(LoneInput);
         preload(LoneDeleted);
@@ -36,7 +36,7 @@ const BooksPage = ({books}) => {
             {
                 books.length ?
                     <>
-                    <span style={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
+                    <span className={classes.BooksPage_Header}>
                         <h1>
                             Книги нашей библиотеки:
                         </h1>
