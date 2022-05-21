@@ -1,9 +1,9 @@
-const fs = require('fs')
-const express = require('express')
-const multer = require('multer')
+const fs = require('fs');
+const express = require('express');
+const multer = require('multer');
 const cors = require('cors');
 
-const app = express()
+const app = express();
 
 app.use(function(request, response, next){
     let now = new Date();
@@ -21,13 +21,13 @@ app.use(function (request, response,next) {
     let path = 'src/uploads/images';
 
     if (!fs.existsSync(path)){
-        fs.mkdirSync(path)
-    }
+        fs.mkdirSync(path);
+    };
 
-    next()
-})
+    next();
+});
 
-app.use(cors())
+app.use(cors());
 
 const storage = multer.diskStorage( {
 
@@ -39,9 +39,9 @@ const storage = multer.diskStorage( {
     filename: (request,file,cb) => {
         cb(null, file.originalname)
     }
-})
+});
 
-const upload = multer ( { storage:storage}).array('file')
+const upload = multer ( { storage:storage}).array('file');
 
 app.post("/api/upload", (request,response) => {
 
@@ -54,6 +54,6 @@ app.post("/api/upload", (request,response) => {
         }
         return response.status(200).send(request.file)
     })
-})
+});
 
-app.listen(3005)
+app.listen(3005);

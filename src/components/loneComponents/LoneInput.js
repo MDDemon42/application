@@ -14,6 +14,6 @@ const LoneInput = ({value, name, handler, className='', text}) => {
             />
         </div>
     )
-}
+};
 
-export default LoneInput
+export default LoneInput;

@@ -1,17 +1,20 @@
-import React, {useCallback, useState} from 'react'
-import {getFullName, getOtherAuthors} from "../../helpFunctions/helpFunctions";
+import React, {useCallback, useState} from 'react';
+import helpFunctions from "../../helpFunctions";
 
 const AuthorSelect = (props) => {
-    const {handlerAuthorChange, creation, theBook, authors} = props
+    const { getFullName, getOtherAuthors } = helpFunctions;
 
-    const otherAuthors = getOtherAuthors(authors, theBook)
-    const defaultAuthor = getFullName(theBook)
+    const {handlerAuthorChange, creation, theBook, authors} = props;
 
-    const [selectValue, setSelectValue] = useState('')
+    const otherAuthors = getOtherAuthors(authors, theBook);
+    const defaultAuthor = getFullName(theBook);
+
+    const [selectValue, setSelectValue] = useState('');
+
     const authorChange = (value) => {
-        handlerAuthorChange(value)
-        setSelectValue(value)
-    }
+        handlerAuthorChange(value);
+        setSelectValue(value);
+    };
 
     return (
         <div>
@@ -42,6 +45,6 @@ const AuthorSelect = (props) => {
             </select>
         </div>
     )
-}
+};
 
-export default AuthorSelect
+export default AuthorSelect;

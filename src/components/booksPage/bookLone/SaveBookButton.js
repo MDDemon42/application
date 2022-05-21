@@ -1,25 +1,28 @@
 import {useState} from "react";
-import {getValidationResult} from '../../helpFunctions/helpFunctions'
+import helpFunctions from '../../helpFunctions';
 import Button from "react-bootstrap/Button";
 
 const SaveBookButton = (props) => {
+    const { getValidationResult } = helpFunctions;
+
     const {id,
         itemLastName,
         itemFirstName,
         bookTitle,
         bookCreatedAt,
-        bookImage} = props.bookData
-    const {readyText, toMakeText, func} = props.initialSaveButtonData
+        bookImage} = props.bookData;
 
-    const [saveButtonVariant, setSaveButtonVariant] = useState('success')
+    const {readyText, toMakeText, func} = props.initialSaveButtonData;
+
+    const [saveButtonVariant, setSaveButtonVariant] = useState('success');
 
     const handlerButtonClick = () => {
-        func(id, bookTitle, itemLastName, itemFirstName, bookCreatedAt, bookImage)
-        setSaveButtonVariant('secondary')
-        setTimeout(() => setSaveButtonVariant('success'),1000)
-    }
+        func(id, bookTitle, itemLastName, itemFirstName, bookCreatedAt, bookImage);
+        setSaveButtonVariant('secondary');
+        setTimeout(() => setSaveButtonVariant('success'),1000);
+    };
 
-    const valid = getValidationResult(bookTitle, itemLastName, bookCreatedAt)
+    const valid = getValidationResult(bookTitle, itemLastName, bookCreatedAt);
 
     return (
         <>
@@ -46,6 +49,6 @@ const SaveBookButton = (props) => {
             }
         </>
     )
-}
+};
 
-export default SaveBookButton
+export default SaveBookButton;

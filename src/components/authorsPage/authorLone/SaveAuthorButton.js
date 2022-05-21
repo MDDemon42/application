@@ -1,20 +1,22 @@
 import {useState} from "react";
 import Button from "react-bootstrap/Button";
-import {getValidationResult} from "../../helpFunctions/helpFunctions";
+import helpFunctions from "../../helpFunctions";
 
 const SaveAuthorButton = (props) => {
-    const {id, itemLastName, itemFirstName} = props.authorData
-    const {readyText, toMakeText, func} = props.initialSaveButtonData
+    const {getValidationResult} = helpFunctions;
 
-    const [saveButtonVariant, setSaveButtonVariant] = useState('success')
+    const {id, itemLastName, itemFirstName} = props.authorData;
+    const {readyText, toMakeText, func} = props.initialSaveButtonData;
+
+    const [saveButtonVariant, setSaveButtonVariant] = useState('success');
 
     const handlerButtonClick = () => {
-        func(id, itemLastName, itemFirstName)
-        setSaveButtonVariant('secondary')
-        setTimeout(() => setSaveButtonVariant('success'),1000)
-    }
+        func(id, itemLastName, itemFirstName);
+        setSaveButtonVariant('secondary');
+        setTimeout(() => setSaveButtonVariant('success'),1000);
+    };
 
-    const valid = getValidationResult(itemLastName, itemFirstName)
+    const valid = getValidationResult(itemLastName, itemFirstName);
 
     return (
         <>
@@ -41,6 +43,6 @@ const SaveAuthorButton = (props) => {
             }
         </>
     )
-}
+};
 
-export default SaveAuthorButton
+export default SaveAuthorButton;

@@ -1,35 +1,35 @@
-import React, {useEffect} from "react"
-import {connect} from 'react-redux'
-import classes from './BooksPage.module.css'
+import React, {useEffect} from "react";
+import {connect} from 'react-redux';
+import classes from './BooksPage.module.css';
 import Button from "react-bootstrap/Button";
-import {NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom";
 
-import loadable from '@loadable/component'
+import loadable from '@loadable/component';
 // active loading
 const BookInfo = loadable( () =>
-    import(/*webpackChunkName: "BookInfo"*/ './bookInfo/BookInfo'))
+    import(/*webpackChunkName: "BookInfo"*/ './bookInfo/BookInfo'));
 const BookHeader = loadable( () =>
-    import(/*webpackChunkName: "BookHeader"*/ './bookInfo/BookHeader'))
+    import(/*webpackChunkName: "BookHeader"*/ './bookInfo/BookHeader'));
 
 // passive preloading
 const SaveBookButton = loadable( () =>
-    import(/*webpackChunkName: "SaveBookButton"*/ './bookLone/SaveBookButton'))
+    import(/*webpackChunkName: "SaveBookButton"*/ './bookLone/SaveBookButton'));
 const AuthorSelect = loadable( () =>
-    import(/*webpackChunkName: "AuthorSelect"*/ './bookLone/AuthorSelect'))
+    import(/*webpackChunkName: "AuthorSelect"*/ './bookLone/AuthorSelect'));
 const LoneInput = loadable( () =>
-    import(/*webpackChunkName: "LoneInput"*/ '../helpFunctions/LoneInput'))
+    import(/*webpackChunkName: "LoneInput"*/ '../loneComponents/LoneInput'));
 const LoneDeleted = loadable( () =>
-    import(/*webpackChunkName: "LoneDeleted"*/ '../helpFunctions/LoneDeleted'))
-const preload = component => component.preload && component.preload()
+    import(/*webpackChunkName: "LoneDeleted"*/ '../loneComponents/LoneDeleted'));
+const preload = component => component.preload && component.preload();
 
 const BooksPage = ({books}) => {
 
     useEffect( () => {
-        preload(SaveBookButton)
-        preload(AuthorSelect)
-        preload(LoneInput)
-        preload(LoneDeleted)
-    }, [])
+        preload(SaveBookButton);
+        preload(AuthorSelect);
+        preload(LoneInput);
+        preload(LoneDeleted);
+    }, []);
 
     return (
         <div className={classes.BooksPage}>
@@ -70,12 +70,12 @@ const BooksPage = ({books}) => {
             }
         </div>
     )
-}
+};
 
 function mapStateToProps (state) {
     return {
         books: state.bookReducer.books,
-    }
-}
+    };
+};
 
-export default connect(mapStateToProps,null)(BooksPage)
+export default connect(mapStateToProps,null)(BooksPage);

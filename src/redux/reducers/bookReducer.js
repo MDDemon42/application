@@ -1,5 +1,5 @@
-import C from '../constants'
-import images from '../../uploads/images/images'
+import C from '../constants';
+import images from '../../uploads/images/images';
 
 let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).books)
     || [
@@ -30,16 +30,16 @@ let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garp
             year: 2021,
             image: images.guard,
         }
-    ]
+    ];
 
 const bookReducer = (state= {books: initialState}, action) => {
-    let books = [...state.books]
+    let books = [...state.books];
     switch (action.type) {
         case C.DELETE_BOOK:
             return {
                 ...state,
                 books: books.filter(book => book.id !== action.id)
-            }
+            };
         case C.SAVE_BOOK:
             books.forEach(book => {
                 if (book.id === action.id) {
@@ -49,11 +49,11 @@ const bookReducer = (state= {books: initialState}, action) => {
                     book.created_at = action.created_at
                     book.image = action.image
                 }
-            })
+            });
             return {
                 ...state,
                 books
-            }
+            };
         case C.ADD_BOOK:
             const year = new Date().getFullYear()
             books = books.concat({
@@ -64,14 +64,14 @@ const bookReducer = (state= {books: initialState}, action) => {
                 created_at: action.created_at,
                 image: action.image,
                 year
-            })
+            });
             return {
                 ...state,
                 books
-            }
+            };
         default:
             return state
-    }
-}
+    };
+};
 
-export default bookReducer
+export default bookReducer;

@@ -13,6 +13,6 @@ const AuthorHeader = () => (
             </p>
         </div>
     </div>
-)
+);
 
-export default AuthorHeader
+export default AuthorHeader;

@@ -1,7 +1,7 @@
-import C from '../constants'
+import C from '../constants';
 
 let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).externalData)
-    || { id: 0 }
+    || { id: 0 };
 
 const externalDataReducer = (state= {externalData: initialState}, action) => {
     switch (action.type) {
@@ -12,7 +12,7 @@ const externalDataReducer = (state= {externalData: initialState}, action) => {
             }
         default:
             return state
-    }
-}
+    };
+};
 
-export default externalDataReducer
+export default externalDataReducer;

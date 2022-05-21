@@ -11,6 +11,6 @@ const constants = {
     AUTHOR: 'AUTHOR',
     bookCreationURL: '/books/creation',
     authorCreationURL: '/authors/creation'
-}
+};
 
-export default constants
+export default constants;

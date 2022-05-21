@@ -23,6 +23,6 @@ const BookHeader = () => (
             </p>
         </div>
     </div>
-)
+);
 
-export default BookHeader
+export default BookHeader;

@@ -19,6 +19,6 @@ const AuthorInfo = (props) => {
                 </div>
             </div>
         )
-  }
+  };
 
-export default AuthorInfo
+export default AuthorInfo;
