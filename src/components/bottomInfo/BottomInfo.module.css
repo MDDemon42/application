@@ -1,0 +1,46 @@
+.BottomInfo {
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    border-top: 1px solid black;
+    background: linear-gradient(to right, #77a, #aaf);
+    width: 100%;
+    transition: height 500ms;
+    box-sizing: border-box;
+}
+
+.BottomInfo_Info {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.BottomInfo_Info > p {
+    margin: 0;
+}
+
+.BottomInfo_Info > a {
+    color: black;
+}
+
+.BottomInfo__isOpened {
+    height: 50px;
+}
+
+.BottomInfo__isClosed {
+    height: 1px;
+}
+
+.BottomInfo_Button {
+    position: absolute;
+    margin-top: 0;
+    top: -40px;
+    right: 5px;
+    height: 35px;
+}

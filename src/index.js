@@ -11,6 +11,7 @@ import BookLone from "./components/booksPage/singleBook/SingleBook";
 import AuthorLone from "./components/authorsPage/singleAuthor/SingleAuthor";
 import LinesPage from './components/linesPage/LinesPage';
 import OthersPage from './components/othersPage/OthersPage';
+import BottomInfo from './components/bottomInfo/BottomInfo';
 import store from './redux/store';
 
 render(
@@ -30,6 +31,7 @@ render(
                     <Route path={'/others/lines'} component={LinesPage}/>
                     <Redirect to={'/'}/>
                 </Switch>
+                <BottomInfo/>
             </React.StrictMode>
         </Provider>
     </BrowserRouter>,
