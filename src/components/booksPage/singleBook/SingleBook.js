@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import {useParams, useLocation} from "react-router-dom";
 import classes from './SingleBook.module.css';
 import actions from '../../../redux/actions';
-import React, {useState, useCallback, Suspense} from "react";
-import Button from "react-bootstrap/Button";
+import React, {useState, Suspense} from "react";
+// import Button from "react-bootstrap/Button";
 import helpFunctions from '../../helpFunctions';
 import C from '../../../redux/constants';
 
@@ -27,8 +27,8 @@ const BookLone = ({books, authors, onAdd, onSave, onDelete}) => {
     const {
         setSaveButtonData,
         setFinalItemData,
-        imageLoader,
-        imageChanger,
+        // imageLoader,
+        // imageChanger,
         setStartingItemData,
     } = helpFunctions;
 
@@ -40,24 +40,24 @@ const BookLone = ({books, authors, onAdd, onSave, onDelete}) => {
     const [bookCreatedAt, setBookCreatedAt] = useState(theBook.created_at);
     const [authorLastName, setAuthorLastName] = useState(theBook.last_name);
     const [authorFirstName, setAuthorFirstName] = useState(theBook.first_name);
-    const [bookImage, setBookImage] = useState(theBook.image);
+    // const [bookImage, setBookImage] = useState(theBook.image);
 
     const handlerAuthorChange = value => {
         setAuthorFirstName(value.split(' ')[0]);
         setAuthorLastName(value.split(' ')[1]);
     };
 
-    const [file, setFile] = useState('');
+    // const [file, setFile] = useState('');
 
-    const bookData = setFinalItemData(C.BOOK, theBook.id, authorLastName, authorFirstName, bookTitle, bookCreatedAt, bookImage);
+    const bookData = setFinalItemData(C.BOOK, theBook.id, authorLastName, authorFirstName, bookTitle, bookCreatedAt, theBook.image);
 
     const creation = location.pathname === C.bookCreationURL;
     const initialSaveButtonData = setSaveButtonData(onSave, onAdd, creation, C.BOOK);
 
-    const handleFileChange = useCallback(event => {
-        const newFile = imageChanger(event);
-        setFile(newFile);
-    }, []);
+    // const handleFileChange = useCallback(event => {
+    //     const newFile = imageChanger(event);
+    //     setFile(newFile);
+    // }, [imageChanger]);
 
     if (deleted) {
         return (
@@ -96,7 +96,7 @@ const BookLone = ({books, authors, onAdd, onSave, onDelete}) => {
                 {
                     !creation && <img src={theBook.image} alt={theBook.title + '_image'}/>
                 }
-                <span className={classes.spanAddImage}>
+                {/* <span className={classes.spanAddImage}>
                     <input type={'file'}
                            onChange={handleFileChange}
                     />
@@ -105,7 +105,7 @@ const BookLone = ({books, authors, onAdd, onSave, onDelete}) => {
                     >
                         Сменить обложку
                     </Button>
-                </span>
+                </span> */}
             </div>
             <span className={classes.buttonDiv}>
                 <SaveButton itemData={bookData}

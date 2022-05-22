@@ -3,27 +3,12 @@ import Button from "react-bootstrap/Button";
 import { NavLink } from 'react-router-dom';
 import actions from "../../redux/actions";
 import { connect } from "react-redux";
-import {useCallback, useEffect} from "react";
-
-import loadable from '@loadable/component';
-// passive preloading
-const BookInfo = loadable( () =>
-    import(/*webpackChunkName: "BookInfo"*/ '../booksPage/blocks/Info'));
-const Header = loadable( () =>
-    import(/*webpackChunkName: "BookHeader"*/ '../loneComponents/LoneHeader'));
-const AuthorInfo = loadable( () =>
-    import(/*webpackChunkName: "AuthorInfo"*/ '../authorsPage/blocks/Info'));
-const preload = component => component.preload && component.preload();
+import { useCallback } from "react";
+import ComponentPreloader from '../loneComponents/ComponentPreloader';
 
 const MainPage = ({externalData, onGetData}) => {
     const dependency = externalData[0];
-    const getExternalDataCallback = useCallback( () => onGetData(), [dependency]);
-
-    useEffect( () => {
-        preload(BookInfo);
-        preload(Header);
-        preload(AuthorInfo);
-    }, []);
+    const getExternalDataCallback = useCallback( () => onGetData(), [onGetData, dependency]);
 
     const items = [
         {path: '/authors', text: 'Авторы'},
@@ -33,6 +18,7 @@ const MainPage = ({externalData, onGetData}) => {
 
     return (
         <div className={classes.MainPage}>
+            <ComponentPreloader/>
             <h1>Это главная страница.</h1>
             {
                 items.map( (item, index) => (

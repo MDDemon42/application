@@ -10,7 +10,7 @@ const LoneInput = ({value, name, handler, className='', text}) => {
                    name={name}
                    type={'text'}
                    className={className}
-                   onChange={useCallback(event => handler(event.target.value), [])}
+                   onChange={useCallback(event => handler(event.target.value), [handler])}
             />
         </div>
     )

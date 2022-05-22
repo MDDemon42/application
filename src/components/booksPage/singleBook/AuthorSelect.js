@@ -9,17 +9,17 @@ const AuthorSelect = ({handlerAuthorChange, creation, theBook, authors}) => {
 
     const [selectValue, setSelectValue] = useState('');
 
-    const authorChange = (value) => {
+    const authorChange = useCallback( (value) => {
         handlerAuthorChange(value);
         setSelectValue(value);
-    };
+    }, [handlerAuthorChange, setSelectValue]);
 
     return (
         <div>
             <p>
                 Автор:
             </p>
-            <select onChange={useCallback(event => authorChange(event.target.value),[])}
+            <select onChange={ event => authorChange(event.target.value)}
                     value={selectValue}
             >
                 {
