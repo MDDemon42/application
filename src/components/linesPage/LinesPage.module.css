@@ -4,6 +4,7 @@
     padding: 20px 10px;
     background: linear-gradient(to right, #77a, #aaf);
     border-end-end-radius: 10% 20%;
+    border: 1px solid black;
 }
 
 .LinesPage h1 {
@@ -16,41 +17,4 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-}
-
-.VerticalLine {
-    width: 1px;
-    height: 90%;
-}
-
-.VerticalLines_Block {
-    flex-direction: row;
-}
-
-.HorizontalLines_Block {
-    flex-direction: column;
-}
-
-.HorizontalLine {
-    width: 90%;
-    height: 1px;
-}
-
-.ComplexPart {
-    display: flex;
-    flex-direction: column;
-}
-
-.VerticalLines_Block, .HorizontalLines_Block {
-    width: 200px;
-    height: 200px;
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.1);
-    justify-content: space-around;
-    border-radius: 50%;
-    align-items: center;
-}
-
-.LinesPage, .HorizontalLine, .VerticalLine {
-    border: 1px solid black;
 }

@@ -1,9 +1,20 @@
 import React from "react";
+import classes from './Lines.module.css';
 
-const Lines = ({amount, className_line, className_block}) => {
+const Lines = ({amount, direction}) => {
     console.log('rendering lines')
 
     const linesArray = [];
+
+    let className_line;
+    let className_block;
+    if (direction === 'vertical') {
+        className_line = classes.VerticalLine;
+        className_block = classes.VerticalLines_Block;
+    } else {
+        className_line = classes.HorizontalLine;
+        className_block = classes.HorizontalLines_Block;
+    }
 
     for (let i=0; i<amount; i++) {
         const line = React.createElement('div', { className: className_line, key: i}, null);
