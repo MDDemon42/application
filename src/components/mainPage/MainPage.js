@@ -13,7 +13,7 @@ const MainPage = ({externalData, onGetData}) => {
     const items = [
         {path: '/authors', text: 'Авторы'},
         {path: '/books', text: 'Книги'},
-        {path: '/lines', text: 'Линии'}
+        {path: '/others', text: 'Прочее'}
     ];
 
     return (

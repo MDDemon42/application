@@ -6,19 +6,11 @@ import React, {useState, Suspense} from "react";
 // import Button from "react-bootstrap/Button";
 import helpFunctions from '../../helpFunctions';
 import C from '../../../redux/constants';
-
-import loadable from '@loadable/component';
-// active loading
-const SaveButton = loadable( () =>
-    import(/*webpackChunkName: "SaveButton"*/ '../../loneComponents/SaveButton'));
-const DeleteButton = loadable( () =>
-    import(/*webpackChunkName: "DeleteButton"*/ '../../loneComponents/DeleteButton'));
-const AuthorSelect = loadable( () =>
-    import(/*webpackChunkName: "AuthorSelect"*/ './AuthorSelect'));
-const LoneInput = loadable( () =>
-    import(/*webpackChunkName: "LoneInput"*/ '../../loneComponents/LoneInput'));
-const LoneDeleted = loadable( () =>
-    import(/*webpackChunkName: "LoneDeleted"*/ '../../loneComponents/LoneDeleted'));
+import SaveButton from '../../loneComponents/SaveButton';
+import DeleteButton from '../../loneComponents/DeleteButton';
+import AuthorSelect from './AuthorSelect';
+import LoneInput from '../../loneComponents/LoneInput';
+import LoneDeleted from '../../loneComponents/LoneDeleted';
 
 const BookLone = ({books, authors, onAdd, onSave, onDelete}) => {
     const { id } = useParams();

@@ -2,8 +2,6 @@ import React from "react";
 import classes from './Lines.module.css';
 
 const Lines = ({amount, direction}) => {
-    console.log('rendering lines')
-
     const linesArray = [];
 
     let className_line;

@@ -5,8 +5,6 @@ import classes from './Lines.module.css';
 import InnerCircle from './InnerCircle';
 
 const ComplexPart = ({direction}) => {
-    console.log('rendering complex part',direction)
-
     const [amount, setAmount] = useState(3);
     const [low, setLow] = useState(false);
     const [high, setHigh] = useState(false);

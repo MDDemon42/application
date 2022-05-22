@@ -4,31 +4,10 @@ import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import React, { useEffect } from "react";
 import C from '../../redux/constants';
-
-import loadable from '@loadable/component';
-// active loading
-const Info = loadable( () =>
-    import(/*webpackChunkName: "AuthorInfo"*/ './blocks/Info'));
-const Header = loadable( () =>
-    import(/*webpackChunkName: "AuthorHeader"*/ '../loneComponents/LoneHeader'));
-
-// passive preloading
-const SaveButton = loadable( () =>
-    import(/*webpackChunkName: "SaveButton"*/ '../loneComponents/SaveButton'));
-const LoneInput = loadable( () =>
-    import(/*webpackChunkName: "LoneInput"*/ '../loneComponents/LoneInput'));
-const LoneDeleted = loadable( () =>
-    import(/*webpackChunkName: "LoneDeleted"*/ '../loneComponents/LoneDeleted'));
-const preload = component => component.preload && component.preload();
+import Info from './blocks/Info';
+import Header from '../loneComponents/LoneHeader';
 
 const AuthorsPage = ({authors}) => {
-
-    useEffect( () => {
-        preload(SaveButton);
-        preload(LoneInput);
-        preload(LoneDeleted);
-    }, []);
-
     const headerItems = ['Фамилия автора', 'Имя автора'];
 
     return (

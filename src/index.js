@@ -10,6 +10,7 @@ import TopMenu from "./components/topMenu/TopMenu";
 import BookLone from "./components/booksPage/singleBook/SingleBook";
 import AuthorLone from "./components/authorsPage/singleAuthor/SingleAuthor";
 import LinesPage from './components/linesPage/LinesPage';
+import OthersPage from './components/othersPage/OthersPage';
 import store from './redux/store';
 
 render(
@@ -25,7 +26,8 @@ render(
                     <Route path={'/book/:id'} component={BookLone}/>
                     <Route path={'/books/creation'} component={BookLone}/>
                     <Route path={'/books'} component={BooksPage}/>
-                    <Route path={'/lines'} component={LinesPage}/>
+                    <Route path={'/others'} exact component={OthersPage}/>
+                    <Route path={'/others/lines'} component={LinesPage}/>
                     <Redirect to={'/'}/>
                 </Switch>
             </React.StrictMode>

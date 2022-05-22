@@ -5,17 +5,10 @@ import React, {useState, Suspense} from "react";
 import actions from "../../../redux/actions";
 import helpFunctions from '../../helpFunctions';
 import C from '../../../redux/constants';
-
-import loadable from '@loadable/component'
-// active loading
-const SaveButton = loadable( () =>
-    import(/*webpackChunkName: "SaveAuthorButton"*/ '../../loneComponents/SaveButton'));
-const DeleteButton = loadable( () =>
-    import(/*webpackChunkName: "DeleteButton"*/ '../../loneComponents/DeleteButton'));
-const LoneInput = loadable( () =>
-    import(/*webpackChunkName: "LoneInput"*/ '../../loneComponents/LoneInput'));
-const LoneDeleted = loadable( () =>
-    import(/*webpackChunkName: "LoneDeleted"*/ '../../loneComponents/LoneDeleted'));
+import SaveButton from '../../loneComponents/SaveButton';
+import DeleteButton from '../../loneComponents/DeleteButton';
+import LoneInput from '../../loneComponents/LoneInput';
+import LoneDeleted from '../../loneComponents/LoneDeleted';
 
 const AuthorLone = ({authors, onSave, onAdd, onDelete}) => {
     const { id } = useParams();

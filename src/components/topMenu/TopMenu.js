@@ -7,7 +7,7 @@ const TopMenu = () => {
         {path: '/', text: 'Главная'},
         {path: '/authors', text: 'Авторы'},
         {path: '/books', text: 'Книги'},
-        {path: '/lines', text: 'Линии'}
+        {path: '/others', text: 'Прочее'}
     ];
     const itemWidth = Math.floor(90/items.length) + 'vw';
     return (

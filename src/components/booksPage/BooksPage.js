@@ -4,34 +4,10 @@ import classes from './BooksPage.module.css';
 import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 import C from '../../redux/constants';
-
-import loadable from '@loadable/component';
-// active loading
-const Info = loadable( () =>
-    import(/*webpackChunkName: "BookInfo"*/ './blocks/Info'));
-const Header = loadable( () =>
-    import(/*webpackChunkName: "BookHeader"*/ '../loneComponents/LoneHeader'));
-
-// passive preloading
-const SaveButton = loadable( () =>
-    import(/*webpackChunkName: "SaveButton"*/ '../loneComponents/SaveButton'));
-const AuthorSelect = loadable( () =>
-    import(/*webpackChunkName: "AuthorSelect"*/ './singleBook/AuthorSelect'));
-const LoneInput = loadable( () =>
-    import(/*webpackChunkName: "LoneInput"*/ '../loneComponents/LoneInput'));
-const LoneDeleted = loadable( () =>
-    import(/*webpackChunkName: "LoneDeleted"*/ '../loneComponents/LoneDeleted'));
-const preload = component => component.preload && component.preload();
+import Info from './blocks/Info';
+import Header from '../loneComponents/LoneHeader';
 
 const BooksPage = ({books}) => {
-
-    useEffect( () => {
-        preload(SaveButton);
-        preload(AuthorSelect);
-        preload(LoneInput);
-        preload(LoneDeleted);
-    }, []);
-
     const headerItems = ['Название книги', 'Фамилия автора', 'Имя автора', 'Первая публикация'];
 
     return (

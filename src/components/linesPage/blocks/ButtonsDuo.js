@@ -2,8 +2,6 @@ import React from 'react';
 import Button from "react-bootstrap/Button";
 
 const ButtonsDuo = ({increaseValue, decreaseValue, low, high}) => {
-    console.log('rendering buttons duo')
-
     return (
         <div style={{display: 'flex', justifyContent: 'space-around'}}>
             <Button variant={'success'} 
