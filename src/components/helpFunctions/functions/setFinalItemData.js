@@ -1,6 +1,8 @@
 import C from '../../../redux/constants';
 
-const setFinalItemData = (type, id, itemLastName, itemFirstName, ...bookData) => {
+const setFinalItemData = (
+    type, id, itemLastName, itemFirstName, ...bookData
+) => {
     if (type === C.AUTHOR) {
         return {
             id,

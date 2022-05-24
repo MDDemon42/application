@@ -32,12 +32,12 @@ app.use(cors());
 const storage = multer.diskStorage( {
 
     destination: (request,file,cb) => {
-        let path = 'src/uploads/images'
+        let path = 'src/uploads/images';
 
-        cb(null, {path})
+        cb(null, {path});
     },
     filename: (request,file,cb) => {
-        cb(null, file.originalname)
+        cb(null, file.originalname);
     }
 });
 
