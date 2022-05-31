@@ -44,9 +44,6 @@ test('testing setStartingItemData()', () => {
     expect(setStartingItemData(...startingData_one)).toEqual({
         id: 1, last_name: 'A', first_name: 'B'
     });
-    expect(setStartingItemData(...startingData_one)).not.toEqual({
-        id: 2, last_name: 'C', first_name: 'D'
-    });
     expect(setStartingItemData(...startingData_two)).toEqual({
         id: 3, last_name: 'A', first_name: 'B', title: 'C', created_at: 2000, image: 'image'
     });

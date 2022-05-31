@@ -33,20 +33,19 @@ const SaveButton = ({itemData, initialSaveButtonData, type}) => {
             <Button variant={valid ? 'success' : 'secondary'}
                     disabled={!valid || saved}
                     onClick={() => handlerButtonClick()}
+                    data-testid='SaveButton'
             >
-                {
-                    !valid ? 
-                        <span>
-                            Введите верные значения
-                        </span> :
-                    saved ?
-                        <span>
-                            {readyText}
-                        </span> :
-                        <span>
-                            {toMakeText}
-                        </span>
-                }
+                <span data-testid='SaveButtonText'>
+                    {
+                        !valid ? 
+                            "Введите верные значения"
+                            :
+                            saved ?
+                                readyText
+                                :
+                                toMakeText
+                    }
+                </span>
             </Button>            
         </>
     )

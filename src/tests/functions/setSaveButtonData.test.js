@@ -6,18 +6,18 @@ test('testing setSaveButtonData()', () => {
         'saveFunction', 'addFunction', true, C.BOOK
     ];
     const buttonData_two = [
+        'saveFunction', 'addFunction', true, C.AUTHOR
+    ];
+    const buttonData_three = [
         'saveFunction', 'addFunction', false, C.AUTHOR
     ];
     expect(setSaveButtonData(...buttonData_one)).toEqual({
         readyText: 'Книга добавлена!', toMakeText: 'Добавить книгу', func: 'addFunction'
     });
-    expect(setSaveButtonData(...buttonData_one)).not.toEqual({
-        readyText: 'Книга добавлена!', toMakeText: 'Добавить книгу', func: ''
-    });
     expect(setSaveButtonData(...buttonData_two)).toEqual({
-        readyText: 'Изменения сохранены!', toMakeText: 'Сохранить изменения', func: 'saveFunction'
+        readyText: 'Автор добавлен!', toMakeText: 'Добавить автора', func: 'addFunction'
     });
-    expect(setSaveButtonData(...buttonData_two)).not.toEqual({
-        readyText: 'Изменения сохранены!', toMakeText: 'Добавить автора', func: 'saveFunction'
+    expect(setSaveButtonData(...buttonData_three)).toEqual({
+        readyText: 'Изменения сохранены!', toMakeText: 'Сохранить изменения', func: 'saveFunction'
     });
 })
