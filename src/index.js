@@ -3,15 +3,16 @@ import { render } from 'react-dom';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './index.css';
-import MainPage from './components/mainPage/MainPage';
-import AuthorsPage from './components/authorsPage/AuthorsPage';
-import BooksPage from "./components/booksPage/BooksPage";
-import TopMenu from "./components/topMenu/TopMenu";
-import BookLone from "./components/booksPage/singleBook/SingleBook";
-import AuthorLone from "./components/authorsPage/singleAuthor/SingleAuthor";
-import LinesPage from './components/linesPage/LinesPage';
-import OthersPage from './components/othersPage/OthersPage';
-import BottomInfo from './components/bottomInfo/BottomInfo';
+import MainPage from './AABComponents/mainPage/MainPage';
+import AuthorsPage from './AABComponents/authorsPage/AuthorsPage';
+import BooksPage from "./AABComponents/booksPage/BooksPage";
+import TopMenu from "./AABComponents/topMenu/TopMenu";
+import BookLone from "./AABComponents/booksPage/singleBook/SingleBook";
+import AuthorLone from "./AABComponents/authorsPage/singleAuthor/SingleAuthor";
+import LinesPage from './AABComponents/linesPage/LinesPage';
+import OthersPage from './AABComponents/othersPage/OthersPage';
+import BottomInfo from './AABComponents/bottomInfo/BottomInfo';
+import SquadPage from './TDGComponents/squadPage/SquadPage';
 import store from './redux/store';
 
 render(
@@ -29,6 +30,7 @@ render(
                     <Route path={'/books'} component={BooksPage}/>
                     <Route path={'/others'} exact component={OthersPage}/>
                     <Route path={'/others/lines'} component={LinesPage}/>
+                    <Route path={'/others/TDG'} component={SquadPage}/>
                     <Redirect to={'/'}/>
                 </Switch>
                 <BottomInfo/>

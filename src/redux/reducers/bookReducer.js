@@ -1,36 +1,7 @@
 import C from '../constants';
-import images from '../../uploads/images/images';
+import initialBooks from '../../AABComponents/helpFunctions/functions/createInitialAABBooks';
 
-let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).books)
-    || [
-        {
-            id: 110101,
-            title: 'Керри',
-            last_name: 'Кинг',
-            first_name: 'Стивен',
-            created_at: 1974,
-            year: 2021,
-            image: images.carry,
-        },
-        {
-            id: 110102,
-            title: 'Противостояние',
-            last_name: 'Кинг',
-            first_name: 'Стивен',
-            created_at: 1978,
-            year: 2021,
-            image: images.protiv,
-        },
-        {
-            id: 110201,
-            title: 'Стража! Стража!',
-            last_name: 'Пратчетт',
-            first_name: 'Терри',
-            created_at: 1989,
-            year: 2021,
-            image: images.guard,
-        }
-    ];
+let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).books) || initialBooks();
 
 const bookReducer = (state= {books: initialState}, action) => {
     let books = [...state.books];

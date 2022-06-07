@@ -6,6 +6,7 @@ import saveAuthor from "./author/saveAuthor";
 import addAuthor from "./author/addAuthor";
 import setExternalData from './externalData/setExternalData';
 import getExternalData from './externalData/getExternalData';
+import makeTDGClassAvailable from './TDGClass/makeTDGClassAvailable';
 
 const actions = {
     delBook,
@@ -15,7 +16,8 @@ const actions = {
     saveAuthor,
     addAuthor,
     setExternalData,
-    getExternalData
+    getExternalData,
+    makeTDGClassAvailable
 };
 
 export default actions;

@@ -1,0 +1,106 @@
+.SquadPage {
+    display: flex;
+    
+    width: 100%;
+    min-height: calc(100vh - 150px);
+}
+
+.SquadPage_Slider {
+    width: 520px;
+    /* height: 520px; */
+    /* border: 1px solid black; */
+    overflow: hidden;
+}
+
+.SquadPage_SliderLine {
+    width: 1040px;
+    position: relative;
+    /* height: 520px; */
+    display: flex;
+    /* left: 0; */
+    transition: all ease 1s;
+}
+
+.SquadPage_ClassesBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.SquadPage_ClassesBlock_Shadow {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    width: 520px;
+    background-color: rgba(0, 0, 0, 0.8);
+    min-height: 425px; 
+}
+
+.SquadPage_ClassesBlock_ClassHeader {
+    display: flex;
+    flex-direction: row;
+    width: 520px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+}
+
+.SquadPage_ClassesBlock_ClassHeader_Text {
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.SquadPage_ClassesBlock_ClassHeader_Text_Header {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.SquadPage_ClassesBlock_ClassHeader_Text_Mass {
+    margin: 5px;
+    text-indent: 10px;
+}
+
+.SquadPage_ClassesBlock_ClassHeader_Icon {
+    width: 125px;
+    height: 125px;
+}
+
+.SquadPage_ClassesBlock_AbilitiesPool {
+    display: flex;
+    flex-direction: row;
+    width: 520px;
+    justify-content: space-around;
+    border: 1px solid black;
+    padding-bottom: 5px;
+}
+
+.SquadPage_ClassesBlock_AbilitiesPool_CategoryTitle {
+    text-align: center;
+    font-weight: bold;
+    margin: 5px 0;
+    text-decoration: underline;
+}
+
+.SquadPage_ClassesBlock_AbilitiesPool_Ability {
+    display: flex;
+    flex-direction: column;
+    height: 125px;
+    justify-content: center;
+    align-items: center;
+}
+
+.SquadPage_ClassesBlock_AbilitiesPool_Ability_Description {
+    font-size: 15px;
+}
+
+.SquadPage_ClassesBlock_AbilitiesPool_Ability_Image {
+    width: 100px;
+    height: 100px;
+}

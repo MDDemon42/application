@@ -1,16 +1,19 @@
 const constants = {
+    BOOK: 'BOOK',
     DELETE_BOOK: 'DELETE_BOOK',
     SAVE_BOOK: 'SAVE_BOOK',
     ADD_BOOK: 'ADD_BOOK',
+    bookCreationURL: '/books/creation',
+
+    AUTHOR: 'AUTHOR',
     DELETE_AUTHOR: 'DELETE_AUTHOR',
     SAVE_AUTHOR: 'SAVE_AUTHOR',
     ADD_AUTHOR: 'ADD_AUTHOR',
-    ADD_EX_DATA: 'ADD_EX_DATA',
+    authorCreationURL: '/authors/creation',
 
-    BOOK: 'BOOK',
-    AUTHOR: 'AUTHOR',
-    bookCreationURL: '/books/creation',
-    authorCreationURL: '/authors/creation'
+    ADD_EX_DATA: 'ADD_EX_DATA',   
+    
+    MAKE_TDG_CLASS_AVAILABLE: 'MAKE_TDG_CLASS_AVAILABLE'
 };
 
 export default constants;
