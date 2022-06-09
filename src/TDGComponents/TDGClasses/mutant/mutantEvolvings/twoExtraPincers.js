@@ -1,5 +1,6 @@
-import createTDGAbility from "../../../functions/more/createTDGAbility";
+import functionsTDG from "../../../functions";
 import images from '../../../../uploads/images';
+const { createTDGAbility } = functionsTDG;
 
 const twoExtraPincers = createTDGAbility(
     1, 'Two Extra Pincers', 'In case you want two another extremities for killing',

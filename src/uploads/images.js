@@ -5,6 +5,7 @@ import cyborgDetails from './TDG/cyborgDetails/cyborgDetails';
 import noImage from './TDG/noImage.jpg';
 import wizardSpells from './TDG/wizardSpells/wizardSpells';
 import mutantEvolvings from './TDG/mutantEvolvings/mutantEvolvings';
+import psionInsights from './TDG/psionInsights/psionInsights';
 
 const images = {
     initialBookImages,
@@ -13,6 +14,7 @@ const images = {
     cyborgDetails,
     wizardSpells,
     mutantEvolvings,
+    psionInsights,
     noImage
 };
 

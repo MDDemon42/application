@@ -1,5 +1,6 @@
-import createTDGAbility from "../../../functions/more/createTDGAbility";
+import functionsTDG from "../../../functions";
 import images from '../../../../uploads/images';
+const { createTDGAbility } = functionsTDG;
 
 const fireball = createTDGAbility(
     2, 'Fireball', 'Excellent example of battle magic',

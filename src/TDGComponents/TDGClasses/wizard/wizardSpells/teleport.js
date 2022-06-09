@@ -1,5 +1,6 @@
-import createTDGAbility from "../../../functions/more/createTDGAbility";
+import functionsTDG from "../../../functions";
 import images from '../../../../uploads/images';
+const { createTDGAbility } = functionsTDG;
 
 const teleport = createTDGAbility(
     1, 'Teleport', 'When you need an instant way out of here',

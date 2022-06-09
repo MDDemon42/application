@@ -1,5 +1,6 @@
-import createTDGAbility from "../../../functions/more/createTDGAbility";
+import functionsTDG from "../../../functions";
 import images from '../../../../uploads/images';
+const { createTDGAbility } = functionsTDG;
 
 const laser = createTDGAbility(
     1, 'Laser', 'Real accurate weapon to make holes in enemies',

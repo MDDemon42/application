@@ -1,5 +1,6 @@
-import createTDGAbility from "../../../functions/more/createTDGAbility";
+import functionsTDG from "../../../functions";
 import images from '../../../../uploads/images';
+const { createTDGAbility } = functionsTDG;
 
 const healingPotion = createTDGAbility(
     1, 'Healing Potion', 'Elixir made of herbal essences',

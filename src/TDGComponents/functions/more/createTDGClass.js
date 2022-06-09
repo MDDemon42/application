@@ -3,7 +3,7 @@ const createTDGClass = (
 ) => {
     return (
         {   
-            icon, // let it be on position 0
+            icon,
             title,
             description,
             abilities

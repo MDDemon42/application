@@ -6,7 +6,8 @@ import leatherArmor from "./leatherArmor";
 import steelArmor from "./steelArmor";
 import acidBomb from "./acidBomb";
 import healingPotion from "./healingPotion";
-import createTDGClassAbilities from '../../../functions/more/createTDGClassAbilities';
+import functionsTDG from '../../../functions';
+const { createTDGClassAbilities } = functionsTDG;
 
 const normalItems = createTDGClassAbilities(
     sword, greataxe,

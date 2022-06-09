@@ -5,7 +5,8 @@ import nanoVest from './nanoVest';
 import powerFist from './powerFist';
 import reactiveFeet from './reactiveFeet';
 import rocket from './rocket';
-import createTDGClassAbilities from '../../../functions/more/createTDGClassAbilities';
+import functionsTDG from '../../../functions';
+const { createTDGClassAbilities } = functionsTDG;
 
 const cyborgDetails = createTDGClassAbilities(
     powerFist, energyWhip,

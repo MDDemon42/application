@@ -1,6 +1,7 @@
-import createTDGClass from "../../functions/more/createTDGClass";
 import normalItems from './normalItems';
 import images from '../../../uploads/images';
+import functionsTDG from "../../functions";
+const { createTDGClass } = functionsTDG;
 
 const normal = createTDGClass(
     images.classIcons.normal, 'Normal',

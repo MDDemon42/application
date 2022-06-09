@@ -1,5 +1,6 @@
-import createTDGAbility from "../../../functions/more/createTDGAbility";
+import functionsTDG from "../../../functions";
 import images from '../../../../uploads/images';
+const { createTDGAbility } = functionsTDG;
 
 const tailWithSting = createTDGAbility(
     1, 'Tail with Sting', 'In case you want another extremity for killing',

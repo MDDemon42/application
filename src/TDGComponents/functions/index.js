@@ -1,7 +1,11 @@
-// import createAllTDGClasses from "./more/createAllTDGClasses";
+import createTDGClass from "./more/createTDGClass";
+import createTDGAbility from "./more/createTDGAbility";
+import createTDGClassAbilities from "./more/createTDGClassAbilities";
 
 const functionsTDG = {
-    // createAllTDGClasses
+    createTDGClass,
+    createTDGAbility,
+    createTDGClassAbilities
 };
 
 export default functionsTDG;

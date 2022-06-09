@@ -1,5 +1,6 @@
-import createTDGAbility from "../../../functions/more/createTDGAbility";
+import functionsTDG from "../../../functions";
 import images from '../../../../uploads/images';
+const { createTDGAbility } = functionsTDG;
 
 const reactiveFeet = createTDGAbility(
     1, 'Reactive Feet', 'Powerful enough to lift up a man',

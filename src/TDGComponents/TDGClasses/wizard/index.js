@@ -1,6 +1,7 @@
-import createTDGClass from "../../functions/more/createTDGClass";
 import wizardSpells from './wizardSpells';
 import images from '../../../uploads/images';
+import functionsTDG from "../../functions";
+const { createTDGClass } = functionsTDG;
 
 const wizard = createTDGClass(
     images.classIcons.wizard, 'Wizard',

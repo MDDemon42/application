@@ -1,6 +1,7 @@
-import createTDGClass from "../../functions/more/createTDGClass";
 import cyborgDetails from "./cyborgDetails";
 import images from '../../../uploads/images';
+import functionsTDG from "../../functions";
+const { createTDGClass } = functionsTDG;
 
 const cyborg = createTDGClass(
     images.classIcons.cyborg, 'Cyborg',

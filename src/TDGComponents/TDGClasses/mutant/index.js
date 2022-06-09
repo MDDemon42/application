@@ -1,6 +1,7 @@
-import createTDGClass from "../../functions/more/createTDGClass";
 import mutantEvolvings from "./mutantEvolvings";
 import images from '../../../uploads/images';
+import functionsTDG from "../../functions";
+const { createTDGClass } = functionsTDG;
 
 const mutant = createTDGClass(
     images.classIcons.mutant, 'Mutant',

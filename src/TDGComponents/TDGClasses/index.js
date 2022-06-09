@@ -2,6 +2,7 @@ import normal from './normal';
 import cyborg from './cyborg';
 import wizard from './wizard';
 import mutant from './mutant';
+import psion from './psion';
 
 const initialTDGClasses = [
     {
@@ -18,6 +19,10 @@ const initialTDGClasses = [
     },
     {
         TDGClass: wizard,
+        available: false
+    },
+    {
+        TDGClass: psion,
         available: false
     }
 ];

@@ -1,5 +1,6 @@
-import createTDGAbility from "../../../functions/more/createTDGAbility";
+import functionsTDG from "../../../functions";
 import images from '../../../../uploads/images';
+const { createTDGAbility } = functionsTDG;
 
 const nanoMatrix = createTDGAbility(
     2, 'Nano Matrix', 'Layer of medium layers of tiny titan plates',
