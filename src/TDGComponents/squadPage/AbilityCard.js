@@ -4,7 +4,7 @@ import styles from './SquadPage.module.css';
 const AbilityCard = ({category}) => {
     const {title, basic, advanced} = category;
     
-    if (!basic.title) {
+    if (!basic) {
         return <></>
     };
 

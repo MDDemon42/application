@@ -5,28 +5,14 @@ import fireball from "./fireball";
 import magicBolt from "./magicBolt";
 import golem from "./golem";
 import teleport from "./teleport";
+import createTDGClassAbilities from '../../../functions/more/createTDGClassAbilities';
 
-const normalItems = {
-    range: {
-        title: 'Range',
-        basic: magicBolt,
-        advanced: fireball
-    },
-    armor: {
-        title: 'Armor',
-        basic: defensiveCharms,
-        advanced: defensiveRunes
-    },
-    flying: {
-        title: 'Flying',
-        basic: flyingCharms,
-        advanced: null
-    },
-    special: {
-        title: 'Special',
-        basic: golem,
-        advanced: teleport
-    }
-};
+const wizardSpells = createTDGClassAbilities(
+    null, null,
+    magicBolt, fireball,
+    defensiveCharms, defensiveRunes,
+    flyingCharms,
+    golem, teleport
+);
 
-export default normalItems;
+export default wizardSpells;

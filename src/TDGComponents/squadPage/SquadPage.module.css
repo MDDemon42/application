@@ -59,10 +59,13 @@
 
 .SquadPage_ClassesBlock_ClassHeader_Text_Header {
     font-size: 18px;
+    line-height: 36px;
     font-weight: 800;
+    flex: 1;
 }
 
 .SquadPage_ClassesBlock_ClassHeader_Text_Mass {
+    flex: 2;
     margin: 5px;
     text-indent: 10px;
 }

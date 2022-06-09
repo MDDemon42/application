@@ -5,9 +5,8 @@ import Button from "react-bootstrap/Button";
 import { useRef } from 'react';
 
 const SquadPage = ({TDGClasses}) => {
-
     const count = TDGClasses.length;
-
+    
     let offset = 0;
     const sliderLine = useRef(null);
 

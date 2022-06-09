@@ -5,28 +5,14 @@ import nanoVest from './nanoVest';
 import powerFist from './powerFist';
 import reactiveFeet from './reactiveFeet';
 import rocket from './rocket';
+import createTDGClassAbilities from '../../../functions/more/createTDGClassAbilities';
 
-const cyborgDetails = {
-    melee: {
-        title: 'Melee',
-        basic: powerFist,
-        advanced: energyWhip
-    },
-    range: {
-        title: 'Range',
-        basic: laser,
-        advanced: rocket
-    },
-    armor: {
-        title: 'Armor',
-        basic: nanoVest,
-        advanced: nanoMatrix
-    },
-    flight: {
-        title: 'Flight',
-        basic: reactiveFeet,
-        advanced: null
-    }
-};
+const cyborgDetails = createTDGClassAbilities(
+    powerFist, energyWhip,
+    laser, rocket,
+    nanoVest, nanoMatrix,
+    reactiveFeet,
+    null, null
+);
 
 export default cyborgDetails;
