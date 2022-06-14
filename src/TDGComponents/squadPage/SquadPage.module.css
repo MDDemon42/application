@@ -21,6 +21,25 @@
     transition: all ease 1s;
 }
 
+.SquadPage_WizardRiddle {
+    display: flex;
+    flex-direction: column;
+}
+
+.SquadPage_WizardRiddle_Text {
+    text-align: center;
+    color: white;
+}
+
+.SquadPage_WizardRiddle_Buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.SquadPage_WizardRiddle_Buttons_Button {
+    width: 35%;
+}
+
 .SquadPage_ClassesBlock {
     display: flex;
     flex-direction: row;

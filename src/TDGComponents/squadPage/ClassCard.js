@@ -4,6 +4,7 @@ import AbilityCard from './AbilityCard';
 import actions from '../../redux/actions';
 import styles from './SquadPage.module.css';
 import Button from 'react-bootstrap/Button';
+import WizardRiddle from './WizardRiddle';
 
 const ClassCard = ({TDGClass, addTDGClass}) => {
     const keys = Object.keys(TDGClass.TDGClass.abilities);
@@ -11,19 +12,26 @@ const ClassCard = ({TDGClass, addTDGClass}) => {
     const { available } = TDGClass;
 
     const [reload, forceReload] = useState(false);
+    const [visible, setVisible] = useState(false);
     return (
         <div>
             {
                 !available &&
                 <div className={styles.SquadPage_ClassesBlock_Shadow}>
-                    <Button variant={'success'}
-                            onClick={() => {
-                                addTDGClass(TDGClass);
-                                forceReload(!reload);
-                            }}
-                    >
-                        Make available
-                    </Button>
+                    {
+                        visible ?
+                        <WizardRiddle 
+                            TDGClass={TDGClass}
+                            forceReload={() => forceReload(!reload)}
+                        /> :
+                        <Button variant={'success'}
+                                onClick={() => {
+                                    setVisible(true)
+                                }}
+                        >
+                            Try to make available
+                        </Button>
+                    }
                 </div>
             }
             <div className={styles.SquadPage_ClassesBlock_ClassHeader}>
