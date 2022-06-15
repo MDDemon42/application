@@ -1,8 +1,46 @@
+.Squad {
+    display: flex;
+    flex-direction: row;
+}
+
 .SquadPage {
     display: flex;
-    
-    width: 100%;
+    border: 1px solid black;
+    width: 75%;
     min-height: calc(100vh - 150px);
+}
+
+.SquadModule {
+    width: 25%;
+    height: 30vw;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.SquadModule_Line {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SquadModule_Members {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.SquadModule_MemberCard {
+    border: 1px solid black;
+}
+
+.SquadModule_MemberCard_Image {
+    width: 7vw;
+    height: 7vw;
 }
 
 .SquadPage_Slider {

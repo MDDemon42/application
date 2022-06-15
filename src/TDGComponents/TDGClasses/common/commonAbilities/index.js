@@ -1,9 +1,15 @@
 import noFlight from './noFlight';
-import noWeapon from './noWeapon';
+import noMelee from './noMelee';
+import noRange from './noRange';
+import noSpecial from './noSpecial';
+import noArmor from './noArmor';
 
 const commonAbilities = {
-    melee: noWeapon,
-    flight: noFlight
+    melee: noMelee,
+    armor: noArmor,
+    range: noRange,
+    flight: noFlight,
+    special: noSpecial
 };
 
 export default commonAbilities;

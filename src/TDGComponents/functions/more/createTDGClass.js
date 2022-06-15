@@ -1,12 +1,13 @@
 const createTDGClass = (
-    icon, title, description, abilities
+    icon, title, description, abilities, possibleNickNames
 ) => {
     return (
         {   
             icon,
             title,
             description,
-            abilities
+            abilities,
+            possibleNickNames
         }
     )
 };

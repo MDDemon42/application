@@ -1,12 +1,10 @@
-import { connect } from 'react-redux';
 import { useState } from 'react';
 import AbilityCard from './AbilityCard';
-import actions from '../../redux/actions';
 import styles from './SquadPage.module.css';
 import Button from 'react-bootstrap/Button';
 import WizardRiddle from './WizardRiddle';
 
-const ClassCard = ({TDGClass, addTDGClass}) => {
+const ClassCard = ({TDGClass}) => {
     const keys = Object.keys(TDGClass.TDGClass.abilities);
     const {icon, title, description} =  TDGClass.TDGClass;
     const { available } = TDGClass;
@@ -63,12 +61,4 @@ const ClassCard = ({TDGClass, addTDGClass}) => {
     )
 };
 
-const { makeTDGClassAvailable } = actions;
-function mapDispatchToProps (dispatch) {
-    return {
-        addTDGClass: TDGClass => dispatch(makeTDGClassAvailable(TDGClass))
-    };
-};
-
-
-export default connect(null, mapDispatchToProps)(ClassCard);
+export default ClassCard;

@@ -1,18 +1,7 @@
-import C from '../constants'
+import C from '../constants';
+import createInitialAABAuthors from '../../AABComponents/helpFunctions/functions/createInitialAABAuthors';
 
-let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).authors)
-    || [
-        {
-            id: 1101,
-            last_name: 'Кинг',
-            first_name: 'Стивен'
-        },
-        {
-            id: 1102,
-            last_name: 'Пратчетт',
-            first_name: 'Терри'
-        }
-    ]
+let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).authors) || createInitialAABAuthors(); 
 
 const authorReducer = (state= {authors: initialState}, action) => {
     let authors = [...state.authors]
@@ -46,6 +35,6 @@ const authorReducer = (state= {authors: initialState}, action) => {
         default:
             return state
     }
-}
+};
 
-export default authorReducer
+export default authorReducer;
