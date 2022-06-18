@@ -15,7 +15,6 @@ const SquadPage = () => {
                     </p>
                 </Button>
             </NavLink>
-            {/* <HiringModule/> */}
             <SquadModule/>
         </div>
     )

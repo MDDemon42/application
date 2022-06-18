@@ -1,4 +1,4 @@
-import C from '../../../redux/constants';
+import C from '../../../../redux/constants';
 
 const setFinalItemData = (
     type, id, itemLastName, itemFirstName, ...bookData

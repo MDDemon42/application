@@ -1,4 +1,4 @@
-import functionsTDG from "../../../functions";
+import functionsTDG from "../../..";
 import images from '../../../../uploads/images';
 const { createTDGAbility } = functionsTDG;
 

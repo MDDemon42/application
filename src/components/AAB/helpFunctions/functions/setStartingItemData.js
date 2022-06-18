@@ -1,4 +1,4 @@
-import C from '../../../redux/constants';
+import C from '../../../../redux/constants';
 
 const setStartingItemData = (URLid, content, type) => {
     const id = Number(URLid) ||

@@ -1,4 +1,4 @@
-import C from '../../../redux/constants';
+import C from '../../../../redux/constants';
 
 const setSaveButtonData = (onSave, onAdd, creation, type) => {
 

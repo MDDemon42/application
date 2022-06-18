@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import helpFunctions from "../helpFunctions";
-import C from '../../redux/constants';
+import C from '../../../redux/constants';
 
 const SaveButton = ({itemData, initialSaveButtonData, type}) => {
     const { getValidationResult } = helpFunctions;

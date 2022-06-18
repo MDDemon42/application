@@ -1,4 +1,4 @@
-import images from '../../../uploads/images';
+import images from '../../../../uploads/images';
 import styles from '../SquadPage.module.css';
 const noIcon = images.classIcons.noIcon;
 

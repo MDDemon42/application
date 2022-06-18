@@ -6,7 +6,7 @@ const TopMenu = () => {
     const items = [
         {path: '/', text: 'Главная'},
         {path: '/AAB', text: 'Библиотека'},        
-        {path: '/TDG', text: 'Tech Dungeon Game'},
+        {path: '/TDG', text: 'TDG'},
         {path: '/others', text: 'Прочее'}
     ];
     const itemWidth = Math.floor(90/items.length) + 'vw';
