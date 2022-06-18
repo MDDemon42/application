@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { useState } from 'react';
-import actions from '../../redux/actions';
+import actions from '../../../redux/actions';
 import Button from 'react-bootstrap/Button';
-import styles from './SquadPage.module.css';
+import styles from '../SquadPage.module.css';
 import WizardAnswer from './WizardAnswer';
 
 const WizardRiddle = ({TDGClass, forceReload, addTDGClass}) => {

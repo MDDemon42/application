@@ -1,13 +1,21 @@
-import HiringModule from './HiringModule';
-import SquadModule from './SquadModule';
+// import HiringModule from './hiringModule/HiringModule';
+import SquadModule from './squadModule/SquadModule';
 import styles from './SquadPage.module.css';
 
+import Button from "react-bootstrap/Button";
+import { NavLink } from "react-router-dom";
+
 const SquadPage = () => {
-
-
     return (
         <div className={styles.Squad}>
-            <HiringModule/>
+            <NavLink to={'/TDG/hiring'}>
+                <Button variant={'success'}>
+                    <p>
+                        Hire a new adventurer
+                    </p>
+                </Button>
+            </NavLink>
+            {/* <HiringModule/> */}
             <SquadModule/>
         </div>
     )

@@ -1,15 +1,15 @@
-import classes from './OthersPage.module.css';
 import { NavLink } from 'react-router-dom';
+import styles from './AABPage.module.css';
 
-const OthersPage = () => {
+const AABPage = () => {
     const items = [
-        {path: '/others/lines', text: 'Линии'},
-        {path: '/others/TDG', text: 'Tech Dungeon Game'}
+        {path: '/AAB/authors', text: 'Авторы'},
+        {path: '/AAB/books', text: 'Книги'}
     ];
 
     return (
-        <div className={classes.OthersPage}>
-            <h1>Это страница прочего.</h1>
+        <div className={styles.AABPage}>
+            <h1>Это страница библиотеки.</h1>
             {
                 items.map( (item, index) => (
                     <div key={index}>
@@ -23,4 +23,4 @@ const OthersPage = () => {
     )
 };
 
-export default OthersPage;
+export default AABPage;

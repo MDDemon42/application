@@ -6,27 +6,32 @@ const createInitialTDGCharacters = () => {
 
     const member_one = createOneTDGCharacter(
         0, 1, normal.possibleNickNames[0], normal,
-        normal.abilities.melee.basic, commonAbilities.armor,
-        commonAbilities.range, 
-        commonAbilities.flight, commonAbilities.special
+        normal.abilities.melee.basic, commonAbilities.armor.basic,
+        commonAbilities.range.basic, 
+        commonAbilities.flight.basic, commonAbilities.special.basic
     );
     
     const member_six = createOneTDGCharacter(
         5, 1, normal.possibleNickNames[1], normal,
-        commonAbilities.melee, commonAbilities.armor,
+        commonAbilities.melee.basic, commonAbilities.armor.basic,
         normal.abilities.range.basic, 
-        commonAbilities.flight, commonAbilities.special
+        commonAbilities.flight.basic, commonAbilities.special.basic
     );
 
+    const initialMembers = [];
+
+    for (let i=0; i<9; i++) {
+        initialMembers.push({
+            id: i,
+            level: -1
+        })
+    };
+
+    initialMembers[0] = member_one;
+    initialMembers[5] = member_six;
+
     return (
-        [
-            member_one,
-            null,
-            null,
-            null,
-            null,
-            member_six
-        ]
+        initialMembers
     )
 };
 

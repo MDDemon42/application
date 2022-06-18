@@ -7,8 +7,7 @@ const { createTDGClass } = functionsTDG;
 const psion = createTDGClass(
     images.classIcons.psion, 'Psion',
     'Ultimate warrior from another dimension which main and only battle tool is his mind',
-    psionInsights,
-    psionNickNames
+    psionInsights, psionNickNames, 200
 );
 
 export default psion;

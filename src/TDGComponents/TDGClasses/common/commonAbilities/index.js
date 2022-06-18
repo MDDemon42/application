@@ -3,13 +3,15 @@ import noMelee from './noMelee';
 import noRange from './noRange';
 import noSpecial from './noSpecial';
 import noArmor from './noArmor';
+import functionsTDG from '../../../functions';
+const { createTDGClassAbilities } = functionsTDG;
 
-const commonAbilities = {
-    melee: noMelee,
-    armor: noArmor,
-    range: noRange,
-    flight: noFlight,
-    special: noSpecial
-};
+const commonAbilities = createTDGClassAbilities(
+    noMelee, null,
+    noRange, null,
+    noArmor, null,
+    noFlight,
+    noSpecial, null
+);
 
 export default commonAbilities;

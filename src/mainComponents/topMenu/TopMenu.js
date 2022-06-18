@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom'
 const TopMenu = () => {
     const items = [
         {path: '/', text: 'Главная'},
-        {path: '/authors', text: 'Авторы'},
-        {path: '/books', text: 'Книги'},
+        {path: '/AAB', text: 'Библиотека'},        
+        {path: '/TDG', text: 'Tech Dungeon Game'},
         {path: '/others', text: 'Прочее'}
     ];
     const itemWidth = Math.floor(90/items.length) + 'vw';

@@ -17,7 +17,8 @@ const constants = {
 
     ADD_MEMBER: 'ADD_MEMBER',
     UPDATE_MEMBER: 'UPDATE_MEMBER',
-    DELETE_MEMBER: 'DELETE_MEMBER'
+    DELETE_MEMBER: 'DELETE_MEMBER',
+    EXCHANGE_MEMBERS: 'EXCHANGE_MEMBERS'
 };
 
 export default constants;

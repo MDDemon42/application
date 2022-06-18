@@ -4,15 +4,15 @@ import { NavLink } from 'react-router-dom';
 import actions from "../../redux/actions";
 import { connect } from "react-redux";
 import { useCallback } from "react";
-import ComponentPreloader from '../loneComponents/ComponentPreloader';
+import ComponentPreloader from '../../AABComponents/loneComponents/ComponentPreloader';
 
 const MainPage = ({externalData, onGetData}) => {
     const dependency = externalData[0];
     const getExternalDataCallback = useCallback( () => onGetData(), [onGetData, dependency]);
 
     const items = [
-        {path: '/authors', text: 'Авторы'},
-        {path: '/books', text: 'Книги'},
+        {path: '/AAB', text: 'Библиотека'},
+        {path: '/TDG', text: 'Tech Dungeon Game'},
         {path: '/others', text: 'Прочее'}
     ];
 

@@ -32,17 +32,17 @@ const ComplexPart = loadable( () =>
 const SquadPage = loadable( () => 
     import(/*webpackChunkName: "SquadPage"*/ '../../TDGComponents/squadPage/SquadPage'));
 const LoneAbility = loadable( () => 
-    import(/*webpackChunkName: "LoneAbility"*/ '../../TDGComponents/squadPage/LoneAbility'));
+    import(/*webpackChunkName: "LoneAbility"*/ '../../TDGComponents/squadPage/hiringModule/LoneAbility'));
 const ClassCard = loadable( () => 
-    import(/*webpackChunkName: "ClassCard"*/ '../../TDGComponents/squadPage/ClassCard'));
+    import(/*webpackChunkName: "ClassCard"*/ '../../TDGComponents/squadPage/hiringModule/ClassCard'));
 const AbilityCard = loadable( () => 
-    import(/*webpackChunkName: "AbilityCard"*/ '../../TDGComponents/squadPage/AbilityCard'));
+    import(/*webpackChunkName: "AbilityCard"*/ '../../TDGComponents/squadPage/hiringModule/AbilityCard'));
 const WizardRiddle = loadable( () => 
-    import(/*webpackChunkName: "WizardRiddle"*/ '../../TDGComponents/squadPage/WizardRiddle'));
+    import(/*webpackChunkName: "WizardRiddle"*/ '../../TDGComponents/squadPage/hiringModule/WizardRiddle'));
 const WizardAnswer = loadable( () => 
-    import(/*webpackChunkName: "WizardAnswer"*/ '../../TDGComponents/squadPage/WizardAnswer'));
+    import(/*webpackChunkName: "WizardAnswer"*/ '../../TDGComponents/squadPage/hiringModule/WizardAnswer'));
 const WizardLetter = loadable( () => 
-    import(/*webpackChunkName: "WizardLetter"*/ '../../TDGComponents/squadPage/WizardLetter'));
+    import(/*webpackChunkName: "WizardLetter"*/ '../../TDGComponents/squadPage/hiringModule/WizardLetter'));
 // const images = loadable( () => 
     // import(/*webpackChunkName: "images"*/ '../../uploads/images'));
 const preload = component => component.preload && component.preload();

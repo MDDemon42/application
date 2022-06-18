@@ -1,5 +1,5 @@
 import LoneAbility from "./LoneAbility";
-import styles from './SquadPage.module.css';
+import styles from '../SquadPage.module.css';
 
 const AbilityCard = ({category}) => {
     const {title, basic, advanced} = category;
