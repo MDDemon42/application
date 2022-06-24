@@ -31,7 +31,7 @@ const MainPage = ({externalData, onGetData}) => {
             }
             {
                 !externalData[0]?.birthdate ?
-                    <Button onClick={() => getExternalDataCallback()}
+                    <Button onClick={getExternalDataCallback}
                             variant={'primary'}
                             size="sm"
                     >

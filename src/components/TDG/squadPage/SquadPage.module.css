@@ -3,10 +3,8 @@
     flex-direction: row;
 }
 
-
-
 .SquadModule {
-    width: 25%;
+    width: 25vw;
     height: 45vw;
     border: 1px solid blue;
     display: flex;
@@ -41,78 +39,4 @@
 .SquadModule_MemberCard_Image {
     width: 7vw;
     height: 7vw;
-}
-
-.SquadPage_ClassesBlock_ClassCard {
-    height: 480px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.SquadPage_ClassesBlock_ClassCard_PriceBlock {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 20px;
-}
-
-.SquadPage_ClassesBlock_ClassCard_PriceBlock_HireButton {
-    width: 40%;
-    font-size: 20px;
-    margin-top: 0;
-    line-height: 1;
-}
-
-.SquadPage_ClassesBlock_Shadow {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    width: 520px;
-    background-color: rgba(0, 0, 0, 0.8);
-    min-height: 425px; 
-}
-
-.SquadPage_ClassesBlock_AbilitiesPool {
-    display: flex;
-    flex-direction: row;
-    width: 520px;
-    justify-content: space-around;
-    border: 1px solid black;
-    padding-bottom: 5px;
-}
-
-.SquadPage_HiringCard {
-    position: absolute;
-    top: 0;
-    color: rgba(255, 255, 255, 1);
-    width: 520px;
-    height: 480px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 3;
-}
-
-.SquadPage_HiringCard_Header {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.SquadPage_HiringCard_Buttons {
-    display: flex;
-    flex-direction: row;
-    width: 60%;
-    justify-content: space-around;
-}
-
-.SquadPage_HiringCard_Buttons > button {
-    width: 40%;
 }

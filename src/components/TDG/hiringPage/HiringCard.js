@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { useHistory } from "react-router-dom";
 // import { useState } from 'react';
 import actions from '../../../redux/actions';
-import styles from '../squadPage/SquadPage.module.css';
+import styles from './HiringCard.module.css';
 import Button from 'react-bootstrap/Button';
 import commonAbilities from '../functions/TDGClasses/common/commonAbilities';
 import deepClone from '../functions/more/deepClone';
@@ -102,8 +102,8 @@ const HiringCard = ({TDGClass, onClose, onAdd, members}) => {
     // })
 
     return (
-        <div className={styles.SquadPage_HiringCard}>
-            <span className={styles.SquadPage_HiringCard_Header}>
+        <div className={styles.HiringCard}>
+            <span className={styles.HiringCard_Header}>
                 {/* Choose starting perk */}
                 You're hiring:
             </span>
@@ -117,7 +117,7 @@ const HiringCard = ({TDGClass, onClose, onAdd, members}) => {
                 <LoneAbility level={randomPerk.perk}/>
             </div>
             {/* <PerksOnLevelUp perkPack={startPacks}/> */}
-            <div className={styles.SquadPage_HiringCard_Buttons}>
+            <div className={styles.HiringCard_Buttons}>
                 <Button
                     variant={'success'}
                     onClick={ () => {

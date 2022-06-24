@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { useState } from 'react';
-import actions from '../../../redux/actions';
+import actions from '../../../../redux/actions';
 import Button from 'react-bootstrap/Button';
 import styles from './WizardRiddle.module.css';
 import WizardAnswer from './WizardAnswer';
 
-import denyDisabling from '../functions/more/denyDisabling';
-import approveDisabling from '../functions/more/approveDisabling';
+import denyDisabling from '../../functions/more/denyDisabling';
+import approveDisabling from '../../functions/more/approveDisabling';
 
 const WizardRiddle = ({TDGClass, forceReload, addTDGClass}) => {
     const [letterOne, setLetterOne] = useState('');

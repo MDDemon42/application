@@ -38,11 +38,11 @@ const ClassCard = loadable( () =>
 const AbilityCard = loadable( () => 
     import(/*webpackChunkName: "AbilityCard"*/ '../../TDG/hiringPage/AbilityCard'));
 const WizardRiddle = loadable( () => 
-    import(/*webpackChunkName: "WizardRiddle"*/ '../../TDG/hiringPage/WizardRiddle'));
+    import(/*webpackChunkName: "WizardRiddle"*/ '../../TDG/hiringPage/wizardRiddleModule/WizardRiddle'));
 const WizardAnswer = loadable( () => 
-    import(/*webpackChunkName: "WizardAnswer"*/ '../../TDG/hiringPage/WizardAnswer'));
+    import(/*webpackChunkName: "WizardAnswer"*/ '../../TDG/hiringPage/wizardRiddleModule/WizardAnswer'));
 const WizardLetter = loadable( () => 
-    import(/*webpackChunkName: "WizardLetter"*/ '../../TDG/hiringPage/WizardLetter'));
+    import(/*webpackChunkName: "WizardLetter"*/ '../../TDG/hiringPage/wizardRiddleModule/WizardLetter'));
 // const images = loadable( () => 
     // import(/*webpackChunkName: "images"*/ '../../uploads/images'));
 const preload = component => component.preload && component.preload();

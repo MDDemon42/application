@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import AbilityCard from './AbilityCard';
-import styles from '../squadPage/SquadPage.module.css';
+import styles from './ClassCard.module.css';
 import Button from 'react-bootstrap/Button';
-import WizardRiddle from './WizardRiddle';
+import WizardRiddle from './wizardRiddleModule/WizardRiddle';
 import HiringCard from './HiringCard';
 import ClassCardHeader from './ClassCardHeader';
 
@@ -20,10 +20,10 @@ const ClassCard = ({TDGClass, TDGSquad}) => {
     const [hiring, setHiring] = useState(false);
 
     return (
-        <div className={styles.SquadPage_ClassesBlock_ClassCard}>
+        <div className={styles.ClassCard}>
             {
                 !available &&
-                <div className={styles.SquadPage_ClassesBlock_Shadow}>
+                <div className={styles.ClassCard_Shadow}>
                     {
                         visible ?
                         <WizardRiddle 
@@ -45,7 +45,7 @@ const ClassCard = ({TDGClass, TDGSquad}) => {
                 title={title}
                 description={description}
             />
-            <div className={styles.SquadPage_ClassesBlock_AbilitiesPool}>
+            <div className={styles.ClassCard_AbilitiesPool}>
                 {
                     keys.map( singleKey => (
                         <AbilityCard 
@@ -55,9 +55,9 @@ const ClassCard = ({TDGClass, TDGSquad}) => {
                     ))
                 }
             </div>
-            <div className={styles.SquadPage_ClassesBlock_ClassCard_PriceBlock}>
+            <div className={styles.ClassCard_PriceBlock}>
                 <Button variant={'success'}
-                    className={styles.SquadPage_ClassesBlock_ClassCard_PriceBlock_HireButton}
+                    className={styles.ClassCard_PriceBlock_HireButton}
                     disabled={ (money < price) || !available || !hiringIsPossible}
                     onClick={ () => setHiring(true) }
                 >
