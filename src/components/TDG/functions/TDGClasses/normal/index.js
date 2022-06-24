@@ -1,7 +1,7 @@
 import normalItems from './normalItems';
 import normalNickNames from './normalNickNames';
-import images from '../../../uploads/images';
-import functionsTDG from "../../functions";
+import images from '../../../../../uploads/images';
+import functionsTDG from "../../";
 const { createTDGClass } = functionsTDG;
 
 const normal = createTDGClass(

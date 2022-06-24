@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import classes from './BooksPage.module.css';
 import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
-import C from '../../redux/constants';
+import C from '../../../redux/constants';
 import Info from './blocks/Info';
 import Header from '../loneComponents/LoneHeader';
 

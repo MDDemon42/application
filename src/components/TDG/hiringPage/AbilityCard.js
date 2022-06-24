@@ -1,5 +1,5 @@
 import LoneAbility from "./LoneAbility";
-import styles from '../SquadPage.module.css';
+import styles from './AbilityCard.module.css';
 
 const AbilityCard = ({category}) => {
     const {title, basic, advanced} = category;
@@ -10,7 +10,7 @@ const AbilityCard = ({category}) => {
 
     return (
         <div>
-            <p className={styles.SquadPage_ClassesBlock_AbilitiesPool_CategoryTitle}>
+            <p className={styles.AbilityCard_Title}>
                 {title}
             </p>
             <LoneAbility level={basic}/>

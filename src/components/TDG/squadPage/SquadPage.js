@@ -1,5 +1,5 @@
 // import HiringModule from './hiringModule/HiringModule';
-import SquadModule from './squadModule/SquadModule';
+import SquadModule from '../hiringPage/squadModule/SquadModule';
 import styles from './SquadPage.module.css';
 
 import Button from "react-bootstrap/Button";

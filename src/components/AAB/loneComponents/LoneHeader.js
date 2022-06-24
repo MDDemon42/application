@@ -1,7 +1,7 @@
 import React from 'react';
 import bookClasses from '../booksPage/blocks/Book.module.css';
 import authorClasses from '../authorsPage/blocks/Author.module.css';
-import C from '../../redux/constants';
+import C from '../../../redux/constants';
 
 const Header = ({type, items}) => {
     return (

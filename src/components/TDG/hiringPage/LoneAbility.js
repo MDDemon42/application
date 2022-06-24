@@ -1,15 +1,15 @@
-import styles from '../SquadPage.module.css';
+import styles from './LoneAbility.module.css';
 
 const LoneAbility = ({level}) => {
     return (
-        <div className={styles.SquadPage_ClassesBlock_AbilitiesPool_Ability}>
-            <span className={styles.SquadPage_ClassesBlock_AbilitiesPool_Ability_Description}>
+        <div className={styles.LoneAbility}>
+            <span className={styles.LoneAbility_Title}>
                 {level.title}
             </span>
             <img src={level.image} 
                 alt={level.description}
                 title={level.description}
-                className={styles.SquadPage_ClassesBlock_AbilitiesPool_Ability_Image}
+                className={styles.LoneAbility_Image}
             />
         </div>
     )

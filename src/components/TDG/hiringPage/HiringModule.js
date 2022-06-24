@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import styles from '../SquadPage.module.css';
+import styles from './HiringModule.module.css';
 import ClassCard from "./ClassCard";
 import Button from "react-bootstrap/Button";
 import { useRef } from 'react';
-import SquadModule from '../squadModule/SquadModule';
+import SquadModule from './squadModule/SquadModule';
 
 const HiringModule = ({TDGClasses}) => {
     const count = TDGClasses.length;
@@ -37,13 +37,13 @@ const HiringModule = ({TDGClasses}) => {
 
     return (
         <div style={{display: 'flex'}}>
-            <div className={styles.SquadPage}>
-                <div className={styles.SquadPage_ClassesBlock}>
+            <div className={styles.HiringModule}>
+                <div className={styles.HiringModule_Classes}>
                     <Button onClick={() => showPrev(sliderLine.current)}>
                         Prev
                     </Button>
-                    <div className={styles.SquadPage_Slider}>
-                        <div className={styles.SquadPage_SliderLine}
+                    <div className={styles.HiringModule_Classes_Slider}>
+                        <div className={styles.HiringModule_Classes_Slider_SliderLine}
                             ref={sliderLine}
                             style={{left: '0'}}
                         >

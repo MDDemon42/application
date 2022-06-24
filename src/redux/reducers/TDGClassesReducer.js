@@ -1,5 +1,5 @@
 import C from '../constants';
-import initialTDGClasses from '../../TDGComponents/TDGClasses';
+import initialTDGClasses from '../../components/TDG/functions/TDGClasses';
 
 let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).TDGClasses) || initialTDGClasses;
 

@@ -5,7 +5,7 @@ import tailWithSting from "./tailWithSting";
 import fur from "./fur";
 import scales from "./scales";
 import fireBreathing from "./fireBreathing";
-import functionsTDG from '../../../functions';
+import functionsTDG from '../../../';
 const { createTDGClassAbilities } = functionsTDG;
 
 const mutantEvolvings = createTDGClassAbilities(

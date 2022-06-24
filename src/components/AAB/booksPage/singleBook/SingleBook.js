@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import {useParams, useLocation} from "react-router-dom";
 import classes from './SingleBook.module.css';
-import actions from '../../../redux/actions';
+import actions from '../../../../redux/actions';
 import React, {useState, Suspense} from "react";
 // import Button from "react-bootstrap/Button";
 import helpFunctions from '../../helpFunctions';
-import C from '../../../redux/constants';
+import C from '../../../../redux/constants';
 import SaveButton from '../../loneComponents/SaveButton';
 import DeleteButton from '../../loneComponents/DeleteButton';
 import AuthorSelect from './AuthorSelect';

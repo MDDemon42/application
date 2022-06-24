@@ -1,7 +1,7 @@
 import wizardSpells from './wizardSpells';
 import wizardNickNames from './wizardNickNames';
-import images from '../../../uploads/images';
-import functionsTDG from "../../functions";
+import images from '../../../../../uploads/images';
+import functionsTDG from "../../";
 const { createTDGClass } = functionsTDG;
 
 const wizard = createTDGClass(

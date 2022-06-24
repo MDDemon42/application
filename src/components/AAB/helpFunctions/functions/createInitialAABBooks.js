@@ -1,5 +1,5 @@
 import createOneAABBook from "./createOneAABBook";
-import images from '../../../uploads/images';
+import images from '../../../../uploads/images';
 
 const createInitialAABBooks = () => {
 

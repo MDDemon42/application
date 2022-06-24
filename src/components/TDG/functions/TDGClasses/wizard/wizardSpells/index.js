@@ -5,7 +5,7 @@ import fireball from "./fireball";
 import magicBolt from "./magicBolt";
 import golem from "./golem";
 import teleport from "./teleport";
-import functionsTDG from '../../../functions';
+import functionsTDG from '../../../';
 const { createTDGClassAbilities } = functionsTDG;
 
 const wizardSpells = createTDGClassAbilities(

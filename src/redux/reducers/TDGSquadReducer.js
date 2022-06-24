@@ -1,5 +1,5 @@
 import C from '../constants';
-import createInitialTDGCharacters from '../../TDGComponents/functions/more/createInitialTDGCharacters';
+import createInitialTDGCharacters from '../../components/TDG/functions/more/createInitialTDGCharacters';
 
 let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).TDGSquad) || { money: 100, members: createInitialTDGCharacters() };
 

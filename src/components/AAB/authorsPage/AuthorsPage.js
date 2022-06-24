@@ -3,7 +3,7 @@ import classes from './AuthorsPage.module.css';
 import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import React from "react";
-import C from '../../redux/constants';
+import C from '../../../redux/constants';
 import Info from './blocks/Info';
 import Header from '../loneComponents/LoneHeader';
 

@@ -2,8 +2,11 @@ import { connect } from 'react-redux';
 import { useState } from 'react';
 import actions from '../../../redux/actions';
 import Button from 'react-bootstrap/Button';
-import styles from '../SquadPage.module.css';
+import styles from './WizardRiddle.module.css';
 import WizardAnswer from './WizardAnswer';
+
+import denyDisabling from '../functions/more/denyDisabling';
+import approveDisabling from '../functions/more/approveDisabling';
 
 const WizardRiddle = ({TDGClass, forceReload, addTDGClass}) => {
     const [letterOne, setLetterOne] = useState('');
@@ -20,31 +23,7 @@ const WizardRiddle = ({TDGClass, forceReload, addTDGClass}) => {
 
     const letterSetters = [
         setLetterOne, setLetterTwo, setLetterThree, setLetterFour, setLetterFive, setLetterSix, setLetterSeven
-    ];
-
-    const approveDisabling = () => {
-        const sumLength = letters.reduce( (length, letter) => {
-            return length + letter.length;
-        }, 0);
-
-        if (sumLength === 7) {
-            return false
-        };
-
-        return true
-    };
-
-    const denyDisabling = () => {
-        let sumLength = letters.reduce( (length, letter) => {
-            return length + letter.length;
-        }, 0);
-
-        if (sumLength) {
-            return false
-        };
-
-        return true
-    };
+    ];    
 
     const denying = () => {
         letterSetters.forEach( letterSetter => letterSetter(''));
@@ -55,7 +34,7 @@ const WizardRiddle = ({TDGClass, forceReload, addTDGClass}) => {
         inputs[0].focus();
     };
 
-    const answerValidation = () => {
+    const answerValidation = (letters) => {
         const answer = letters.reduce( (initialAnswer, letter) => {
             return initialAnswer + letter;
         }, '');
@@ -69,31 +48,28 @@ const WizardRiddle = ({TDGClass, forceReload, addTDGClass}) => {
     };
 
     return (
-        <div className={styles.SquadPage_WizardRiddle}>
-            <span className={styles.SquadPage_WizardRiddle_Text}>
+        <div className={styles.WizardRiddle}>
+            <span className={styles.WizardRiddle_Text}>
                 RAINBOW or UNICORN?
             </span>
             <WizardAnswer
                 letters={letters}
                 letterSetters={letterSetters}
             />
-            <div className={styles.SquadPage_WizardRiddle_Buttons}>
+            <div className={styles.WizardRiddle_Buttons}>
                 <Button variant={'success'}
-                        disabled={approveDisabling()}
+                        disabled={approveDisabling(letters)}
                         onClick={answerValidation}
-                        className={styles.SquadPage_WizardRiddle_Buttons_Button}
                 >
                     Approve!
                 </Button>
                 <Button variant={'danger'}
-                        disabled={denyDisabling()}
+                        disabled={denyDisabling(letters)}
                         onClick={denying}
-                        className={styles.SquadPage_WizardRiddle_Buttons_Button}
                 >
                     Deny!
                 </Button>
             </div>
-            
         </div>
     )
 };

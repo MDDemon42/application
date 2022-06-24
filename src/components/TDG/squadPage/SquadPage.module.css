@@ -3,12 +3,7 @@
     flex-direction: row;
 }
 
-.SquadPage {
-    display: flex;
-    border: 1px solid black;
-    width: 75%;
-    min-height: calc(100vh - 150px);
-}
+
 
 .SquadModule {
     width: 25%;
@@ -48,50 +43,6 @@
     height: 7vw;
 }
 
-.SquadPage_Slider {
-    width: 520px;
-    /* height: 520px; */
-    /* border: 1px solid black; */
-    overflow: hidden;
-}
-
-.SquadPage_SliderLine {
-    width: 1040px;
-    position: relative;
-    /* height: 520px; */
-    display: flex;
-    /* left: 0; */
-    transition: all ease 1s;
-}
-
-.SquadPage_WizardRiddle {
-    display: flex;
-    flex-direction: column;
-}
-
-.SquadPage_WizardRiddle_Text {
-    text-align: center;
-    color: white;
-}
-
-.SquadPage_WizardRiddle_Buttons {
-    display: flex;
-    justify-content: space-around;
-}
-
-.SquadPage_WizardRiddle_Buttons_Button {
-    width: 35%;
-}
-
-.SquadPage_ClassesBlock {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    justify-content: space-around;
-}
-
 .SquadPage_ClassesBlock_ClassCard {
     height: 480px;
     display: flex;
@@ -127,40 +78,6 @@
     min-height: 425px; 
 }
 
-.SquadPage_ClassesBlock_ClassHeader {
-    display: flex;
-    flex-direction: row;
-    width: 520px;
-    margin-bottom: 5px;
-    border: 1px solid black;
-}
-
-.SquadPage_ClassesBlock_ClassHeader_Text {
-    display: flex;
-    margin-top: 5px;
-    width: 100%;
-    flex-direction: column;
-    text-align: center;
-}
-
-.SquadPage_ClassesBlock_ClassHeader_Text_Header {
-    font-size: 18px;
-    line-height: 36px;
-    font-weight: 800;
-    flex: 1;
-}
-
-.SquadPage_ClassesBlock_ClassHeader_Text_Mass {
-    flex: 2;
-    margin: 5px;
-    text-indent: 10px;
-}
-
-.SquadPage_ClassesBlock_ClassHeader_Icon {
-    width: 125px;
-    height: 125px;
-}
-
 .SquadPage_ClassesBlock_AbilitiesPool {
     display: flex;
     flex-direction: row;
@@ -168,30 +85,6 @@
     justify-content: space-around;
     border: 1px solid black;
     padding-bottom: 5px;
-}
-
-.SquadPage_ClassesBlock_AbilitiesPool_CategoryTitle {
-    text-align: center;
-    font-weight: bold;
-    margin: 5px 0;
-    text-decoration: underline;
-}
-
-.SquadPage_ClassesBlock_AbilitiesPool_Ability {
-    display: flex;
-    flex-direction: column;
-    height: 125px;
-    justify-content: center;
-    align-items: center;
-}
-
-.SquadPage_ClassesBlock_AbilitiesPool_Ability_Description {
-    font-size: 15px;
-}
-
-.SquadPage_ClassesBlock_AbilitiesPool_Ability_Image {
-    width: 100px;
-    height: 100px;
 }
 
 .SquadPage_HiringCard {
@@ -222,11 +115,4 @@
 
 .SquadPage_HiringCard_Buttons > button {
     width: 40%;
-}
-
-.SquadPage_HiringCard_PossiblePerks {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
 }

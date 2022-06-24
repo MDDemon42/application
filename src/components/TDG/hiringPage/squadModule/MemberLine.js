@@ -1,4 +1,4 @@
-import styles from '../SquadPage.module.css';
+import styles from '../../squadPage/SquadPage.module.css';
 import MemberCard from './MemberCard';
 
 const MemberLine = ({line}) => {

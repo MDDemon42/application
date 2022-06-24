@@ -1,5 +1,5 @@
-import normal from '../../TDGClasses/normal';
-import commonAbilities from '../../TDGClasses/common/commonAbilities';
+import normal from '../TDGClasses/normal';
+import commonAbilities from '../TDGClasses/common/commonAbilities';
 import createOneTDGCharacter from './creareOneTDGCharacher';
 
 const createInitialTDGCharacters = () => {

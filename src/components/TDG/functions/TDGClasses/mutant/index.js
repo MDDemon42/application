@@ -1,7 +1,7 @@
 import mutantEvolvings from "./mutantEvolvings";
 import mutantNickNames from "./mutantNickNames";
-import images from '../../../uploads/images';
-import functionsTDG from "../../functions";
+import images from '../../../../../uploads/images';
+import functionsTDG from "../../";
 const { createTDGClass } = functionsTDG;
 
 const mutant = createTDGClass(

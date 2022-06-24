@@ -5,7 +5,7 @@ import telekinesis from './telekinesis';
 import levitation from "./levitation";
 import psiLightning from "./psiLightning";
 import psiPush from "./psiPush";
-import functionsTDG from '../../../functions';
+import functionsTDG from '../../../';
 const { createTDGClassAbilities } = functionsTDG;
 
 const psionInsights = createTDGClassAbilities(

@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import AbilityCard from './AbilityCard';
-import styles from '../SquadPage.module.css';
+import styles from '../squadPage/SquadPage.module.css';
 import Button from 'react-bootstrap/Button';
 import WizardRiddle from './WizardRiddle';
 import HiringCard from './HiringCard';
+import ClassCardHeader from './ClassCardHeader';
 
 const ClassCard = ({TDGClass, TDGSquad}) => {
     const keys = Object.keys(TDGClass.TDGClass.abilities);
@@ -39,21 +40,11 @@ const ClassCard = ({TDGClass, TDGSquad}) => {
                     }
                 </div>
             }
-            <div className={styles.SquadPage_ClassesBlock_ClassHeader}>
-                <img src={icon} 
-                    alt={'icon'}
-                    title={title}
-                    className={styles.SquadPage_ClassesBlock_ClassHeader_Icon}
-                />
-                <div className={styles.SquadPage_ClassesBlock_ClassHeader_Text}>
-                    <span className={styles.SquadPage_ClassesBlock_ClassHeader_Text_Header}>
-                        {title}
-                    </span>
-                    <span className={styles.SquadPage_ClassesBlock_ClassHeader_Text_Mass}>
-                        {description}
-                    </span>
-                </div>
-            </div>
+            <ClassCardHeader 
+                icon={icon} 
+                title={title}
+                description={description}
+            />
             <div className={styles.SquadPage_ClassesBlock_AbilitiesPool}>
                 {
                     keys.map( singleKey => (

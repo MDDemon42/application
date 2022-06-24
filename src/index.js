@@ -3,20 +3,20 @@ import { render } from 'react-dom';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './index.css';
-import MainPage from './mainComponents/mainPage/MainPage';
-import AABPage from './AABComponents/AABPage/AABPage';
-import TDGPage from './TDGComponents/TDGPage/TDGPage';
+import MainPage from './components/general/mainPage/MainPage';
+import AABPage from './components/AAB/AABPage';
+import TDGPage from './components/TDG/TDGPage';
 
-import AuthorsPage from './AABComponents/authorsPage/AuthorsPage';
-import BooksPage from "./AABComponents/booksPage/BooksPage";
-import TopMenu from "./mainComponents/topMenu/TopMenu";
-import BookLone from "./AABComponents/booksPage/singleBook/SingleBook";
-import AuthorLone from "./AABComponents/authorsPage/singleAuthor/SingleAuthor";
-import LinesPage from './AABComponents/linesPage/LinesPage';
-import OthersPage from './mainComponents/othersPage/OthersPage';
-import BottomInfo from './mainComponents/bottomInfo/BottomInfo';
-import SquadPage from './TDGComponents/squadPage/SquadPage';
-import HiringModule from './TDGComponents/squadPage/hiringModule/HiringModule';
+import AuthorsPage from './components/AAB/authorsPage/AuthorsPage';
+import BooksPage from "./components/AAB/booksPage/BooksPage";
+import TopMenu from "./components/general/topMenu/TopMenu";
+import BookLone from "./components/AAB/booksPage/singleBook/SingleBook";
+import AuthorLone from "./components/AAB/authorsPage/singleAuthor/SingleAuthor";
+import LinesPage from './components/general/linesPage/LinesPage';
+import OthersPage from './components/general/othersPage/OthersPage';
+import BottomInfo from './components/general/bottomInfo/BottomInfo';
+import SquadPage from './components/TDG/squadPage/SquadPage';
+import HiringModule from './components/TDG/hiringPage/HiringModule';
 import store from './redux/store';
 
 render(

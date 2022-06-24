@@ -1,0 +1,18 @@
+.WizardRiddle {
+    display: flex;
+    flex-direction: column;
+}
+
+.WizardRiddle_Text {
+    text-align: center;
+    color: white;
+}
+
+.WizardRiddle_Buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.WizardRiddle_Buttons > button {
+    width: 35%;
+}

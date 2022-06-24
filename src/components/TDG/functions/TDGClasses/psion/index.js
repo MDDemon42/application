@@ -1,7 +1,7 @@
 import psionInsights from "./psionInsights";
 import psionNickNames from "./psionNickNames";
-import images from '../../../uploads/images';
-import functionsTDG from "../../functions";
+import images from '../../../../../uploads/images';
+import functionsTDG from "../../";
 const { createTDGClass } = functionsTDG;
 
 const psion = createTDGClass(

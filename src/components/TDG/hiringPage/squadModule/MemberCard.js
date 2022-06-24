@@ -1,5 +1,5 @@
 import images from '../../../../uploads/images';
-import styles from '../SquadPage.module.css';
+import styles from '../../squadPage/SquadPage.module.css';
 const noIcon = images.classIcons.noIcon;
 
 const MemberCard = ({member}) => {

@@ -1,10 +1,10 @@
 import classes from './MainPage.module.css';
 import Button from "react-bootstrap/Button";
 import { NavLink } from 'react-router-dom';
-import actions from "../../redux/actions";
+import actions from "../../../redux/actions";
 import { connect } from "react-redux";
 import { useCallback } from "react";
-import ComponentPreloader from '../../AABComponents/loneComponents/ComponentPreloader';
+import ComponentPreloader from '../../AAB/loneComponents/ComponentPreloader';
 
 const MainPage = ({externalData, onGetData}) => {
     const dependency = externalData[0];

@@ -1,5 +1,5 @@
 import C from '../constants';
-import createInitialAABAuthors from '../../AABComponents/helpFunctions/functions/createInitialAABAuthors';
+import createInitialAABAuthors from '../../components/AAB/helpFunctions/functions/createInitialAABAuthors';
 
 let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).authors) || createInitialAABAuthors(); 
 

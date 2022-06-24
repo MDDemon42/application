@@ -1,0 +1,27 @@
+.HiringModule {
+    display: flex;
+    border: 1px solid black;
+    width: 75%;
+    min-height: calc(100vh - 150px);
+}
+
+.HiringModule_Classes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.HiringModule_Classes_Slider {
+    width: 520px;
+    overflow: hidden;
+}
+
+.HiringModule_Classes_Slider_SliderLine {
+    width: 1040px;
+    position: relative;
+    display: flex;
+    transition: all ease 1s;
+}

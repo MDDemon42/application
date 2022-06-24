@@ -3,7 +3,7 @@ import noMelee from './noMelee';
 import noRange from './noRange';
 import noSpecial from './noSpecial';
 import noArmor from './noArmor';
-import functionsTDG from '../../../functions';
+import functionsTDG from '../../../';
 const { createTDGClassAbilities } = functionsTDG;
 
 const commonAbilities = createTDGClassAbilities(

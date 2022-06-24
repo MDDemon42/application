@@ -1,5 +1,5 @@
 import C from '../constants';
-import initialBooks from '../../AABComponents/helpFunctions/functions/createInitialAABBooks';
+import initialBooks from '../../components/AAB/helpFunctions/functions/createInitialAABBooks';
 
 let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).books) || initialBooks();
 

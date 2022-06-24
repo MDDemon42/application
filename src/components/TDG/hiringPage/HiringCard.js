@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { useHistory } from "react-router-dom";
 // import { useState } from 'react';
 import actions from '../../../redux/actions';
-import styles from '../SquadPage.module.css';
+import styles from '../squadPage/SquadPage.module.css';
 import Button from 'react-bootstrap/Button';
-import commonAbilities from '../../TDGClasses/common/commonAbilities';
-import deepClone from '../../functions/more/deepClone';
+import commonAbilities from '../functions/TDGClasses/common/commonAbilities';
+import deepClone from '../functions/more/deepClone';
 // import PerksOnLevelUp from './PerksOnLevelUp';
 import LoneAbility from './LoneAbility';
 
