@@ -1,10 +1,10 @@
-import defensiveCharms from './defensiveCharms.jpg';
-import defensiveRunes from './defensiveRunes.jpg';
-import fireball from './fireball.jpg';
-import magicBolt from './magicBolt.jpg';
-import flyingCharms from './flyingCharms.jpg';
-import golem from './golem.jpg';
-import teleport from './teleport.jpg';
+import defensiveCharms from './defensiveCharms.png';
+import defensiveRunes from './defensiveRunes.png';
+import fireball from './fireball.png';
+import magicBolt from './magicBolt.png';
+import flyingCharms from './flyingCharms.png';
+import golem from './golem.png';
+import teleport from './teleport.png';
 
 const wizardSpells = {
     defensiveCharms,

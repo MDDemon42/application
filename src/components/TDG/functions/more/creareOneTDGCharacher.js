@@ -1,5 +1,6 @@
 const createOneTDGCharacter = (
-    id, level, nick_name, TDGClass, melee, armor, range, flight, special
+    id, level, nick_name, TDGClass, melee, armor,
+    range, flight, special_basic, special_advanced
 ) => {
     return (
         {
@@ -11,7 +12,7 @@ const createOneTDGCharacter = (
             armor,
             range,
             flight,
-            special 
+            special: [special_basic, special_advanced]
         }
     )
 };

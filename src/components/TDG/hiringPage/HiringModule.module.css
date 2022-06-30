@@ -1,7 +1,7 @@
 .HiringModule {
     display: flex;
     border: 1px solid black;
-    width: 75%;
+    width: 75vw;
     min-height: calc(100vh - 150px);
 }
 

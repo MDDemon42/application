@@ -1,5 +1,5 @@
 const createTDGClass = (
-    icon, title, description, abilities, possibleNickNames, price
+    icon, title, description, abilities, possibleNickNames, price, color
 ) => {
     return (
         {   
@@ -8,7 +8,8 @@ const createTDGClass = (
             description,
             abilities,
             possibleNickNames,
-            price
+            price,
+            color
         }
     )
 };

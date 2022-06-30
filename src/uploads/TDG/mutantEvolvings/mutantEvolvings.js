@@ -1,10 +1,12 @@
-import clawsAndHorns from "./clawsAndHorns.jpg";
-import wings from './wings.jpg';
-import tailWithSting from './tailWithSting.jpg';
-import fur from './fur.jpg';
-import scales from './scales.jpg';
+import clawsAndHorns from "./clawsAndHorns.png";
+import wings from './wings.png';
+import tailWithSting from './tailWithSting.png';
+import fur from './fur.png';
+import scales from './scales.png';
+
 import fireBreathing from './fireBreathing.jpg';
-import twoExtraPincers from './twoExtraPincers.jpg';
+
+import twoExtraPincers from './twoExtraPincers.png';
 
 const mutantEvolvings = {
     clawsAndHorns,

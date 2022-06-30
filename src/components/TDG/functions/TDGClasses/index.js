@@ -3,10 +3,15 @@ import cyborg from './cyborg';
 import wizard from './wizard';
 import mutant from './mutant';
 import psion from './psion';
+import guildian from './guildian';
 
 const initialTDGClasses = [
     {
         TDGClass: normal,
+        available: true
+    },
+    {
+        TDGClass: guildian,
         available: true
     },
     {

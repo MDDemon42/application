@@ -1,11 +1,13 @@
-import acidBomb from './acidBomb.jpg';
+import acidBomb from './acidBomb.png';
+
 import bow from './bow.jpg';
 import crossbow from './crossbow.jpg';
-import greataxe from './greataxe.jpg';
-import healingPotion from './healingPotion.jpg';
-import leatherArmor from './leatherArmor.jpg';
-import steelArmor from './steelArmor.jpg';
-import sword from './sword.jpg';
+
+import greataxe from './greataxe.png';
+import healingPotion from './healingPotion.png';
+import leatherArmor from './leatherArmor.png';
+import steelArmor from './steelArmor.png';
+import sword from './sword.png';
 import noImage from '../noImage.jpg';
 
 const normalItems = {

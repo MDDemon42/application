@@ -1,0 +1,36 @@
+.armor {
+    position: absolute;
+    z-index: 2;
+}
+
+.SteelArmorStyle, .LeatherArmorStyle  {
+    width: 160px;
+    left: 79px;
+}
+
+.SteelArmorStyle {
+    top: 48px;
+}
+
+.LeatherArmorStyle {
+    top: 50px;
+}
+
+.NanoMatrixStyle {
+    top: 55px;
+    width: 138px;
+    left: 87px;
+}
+
+.ScalesStyle {
+    width: 310px;
+    height: 370px;
+    top: 35px;
+    left: 7px;
+}
+
+.NothingStyle {
+    position: absolute;
+    display: none;
+    z-index: 0;
+}

@@ -7,7 +7,7 @@ const { createTDGClass } = functionsTDG;
 const cyborg = createTDGClass(
     images.classIcons.cyborg, 'Cyborg',
     'Partly mechanized warrior that can (in theory) carry on much more pain than anyone...',
-    cyborgDetails, cyborgNickNames, 200
+    cyborgDetails, cyborgNickNames, 200, 'rgb(127, 127, 127)'
 );
 
 export default cyborg;

@@ -7,7 +7,7 @@ const { createTDGClass } = functionsTDG;
 const mutant = createTDGClass(
     images.classIcons.mutant, 'Mutant',
     'Once an ordinary person. Now a living war machine. With a great capacity of possible evolvings just to become even deadlier',
-    mutantEvolvings, mutantNickNames, 200
+    mutantEvolvings, mutantNickNames, 200, 'rgb(181, 229, 29)'
 );
 
 export default mutant;

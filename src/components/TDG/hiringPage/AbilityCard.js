@@ -1,7 +1,7 @@
 import LoneAbility from "./LoneAbility";
 import styles from './AbilityCard.module.css';
 
-const AbilityCard = ({category}) => {
+const AbilityCard = ({category, color}) => {
     const {title, basic, advanced} = category;
     
     if (!basic) {
@@ -13,10 +13,10 @@ const AbilityCard = ({category}) => {
             <p className={styles.AbilityCard_Title}>
                 {title}
             </p>
-            <LoneAbility level={basic}/>
+            <LoneAbility level={basic} color={color}/>
             {
                 advanced &&
-                <LoneAbility level={advanced}/>
+                <LoneAbility level={advanced} color={color}/>
             }
         </div>   
     )

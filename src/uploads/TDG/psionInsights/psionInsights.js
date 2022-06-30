@@ -1,10 +1,12 @@
-import guardianAura from './guardianAura.jpg';
-import guardianField from './guardianField.jpg';
+import guardianAura from './guardianAura.png';
+import guardianField from './guardianField.png';
+
 import intuition from './intuition.jpg';
-import levitation from './levitation.jpg';
-import telekinesis from './telekinesis.jpg';
-import psiLightning from './psiLightning.jpg';
-import psiPush from './psiPush.jpg';
+
+import levitation from './levitation.png';
+import telekinesis from './telekinesis.png';
+import psiLightning from './psiLightning.png';
+import psiPush from './psiPush.png';
 
 const psionInsights = {
     guardianAura,

@@ -9,7 +9,7 @@ import ClassCardHeader from './ClassCardHeader';
 
 const ClassCard = ({TDGClass, TDGSquad}) => {
     const keys = Object.keys(TDGClass.TDGClass.abilities);
-    const {icon, title, description, price} =  TDGClass.TDGClass;
+    const {icon, title, description, price, color} =  TDGClass.TDGClass;
     const { available } = TDGClass;
     const {money, members} = TDGSquad;
 
@@ -51,6 +51,7 @@ const ClassCard = ({TDGClass, TDGSquad}) => {
                         <AbilityCard 
                             category={TDGClass.TDGClass.abilities[singleKey]} 
                             key={TDGClass.TDGClass.icon + singleKey}
+                            color={color}
                         />
                     ))
                 }
