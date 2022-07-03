@@ -1,8 +1,6 @@
 import acidBomb from './acidBomb.png';
-
-import bow from './bow.jpg';
-import crossbow from './crossbow.jpg';
-
+import bow from './bow.png';
+import crossbow from './crossbow.png';
 import greataxe from './greataxe.png';
 import healingPotion from './healingPotion.png';
 import leatherArmor from './leatherArmor.png';

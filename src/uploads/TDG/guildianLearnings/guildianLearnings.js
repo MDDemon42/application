@@ -1,5 +1,4 @@
-import chakram from './chakram.jpg';
-
+import chakram from './chakram.png';
 import multistrike from './multistrike.png';
 import runicSword from './runicSword.png';
 import titanSkinRitual from './titanSkinRitual.png';

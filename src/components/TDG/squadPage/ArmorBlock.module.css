@@ -16,10 +16,23 @@
     top: 50px;
 }
 
+.NanoVestStyle {
+    top: 53px;
+    width: 116px;
+    left: 100px;
+}
+
 .NanoMatrixStyle {
     top: 55px;
     width: 138px;
     left: 87px;
+}
+
+.FurStyle {
+    width: 270px;
+    height: 370px;
+    top: 20px;
+    left: 25px;
 }
 
 .ScalesStyle {
@@ -27,6 +40,24 @@
     height: 370px;
     top: 35px;
     left: 7px;
+}
+
+.DefensiveCharmsStyle {
+    top: -40px;
+    width: 82px;
+    left: 116px;
+}
+
+.GuardianAuraStyle {
+    top: 42px;
+    width: 190px;
+    left: 65px;
+}
+
+.TitanSkinRitualStyle {
+    top: 0;
+    width: 440px;
+    left: -58px;
 }
 
 .NothingStyle {

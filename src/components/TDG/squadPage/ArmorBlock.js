@@ -13,11 +13,26 @@ function armorStyle (title) {
         case 'Nothing':
             style.push(styles.NothingStyle);
             break
+        case 'Nano Vest':
+            style.push(styles.NanoVestStyle);
+            break
         case 'Nano Matrix':
             style.push(styles.NanoMatrixStyle);
             break
+        case 'Fur':
+            style.push(styles.FurStyle);
+            break
         case 'Scales':
             style.push(styles.ScalesStyle);
+            break
+        case 'Defensive Charms':
+            style.push(styles.DefensiveCharmsStyle);
+            break
+        case 'Guardian Aura':
+            style.push(styles.GuardianAuraStyle);
+            break
+        case 'Titan Skin Ritual':
+            style.push(styles.TitanSkinRitualStyle);
             break
         default:
             break              
@@ -27,13 +42,20 @@ function armorStyle (title) {
 };
 
 const ArmorBlock = ({armor}) => {
+    if (ArmorBlock[armor.title]) {
+        return ArmorBlock[armor.title];
+    };
+    
+    console.log('rendering ArmorBlock', armor.title);
 
-    return (
-        <img src={armor.image}
+    ArmorBlock[armor.title] = <img src={armor.image}
             className={armorStyle(armor.title)}
             alt='armor'
             title={armor.title}
         />
+
+    return (
+        ArmorBlock[armor.title]
     )
 };
 
