@@ -13,6 +13,7 @@
 }
 
 .LeatherArmorStyle {
+    left: 80px;
     top: 50px;
 }
 
@@ -42,13 +43,17 @@
     left: 7px;
 }
 
-.DefensiveCharmsStyle {
+.DefensiveCharmsStyle, .DefensiveRunesStyle {
     top: -40px;
     width: 82px;
     left: 116px;
 }
 
-.GuardianAuraStyle {
+.DefensiveCharmsStyle {
+    z-index: 4;
+}
+
+.GuardianAuraStyle, .GuardianFieldStyle {
     top: 42px;
     width: 190px;
     left: 65px;

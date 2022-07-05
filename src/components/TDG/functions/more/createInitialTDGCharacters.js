@@ -19,7 +19,7 @@ const createInitialTDGCharacters = () => {
 
     const member_two = createOneTDGCharacter(
         1, 1, cyborg.possibleNickNames[0], cyborg,
-        cyborg.abilities.melee.advanced, cyborg.abilities.armor.basic,
+        cyborg.abilities.melee.advanced, cyborg.abilities.armor.advanced,
         cyborg.abilities.range.advanced, 
         cyborg.abilities.flight.basic,
         commonAbilities.special.basic, commonAbilities.special.basic
@@ -27,7 +27,7 @@ const createInitialTDGCharacters = () => {
 
     const member_three = createOneTDGCharacter(
         2, 1, mutant.possibleNickNames[0], mutant,
-        mutant.abilities.melee.advanced, mutant.abilities.armor.basic,
+        mutant.abilities.melee.advanced, mutant.abilities.armor.advanced,
         commonAbilities.range.basic, 
         mutant.abilities.flight.basic, 
         mutant.abilities.special.basic, mutant.abilities.special.advanced
@@ -35,7 +35,7 @@ const createInitialTDGCharacters = () => {
 
     const member_four = createOneTDGCharacter(
         3, 1, wizard.possibleNickNames[0], wizard,
-        commonAbilities.melee.basic, wizard.abilities.armor.basic,
+        commonAbilities.melee.basic, wizard.abilities.armor.advanced,
         wizard.abilities.range.basic, 
         wizard.abilities.flight.basic, 
         wizard.abilities.special.basic, wizard.abilities.special.advanced

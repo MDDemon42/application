@@ -1,9 +1,9 @@
 import styles from './MemberPage.module.css';
-import ArmorBlock from './ArmorBlock';
+import ImageBlock from './ImageBlock';
 import InfoBlock from './InfoBlock';
 
 import images from '../../../uploads/images';
-const { standartBody } = images;
+const { standartBody, standartHead } = images;
 
 const MemberPage = ({member}) => {
     const {nick_name, id, armor, melee, range, flying, special, level} = member;
@@ -32,7 +32,12 @@ const MemberPage = ({member}) => {
                 alt='body'
                 title={nick_name}
             />
-            <ArmorBlock armor={armor}/>
+            <ImageBlock image={armor} item={'armor'}/>
+            <img src={standartHead} 
+                className={styles.MemberPage_ImagesBlock_StandartHead}
+                alt='head'
+                title={nick_name}
+            />
         </div>
     </div>
 

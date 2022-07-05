@@ -16,6 +16,15 @@
 }
 
 .MemberPage_ImagesBlock_StandartBody {
+    position: relative;
     width: 200px;
     z-index: 1;
+}
+
+.MemberPage_ImagesBlock_StandartHead {
+    position: absolute;
+    left: 125px;
+    top: -2px;
+    width: 68px;
+    z-index: 3;
 }
