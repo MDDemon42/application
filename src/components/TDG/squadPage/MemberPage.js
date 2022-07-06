@@ -3,7 +3,7 @@ import ImageBlock from './ImageBlock';
 import InfoBlock from './InfoBlock';
 
 import images from '../../../uploads/images';
-const { standartBody, standartHead } = images;
+const { standartBody, standartHead, standartLeftHand, standartRightHand } = images;
 
 const MemberPage = ({member}) => {
     const {nick_name, id, armor, melee, range, flying, special, level} = member;
@@ -38,6 +38,21 @@ const MemberPage = ({member}) => {
                 alt='head'
                 title={nick_name}
             />
+            { 
+                (melee.title !== 'Power Fist' && melee.title !== 'Energy Whip') &&
+                <img src={standartLeftHand} 
+                    className={styles.MemberPage_ImagesBlock_StandartLeftHand}
+                    alt='leftHand'
+                    title={nick_name}
+                />
+            }
+            
+            <img src={standartRightHand} 
+                className={styles.MemberPage_ImagesBlock_StandartRightHand}
+                alt='rightHand'
+                title={nick_name}
+            />
+            <ImageBlock image={melee} item={'melee'}/>
         </div>
     </div>
 

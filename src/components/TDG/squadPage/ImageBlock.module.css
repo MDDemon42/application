@@ -1,4 +1,4 @@
-.armor {
+.armor, .melee {
     position: absolute;
     z-index: 2;
 }
@@ -65,8 +65,38 @@
     left: -58px;
 }
 
-.NothingStyle {
+.NothingStyle, .NoWeaponStyle {
     position: absolute;
     display: none;
     z-index: 0;
+}
+
+.SwordStyle, .GreataxeStyle {
+    z-index: 4;
+}
+
+.SwordStyle {
+    left: 65px;
+    width: 180px;
+    top: 125px;
+    transform: rotate(80deg);
+}
+
+.GreataxeStyle {
+    left: -10px;
+    top: 75px;
+    transform: rotate(40deg);
+}
+
+.PowerFistStyle {
+    width: 114px;
+    top: 14px;
+    left: 33px;
+}
+
+.EnergyWhipStyle {
+    width: 250px;
+    transform: rotate(20deg);
+    top: 160px;
+    left: -8px;
 }

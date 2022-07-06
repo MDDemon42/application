@@ -21,10 +21,28 @@
     z-index: 1;
 }
 
-.MemberPage_ImagesBlock_StandartHead {
+.MemberPage_ImagesBlock_StandartHead, 
+.MemberPage_ImagesBlock_StandartLeftHand, 
+.MemberPage_ImagesBlock_StandartRightHand {
     position: absolute;
+    z-index: 3;
+}
+
+.MemberPage_ImagesBlock_StandartHead {
     left: 125px;
     top: -2px;
     width: 68px;
-    z-index: 3;
+}
+
+.MemberPage_ImagesBlock_StandartLeftHand {
+    left: 53px;
+    top: 181px;
+    width: 85px;
+    z-index: 5;
+}
+
+.MemberPage_ImagesBlock_StandartRightHand {
+    left: 181px;
+    top: 181px;
+    width: 85px;
 }

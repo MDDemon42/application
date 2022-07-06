@@ -5,6 +5,8 @@ import cyborgDetails from './TDG/cyborgDetails/cyborgDetails';
 import noImage from './TDG/noImage.jpg';
 import standartBody from './TDG/standartBody.png';
 import standartHead from './TDG/standartHead.png';
+import standartLeftHand from './TDG/standartLeftHand.png';
+import standartRightHand from './TDG/standartRightHand.png';
 import wizardSpells from './TDG/wizardSpells/wizardSpells';
 import mutantEvolvings from './TDG/mutantEvolvings/mutantEvolvings';
 import psionInsights from './TDG/psionInsights/psionInsights';
@@ -21,7 +23,9 @@ const images = {
     guildianLearnings,
     noImage,
     standartBody,
-    standartHead
+    standartHead,
+    standartLeftHand,
+    standartRightHand
 };
 
 export default images;
