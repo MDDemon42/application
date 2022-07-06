@@ -71,7 +71,7 @@
     z-index: 0;
 }
 
-.SwordStyle, .GreataxeStyle {
+.SwordStyle, .GreataxeStyle, .RunicSwordStyle {
     z-index: 4;
 }
 
@@ -99,4 +99,18 @@
     transform: rotate(20deg);
     top: 160px;
     left: -8px;
+}
+
+.TailwithStingStyle {
+    z-index: 0;
+    width: 300px;
+    top: 120px;
+    left: 60px;
+}
+
+.RunicSwordStyle {
+    left: -5px;
+    width: 350px;
+    top: 70px;
+    transform: rotate(105deg);
 }
