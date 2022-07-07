@@ -101,11 +101,46 @@
     left: -8px;
 }
 
+.HornsStyle {
+    z-index: 4;
+    width: 100px;
+    top: -10px;
+    left: 110px;
+}
+
+.LeftClawStyle, .RightClawStyle {
+    width: 60px;
+    top: 190px;
+}
+
+.LeftClawStyle {
+    left: 51px;
+    transform: rotate(340deg);
+}
+
+.RightClawStyle {
+    left: 210px;
+    transform: rotate(20deg);
+}
+
 .TailwithStingStyle {
     z-index: 0;
     width: 300px;
     top: 120px;
     left: 60px;
+}
+
+.PsiPushLeftHandStyle, .PsiPushRightHandStyle {
+    width: 53px;
+    top: 152px;
+}
+
+.PsiPushLeftHandStyle {
+    left: 64px;
+}
+
+.PsiPushRightHandStyle {
+    left: 201px;
 }
 
 .RunicSwordStyle {

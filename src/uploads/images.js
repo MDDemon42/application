@@ -11,6 +11,11 @@ import wizardSpells from './TDG/wizardSpells/wizardSpells';
 import mutantEvolvings from './TDG/mutantEvolvings/mutantEvolvings';
 import psionInsights from './TDG/psionInsights/psionInsights';
 import guildianLearnings from './TDG/guildianLearnings/guildianLearnings';
+import horns from './TDG/horns.png';
+import leftClaw from './TDG/leftClaw.png';
+import rightClaw from './TDG/rightClaw.png';
+import psiPushLeftHand from './TDG/psiPushLeftHand.png';
+import psiPushRightHand from './TDG/psiPushRightHand.png';
 
 const images = {
     initialBookImages,
@@ -25,7 +30,12 @@ const images = {
     standartBody,
     standartHead,
     standartLeftHand,
-    standartRightHand
+    standartRightHand,
+    horns,
+    leftClaw,
+    rightClaw,
+    psiPushLeftHand,
+    psiPushRightHand
 };
 
 export default images;
