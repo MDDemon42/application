@@ -1,7 +1,7 @@
 import styles from './InfoBlock.module.css';
 
 const InfoBlock = (
-    {nick, level, armorTitle, meleeTitle, rangeTitle, special}
+    {nick, level, armorTitle, meleeTitle, rangeTitle, special, flight}
 ) => {
     if (InfoBlock[nick]) {
         return InfoBlock[nick];
@@ -28,6 +28,9 @@ const InfoBlock = (
                 In range: {rangeTitle}
             </p>
         </div>
+        <p>
+            Flight: {flight}
+        </p>
         {
             (special[0].level + special[1].level > 0) &&
             <div>

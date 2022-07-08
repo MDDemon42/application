@@ -54,7 +54,7 @@ const createInitialTDGCharacters = () => {
         guildian.abilities.melee.advanced, guildian.abilities.armor.advanced,
         guildian.abilities.range.advanced, 
         commonAbilities.flight.basic, 
-        guildian.abilities.special.basic, guildian.abilities.special.basic
+        guildian.abilities.special.basic, guildian.abilities.special.advanced
     );
 
     const initialMembers = [];

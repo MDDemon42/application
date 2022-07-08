@@ -6,17 +6,19 @@ import images from '../../../uploads/images';
 const { 
     standartBody, standartHead, standartLeftHand,
     standartRightHand, horns, leftClaw, rightClaw,
-    psiPushLeftHand, psiPushRightHand
+    psiPushLeftHand, psiPushRightHand,
+    fireBreathingMouth
 } = images;
 
 const MemberPage = ({member}) => {
-    const {nick_name, id, armor, melee, range, flying, special, level} = member;
+    const {nick_name, id, armor, melee, range, flight, special, level} = member;
     
     if (MemberPage[nick_name]) {
         return MemberPage[nick_name];
     };
 
     console.log('rendering MemberPage', nick_name);
+    console.log(member)
 
     const color = member.TDGClass.color;
 
@@ -45,6 +47,11 @@ const MemberPage = ({member}) => {
         title: 'Psi Push Right Hand'
     };
 
+    const fireBreathingMouthImage = {
+        image: fireBreathingMouth,
+        title: 'Fire Breathing Mouth'
+    };
+
     MemberPage[nick_name] = <div className={styles.MemberPage}>
         <InfoBlock nick={nick_name}
             level={level}
@@ -52,6 +59,7 @@ const MemberPage = ({member}) => {
             meleeTitle={melee.title}
             rangeTitle={range.title}
             special={special}
+            flight={flight.title}
         />
         <div className={styles.MemberPage_ImagesBlock}
             style={{backgroundColor: color}}        
@@ -61,7 +69,18 @@ const MemberPage = ({member}) => {
                 alt='body'
                 title={nick_name}
             />
+            <ImageBlock image={flight} item={'flight'}/>
             <ImageBlock image={armor} item={'armor'}/>
+            {
+                special[0].title !== 'Fire Breathing' ?
+                <ImageBlock image={special[0]} item={'special'}/>:
+                <ImageBlock image={fireBreathingMouthImage} item={'special'}/>
+            }
+            {
+                special[1].title !== 'Fire Breathing' ?
+                <ImageBlock image={special[1]} item={'special'}/>:
+                <ImageBlock image={fireBreathingMouthImage} item={'special'}/>
+            }            
             <img src={standartHead} 
                 className={styles.MemberPage_ImagesBlock_StandartHead}
                 alt='head'
@@ -125,6 +144,7 @@ const MemberPage = ({member}) => {
                 </>
                 )
             }
+            
         </div>
     </div>
 

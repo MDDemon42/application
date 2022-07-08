@@ -1,4 +1,4 @@
-.armor, .melee {
+.armor, .melee, .flight, .special {
     position: absolute;
     z-index: 2;
 }
@@ -65,7 +65,7 @@
     left: -58px;
 }
 
-.NothingStyle, .NoWeaponStyle {
+.NothingStyle, .NoWeaponStyle, .NoFlightStyle, .NothingatallStyle {
     position: absolute;
     display: none;
     z-index: 0;
@@ -148,4 +148,76 @@
     width: 350px;
     top: 70px;
     transform: rotate(105deg);
+}
+
+.ReactiveFeetStyle, .LevitationStyle {
+    bottom: -20px;
+    width: 210px;
+}
+
+.WingsStyle {
+    top: -70px;
+}
+
+.FlyingCharmsStyle {
+    width: 180px;
+    top: -10px;
+}
+
+.HealingPotionStyle, .AcidBombStyle {
+    width: 60px;
+    top: 150px;
+}
+
+.HealingPotionStyle {
+    left: 100px;
+}
+
+.AcidBombStyle {
+    left: 160px;
+}
+
+.GolemStyle {
+    width: 300px;
+    z-index: 0;
+    left: -120px;
+    bottom: 0px;
+}
+
+.TeleportStyle {
+    z-index: 0;
+    width: 400px;
+    top: 30px;
+}
+
+.IntuitionStyle {
+    width: 100px;
+    top: -5px;
+    left: 108px;
+    z-index: 4;
+}
+
+.TelekinesisStyle {
+    z-index: 1;
+    width: 160px;
+    top: 150px;
+}
+
+.FireBreathingMouthStyle {
+    width: 80px;
+    left: 120px;
+    z-index: 4;
+    top: 35px;
+}
+
+.TwoExtraPincersStyle {
+    z-index: 1;
+    width: 390px;
+    top: -100px;
+}
+
+.MultistrikeStyle {
+    z-index: 0;
+    width: 400px;
+    top: 10px;
 }
