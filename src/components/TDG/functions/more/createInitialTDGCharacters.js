@@ -36,7 +36,7 @@ const createInitialTDGCharacters = () => {
     const member_four = createOneTDGCharacter(
         3, 1, wizard.possibleNickNames[0], wizard,
         commonAbilities.melee.basic, wizard.abilities.armor.advanced,
-        wizard.abilities.range.basic, 
+        wizard.abilities.range.advanced, 
         wizard.abilities.flight.basic, 
         wizard.abilities.special.basic, wizard.abilities.special.advanced
     );

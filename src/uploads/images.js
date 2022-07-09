@@ -17,6 +17,7 @@ import rightClaw from './TDG/rightClaw.png';
 import psiPushLeftHand from './TDG/psiPushLeftHand.png';
 import psiPushRightHand from './TDG/psiPushRightHand.png';
 import fireBreathingMouth from './TDG/fireBreathingMouth.png';
+import cyborgSkull from './TDG/cyborgSkull.png';
 
 const images = {
     initialBookImages,
@@ -37,7 +38,8 @@ const images = {
     rightClaw,
     psiPushLeftHand,
     psiPushRightHand,
-    fireBreathingMouth
+    fireBreathingMouth,
+    cyborgSkull
 };
 
 export default images;

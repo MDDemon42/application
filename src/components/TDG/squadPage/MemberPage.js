@@ -7,7 +7,7 @@ const {
     standartBody, standartHead, standartLeftHand,
     standartRightHand, horns, leftClaw, rightClaw,
     psiPushLeftHand, psiPushRightHand,
-    fireBreathingMouth
+    fireBreathingMouth, cyborgSkull
 } = images;
 
 const MemberPage = ({member}) => {
@@ -52,6 +52,11 @@ const MemberPage = ({member}) => {
         title: 'Fire Breathing Mouth'
     };
 
+    const cyborgSkullImage = {
+        image: cyborgSkull,
+        title: 'Cyborg Skull'
+    };
+
     MemberPage[nick_name] = <div className={styles.MemberPage}>
         <InfoBlock nick={nick_name}
             level={level}
@@ -60,6 +65,7 @@ const MemberPage = ({member}) => {
             rangeTitle={range.title}
             special={special}
             flight={flight.title}
+            color={color}
         />
         <div className={styles.MemberPage_ImagesBlock}
             style={{backgroundColor: color}}        
@@ -69,8 +75,13 @@ const MemberPage = ({member}) => {
                 alt='body'
                 title={nick_name}
             />
+            {
+                member.TDGClass.title === 'Cyborg' &&
+                <ImageBlock image={cyborgSkullImage} item={'skull'}/>
+            }
             <ImageBlock image={flight} item={'flight'}/>
             <ImageBlock image={armor} item={'armor'}/>
+
             {
                 special[0].title !== 'Fire Breathing' ?
                 <ImageBlock image={special[0]} item={'special'}/>:
@@ -80,6 +91,15 @@ const MemberPage = ({member}) => {
                 special[1].title !== 'Fire Breathing' ?
                 <ImageBlock image={special[1]} item={'special'}/>:
                 <ImageBlock image={fireBreathingMouthImage} item={'special'}/>
+            }
+
+            {
+                range.title !== 'Rocket' ?
+                <ImageBlock image={range} item={'range'}/> :
+                <>
+                    <ImageBlock image={member.TDGClass.abilities.range.basic} item={'range'}/>
+                    <ImageBlock image={range} item={'range'}/>
+                </>
             }            
             <img src={standartHead} 
                 className={styles.MemberPage_ImagesBlock_StandartHead}
@@ -92,7 +112,7 @@ const MemberPage = ({member}) => {
                     melee.title !== 'Energy Whip' &&
                     melee.title !== 'Psi-Push' &&
                     melee.title !== 'Claws and Horns' &&
-                    melee.title !== 'Tail with Sting'
+                    melee.title !== 'Tail with Sting' 
                 ) &&
                 <img src={standartLeftHand} 
                     className={styles.MemberPage_ImagesBlock_StandartLeftHand}
@@ -104,7 +124,9 @@ const MemberPage = ({member}) => {
                 (
                     melee.title !== 'Psi-Push' &&
                     melee.title !== 'Claws and Horns' &&
-                    melee.title !== 'Tail with Sting'
+                    melee.title !== 'Tail with Sting' &&
+                    range.title !== 'Laser' &&
+                    range.title !== 'Rocket'
                 ) &&
                 <img src={standartRightHand} 
                     className={styles.MemberPage_ImagesBlock_StandartRightHand}

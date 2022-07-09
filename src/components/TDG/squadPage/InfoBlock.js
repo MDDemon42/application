@@ -1,7 +1,10 @@
 import styles from './InfoBlock.module.css';
 
 const InfoBlock = (
-    {nick, level, armorTitle, meleeTitle, rangeTitle, special, flight}
+    {
+        nick, level, armorTitle, meleeTitle, 
+        rangeTitle, special, flight, color
+    }
 ) => {
     if (InfoBlock[nick]) {
         return InfoBlock[nick];
@@ -9,44 +12,79 @@ const InfoBlock = (
 
     console.log('rendering InfoBlock', nick);
 
+    const spanStyle = {textShadow: '1px 1px ' + color, color: 'black'};
+
     InfoBlock[nick] = <div className={styles.InfoBlock}>
-        <p>
+        <h4 style={spanStyle}>
             {nick}
+        </h4>
+        <p>
+            <span className={styles.InfoBlock_Category}>
+                Level:
+            </span> 
+            <span style={spanStyle}>
+                {level}
+            </span>
         </p>
         <p>
-            Level: {level}
-        </p>
-        <p>
-            Armor: {armorTitle}
+            <span className={styles.InfoBlock_Category}>
+                Armor:
+            </span>
+            <span style={spanStyle}>
+                {armorTitle}
+            </span>
         </p>
         <div>
-            Weapon: 
-            <p>
-                In melee: {meleeTitle}
+            <p className={styles.InfoBlock_Category}>
+                Weapon:
             </p>
-            <p>
-                In range: {rangeTitle}
-            </p>
+            <ul>
+                <li>
+                    <span className={styles.InfoBlock_Category}>
+                        In melee:
+                    </span>
+                    <span style={spanStyle}>
+                        {meleeTitle}
+                    </span>
+                </li>
+                <li>
+                    <span className={styles.InfoBlock_Category}>
+                        In range:
+                    </span>
+                    <span style={spanStyle}>
+                        {rangeTitle}
+                    </span>
+                </li>
+            </ul>
         </div>
         <p>
-            Flight: {flight}
+            <span className={styles.InfoBlock_Category}>
+                Flight:
+            </span>
+            <span style={spanStyle}>
+                {flight}
+            </span>
         </p>
         {
             (special[0].level + special[1].level > 0) &&
             <div>
-                Special:
-                {
-                    special[0].level &&
-                        <p>
-                            {special[0].title}
-                        </p>
-                }
-                {
-                    special[1].level &&
-                        <p>
-                            {special[1].title}
-                        </p>
-                }
+                <p className={styles.InfoBlock_Category}>
+                    Special:
+                </p>
+                <ul>
+                    {
+                        special[0].level &&
+                            <li>
+                                <span style={spanStyle}>{special[0].title}</span>
+                            </li>
+                    }
+                    {
+                        special[1].level &&
+                            <li>
+                                <span style={spanStyle}>{special[1].title}</span>
+                            </li>
+                    }
+                </ul>
             </div>
         }
     </div>
