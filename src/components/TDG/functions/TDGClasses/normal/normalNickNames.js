@@ -1,6 +1,9 @@
 const normalNickNames = [
     'Mercenary',
-    'Soldier'
+    'Soldier',
+    'Skincutter',
+    'Cherryboom',
+    'Woonsh Poonsh'
 ];
 
 export default normalNickNames;

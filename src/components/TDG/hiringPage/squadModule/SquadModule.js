@@ -1,9 +1,13 @@
 import styles from '../../squadPage/SquadPage.module.css';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MemberLine from './MemberLine';
 
-const SquadModule = ({TDGSquad}) => {
+const SquadModule = ({TDGSquad, children}) => {
     const {money, members} = TDGSquad;
+    let { pathname } = useLocation();
+    pathname = pathname.split('/')[2];
 
     const frontmen = {
         title: 'Frontmen',
@@ -21,16 +25,22 @@ const SquadModule = ({TDGSquad}) => {
     };
 
     return (
-        <div className={styles.SquadModule}>
-            <span className={styles.SquadModule_Header}>
-                The Squad
-            </span>
-            <span>
-                Money: {money} coins
-            </span>
-            <MemberLine line={frontmen}/>
-            <MemberLine line={backmen}/>
-            <MemberLine line={reserve}/>
+        <div className={styles.Squad_Additional}>
+            <div className={styles.SquadModule}>
+                <span className={styles.SquadModule_Header}>
+                    The Squad
+                </span>
+                <span>
+                    Money: {money} coins
+                </span>
+                <MemberLine line={frontmen}/>
+                <MemberLine line={backmen}/>
+                <MemberLine line={reserve}/>
+            </div>
+            {
+                pathname === 'squad' &&
+                children 
+            }
         </div>
     )
 };

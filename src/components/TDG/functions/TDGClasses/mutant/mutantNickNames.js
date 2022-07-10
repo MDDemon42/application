@@ -1,6 +1,9 @@
 const mutantNickNames = [
     'Beast',
-    'Monster'
+    'Monster',
+    'Gull',
+    'Mantis',
+    'Stinky Pie'
 ];
 
 export default mutantNickNames;

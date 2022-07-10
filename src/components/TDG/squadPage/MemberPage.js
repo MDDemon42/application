@@ -166,7 +166,6 @@ const MemberPage = ({member}) => {
                 </>
                 )
             }
-            
         </div>
     </div>
 

@@ -4,9 +4,11 @@
 }
 
 .SquadModule {
-    width: 25vw;
-    height: 45vw;
+    width: 100%;
+    /* height: 45vw; */
+    height: 482px;
     border: 1px solid blue;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,8 +39,8 @@
 }
 
 .SquadModule_MemberCard_Image {
-    width: 7vw;
-    height: 7vw;
+    /* width: 7vw; */
+    width: 73px;
 }
 
 .Squad_Members {
@@ -46,9 +48,11 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 75vw;
+    /* width: 75vw; */
+    width: 520px;
     min-height: calc(100vh - 150px);
-    border: 1px solid black;
+    max-height: calc(100vh - 150px);
+    /* border: 1px solid black; */
 }
 
 .Squad_Members_Slider {
@@ -73,6 +77,23 @@
 
 .Squad_Additional {
     display: flex;
+    position: absolute;
+    right: 0;
+    z-index: 5;
+    /* width: 25vw; */
+    width: 265px;
     flex-direction: column;
     align-items: center;
+}
+
+@media screen and (max-width: 785px) {
+    .Squad_Members {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 787px) {
+    .Squad_Members {
+        margin-left: calc(50vw - 392px);
+    }
 }

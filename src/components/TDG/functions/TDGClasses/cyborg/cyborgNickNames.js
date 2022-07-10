@@ -1,6 +1,8 @@
 const cyborgNickNames = [
     'Half-Machine',
-    'Clockwork'
+    'Punchman',
+    'Mach-fly',
+    `Beam'oh`
 ];
 
 export default cyborgNickNames;

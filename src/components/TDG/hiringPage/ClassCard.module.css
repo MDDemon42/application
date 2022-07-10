@@ -1,13 +1,16 @@
 .ClassCard {
     height: 480px;
     display: flex;
+    position: relative;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    outline: solid black;
+    outline-offset: -1px;
 }
 
 .ClassCard_Shadow {
     position: absolute;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,15 +23,19 @@
 .ClassCard_AbilitiesPool {
     display: flex;
     flex-direction: row;
+    position: relative;
+    margin-top: 5px;
     width: 520px;
     justify-content: space-around;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding-bottom: 5px;
 }
 
 .ClassCard_PriceBlock {
     width: 100%;
     display: flex;
+    position: absolute;
+    bottom: 8px;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;

@@ -68,16 +68,13 @@ const SquadPage = ({TDGSquad}) => {
                     </Button>
                 </div>
             </div>
-            <div className={styles.Squad_Additional}>
-                <SquadModule/>
+            <SquadModule>
                 <NavLink to={'/TDG/hiring'}>
                     <Button variant={'success'}>
-                        <p>
-                            Hire a new adventurer
-                        </p>
+                        Hire a new adventurer
                     </Button>
                 </NavLink>
-            </div>
+            </SquadModule>
         </div>
     )
 };

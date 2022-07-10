@@ -1,6 +1,10 @@
 const wizardNickNames = [
     'Magician',
-    'Spellcaster'
+    'Spellcaster',
+    'Charmer',
+    `Ler
+    (Little Earth Reanimator)`,
+    'Blinker'
 ];
 
 export default wizardNickNames;

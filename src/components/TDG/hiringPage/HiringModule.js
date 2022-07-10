@@ -39,9 +39,6 @@ const HiringModule = ({TDGClasses}) => {
         <div style={{display: 'flex'}}>
             <div className={styles.HiringModule}>
                 <div className={styles.HiringModule_Classes}>
-                    <Button onClick={() => showPrev(sliderLine.current)}>
-                        Prev
-                    </Button>
                     <div className={styles.HiringModule_Classes_Slider}>
                         <div className={styles.HiringModule_Classes_Slider_SliderLine}
                             ref={sliderLine}
@@ -54,9 +51,14 @@ const HiringModule = ({TDGClasses}) => {
                             }
                         </div>
                     </div>
-                    <Button onClick={() => showNext(sliderLine.current)}>
-                        Next
-                    </Button>
+                    <div className={styles.HiringModule_Classes_NavigationButtons}>
+                        <Button onClick={() => showPrev(sliderLine.current)}>
+                            Prev
+                        </Button>
+                        <Button onClick={() => showNext(sliderLine.current)}>
+                            Next
+                        </Button>
+                    </div>
                 </div>
             </div>
             <SquadModule/>

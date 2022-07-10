@@ -1,6 +1,9 @@
 const psionNickNames = [
     'Demon',
-    'Raven'
+    'Raven',
+    'Rusher',
+    'Thunderlord',
+    'Safepillow'
 ];
 
 export default psionNickNames;

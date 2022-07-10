@@ -1,6 +1,9 @@
 const guildianNickNames = [
     'ChickenChaser',
-    'Reaver'
+    'Reaver',
+    'The Blade',
+    'Bounty Hunter',
+    'Potionist'
 ];
 
 export default guildianNickNames;
