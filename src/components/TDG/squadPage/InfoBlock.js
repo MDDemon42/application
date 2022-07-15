@@ -73,13 +73,13 @@ const InfoBlock = (
                 </p>
                 <ul>
                     {
-                        special[0].level &&
+                        special[0].level > 0 &&
                             <li>
                                 <span style={spanStyle}>{special[0].title}</span>
                             </li>
                     }
                     {
-                        special[1].level &&
+                        special[1].level> 0 &&
                             <li>
                                 <span style={spanStyle}>{special[1].title}</span>
                             </li>

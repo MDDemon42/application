@@ -3,7 +3,7 @@ import wings from './wings.png';
 import tailWithSting from './tailWithSting.png';
 import fur from './fur.png';
 import scales from './scales.png';
-import fireBreathing from './fireBreathing.png';
+import acidBreathing from './acidBreathing.png';
 import twoExtraPincers from './twoExtraPincers.png';
 
 const mutantEvolvings = {
@@ -12,7 +12,7 @@ const mutantEvolvings = {
     tailWithSting,
     fur,
     scales,
-    fireBreathing,
+    acidBreathing,
     twoExtraPincers
 };
 

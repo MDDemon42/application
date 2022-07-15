@@ -2,6 +2,11 @@ import React from "react";
 import classes from './Lines.module.css';
 
 const Lines = ({amount, direction}) => {
+    if (Lines[amount + '' + direction]) {
+        return Lines[[amount + '' + direction]]
+    };
+
+    console.log('rendering Lines', amount + '' + direction)
     const linesArray = [];
 
     let className_line;
@@ -19,10 +24,11 @@ const Lines = ({amount, direction}) => {
         linesArray.push(line);
     };
 
+    Lines[amount + '' + direction] = <div className={className_block}>
+        { linesArray }
+    </div>
     return (
-        <div className={className_block}>
-            { linesArray }
-        </div>
+        Lines[amount + '' + direction]
     )
 };
 

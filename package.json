@@ -1,6 +1,6 @@
 {
-  "name": "garpix-test",
-  "version": "0.3.1",
+  "name": "MDDemon42-application",
+  "version": "0.7.9",
   "private": true,
   "dependencies": {
     "@loadable/component": "^5.15.0",

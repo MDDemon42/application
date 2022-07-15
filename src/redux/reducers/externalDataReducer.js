@@ -1,6 +1,6 @@
 import C from '../constants';
 
-let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).externalData)
+let initialState = (localStorage['MDDemon42-application'] && JSON.parse(localStorage['MDDemon42-application']).externalData)
     || { id: 0 };
 
 const externalDataReducer = (state= {externalData: initialState}, action) => {

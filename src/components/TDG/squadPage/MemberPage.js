@@ -7,7 +7,7 @@ const {
     standartBody, standartHead, standartLeftHand,
     standartRightHand, horns, leftClaw, rightClaw,
     psiPushLeftHand, psiPushRightHand,
-    fireBreathingMouth, cyborgSkull
+    acidBreathingMouth, cyborgSkull
 } = images;
 
 const MemberPage = ({member}) => {
@@ -47,9 +47,9 @@ const MemberPage = ({member}) => {
         title: 'Psi Push Right Hand'
     };
 
-    const fireBreathingMouthImage = {
-        image: fireBreathingMouth,
-        title: 'Fire Breathing Mouth'
+    const acidBreathingMouthImage = {
+        image: acidBreathingMouth,
+        title: 'Acid Breathing Mouth'
     };
 
     const cyborgSkullImage = {
@@ -83,14 +83,14 @@ const MemberPage = ({member}) => {
             <ImageBlock image={armor} item={'armor'}/>
 
             {
-                special[0].title !== 'Fire Breathing' ?
+                special[0].title !== 'Acid Breathing' ?
                 <ImageBlock image={special[0]} item={'special'}/>:
-                <ImageBlock image={fireBreathingMouthImage} item={'special'}/>
+                <ImageBlock image={acidBreathingMouthImage} item={'special'}/>
             }
             {
-                special[1].title !== 'Fire Breathing' ?
+                special[1].title !== 'Acid Breathing' ?
                 <ImageBlock image={special[1]} item={'special'}/>:
-                <ImageBlock image={fireBreathingMouthImage} item={'special'}/>
+                <ImageBlock image={acidBreathingMouthImage} item={'special'}/>
             }
 
             {

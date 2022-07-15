@@ -1,7 +1,7 @@
 import C from '../constants';
 import createInitialAABAuthors from '../../components/AAB/helpFunctions/functions/createInitialAABAuthors';
 
-let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).authors) || createInitialAABAuthors(); 
+let initialState = (localStorage['MDDemon42-application'] && JSON.parse(localStorage['MDDemon42-application']).authors) || createInitialAABAuthors(); 
 
 const authorReducer = (state= {authors: initialState}, action) => {
     let authors = [...state.authors]

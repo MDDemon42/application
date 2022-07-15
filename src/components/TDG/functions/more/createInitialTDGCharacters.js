@@ -5,7 +5,7 @@ import wizard from '../TDGClasses/wizard';
 import psion from '../TDGClasses/psion';
 import guildian from '../TDGClasses/guildian';
 import commonAbilities from '../TDGClasses/common/commonAbilities';
-import createOneTDGCharacter from './creareOneTDGCharacher';
+import createOneTDGCharacter from './createOneTDGCharacher';
 
 const createInitialTDGCharacters = () => {
 

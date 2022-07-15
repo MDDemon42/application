@@ -1,7 +1,7 @@
 import C from '../constants';
 import createInitialTDGCharacters from '../../components/TDG/functions/more/createInitialTDGCharacters';
 
-let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).TDGSquad) || { money: 100, members: createInitialTDGCharacters() };
+let initialState = (localStorage['MDDemon42-application'] && JSON.parse(localStorage['MDDemon42-application']).TDGSquad) || { money: 200, members: createInitialTDGCharacters() };
 
 const squadReducer = (state= {TDGSquad: initialState}, action) => {
     let members = [...state.TDGSquad.members];
@@ -52,8 +52,10 @@ const squadReducer = (state= {TDGSquad: initialState}, action) => {
             money -= action.price;
             return {
                 ...state,
-                members,
-                money
+                TDGSquad: {
+                    members,
+                    money
+                }
             }
         default:
             return state

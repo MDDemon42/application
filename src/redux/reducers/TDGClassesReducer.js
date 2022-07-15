@@ -1,7 +1,7 @@
 import C from '../constants';
 import initialTDGClasses from '../../components/TDG/functions/TDGClasses';
 
-let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).TDGClasses) || initialTDGClasses;
+let initialState = (localStorage['MDDemon42-application'] && JSON.parse(localStorage['MDDemon42-application']).TDGClasses) || initialTDGClasses;
 
 const TDGClassesReducer = (state= {TDGClasses: initialState}, action) => {
     let TDGClasses = [...state.TDGClasses];

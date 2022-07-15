@@ -16,7 +16,7 @@ import leftClaw from './TDG/leftClaw.png';
 import rightClaw from './TDG/rightClaw.png';
 import psiPushLeftHand from './TDG/psiPushLeftHand.png';
 import psiPushRightHand from './TDG/psiPushRightHand.png';
-import fireBreathingMouth from './TDG/fireBreathingMouth.png';
+import acidBreathingMouth from './TDG/acidBreathingMouth.png';
 import cyborgSkull from './TDG/cyborgSkull.png';
 
 const images = {
@@ -38,7 +38,7 @@ const images = {
     rightClaw,
     psiPushLeftHand,
     psiPushRightHand,
-    fireBreathingMouth,
+    acidBreathingMouth,
     cyborgSkull
 };
 

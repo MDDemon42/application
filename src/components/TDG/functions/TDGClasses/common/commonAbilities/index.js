@@ -11,7 +11,7 @@ const commonAbilities = createTDGClassAbilities(
     noRange, null,
     noArmor, null,
     noFlight,
-    noSpecial, null
+    noSpecial, noSpecial
 );
 
 export default commonAbilities;

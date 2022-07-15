@@ -1,7 +1,8 @@
 const psionNickNames = [
     'Demon',
     'Raven',
-    'Rusher',
+    'Seer',
+    'Zealot',
     'Thunderlord',
     'Safepillow'
 ];

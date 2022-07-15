@@ -1,7 +1,7 @@
 import C from '../constants';
 import initialBooks from '../../components/AAB/helpFunctions/functions/createInitialAABBooks';
 
-let initialState = (localStorage['garpix-test'] && JSON.parse(localStorage['garpix-test']).books) || initialBooks();
+let initialState = (localStorage['MDDemon42-application'] && JSON.parse(localStorage['MDDemon42-application']).books) || initialBooks();
 
 const bookReducer = (state= {books: initialState}, action) => {
     let books = [...state.books];
