@@ -1,7 +1,7 @@
 const guildianNickNames = [
     'ChickenChaser',
     'Reaver',
-    'The Blade',
+    'Swordsman',
     'Bounty Hunter',
     'Potionist'
 ];

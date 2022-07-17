@@ -4,14 +4,14 @@ import intuition from "./intuition";
 import telekinesis from './telekinesis';
 import levitation from "./levitation";
 import psiLightning from "./psiLightning";
-import psiPush from "./psiPush";
+import psiBlades from "./psiBlades";
 import functionsTDG from '../../../';
 const { createTDGClassAbilities } = functionsTDG;
 
 const psionInsights = createTDGClassAbilities(
-    psiPush, null,
-    psiLightning, null,
+    psiBlades, null,
     guardianField, guardianAura,
+    psiLightning, null,
     levitation,
     intuition, telekinesis
 );

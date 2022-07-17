@@ -137,17 +137,17 @@
     left: 60px;
 }
 
-.PsiPushLeftHandStyle, .PsiPushRightHandStyle {
-    width: 53px;
-    top: 152px;
+.PsiBladesLeftHandStyle, .PsiBladesRightHandStyle {
+    width: 110px;
+    top: 163px;
 }
 
-.PsiPushLeftHandStyle {
-    left: 64px;
+.PsiBladesLeftHandStyle {
+    left: 42px;
 }
 
-.PsiPushRightHandStyle {
-    left: 201px;
+.PsiBladesRightHandStyle {
+    left: 167px;
 }
 
 .RunicSwordStyle {
@@ -280,10 +280,18 @@
     left: 10px;
 }
 
-.Psi-LightningStyle {
+.PsiLightningLeftHandStyle, .PsiLightningRightHandStyle {
+    top: 8px;
+}
+
+.PsiLightningLeftHandStyle {
     transform: rotate(350deg);
     left: -70px;
-    top: 8px;
+}
+
+.PsiLightningRightHandStyle {
+    transform: rotate(10deg);
+    left: 87px;
 }
 
 .ChakramStyle {

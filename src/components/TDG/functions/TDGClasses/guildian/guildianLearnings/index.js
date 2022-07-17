@@ -11,8 +11,8 @@ const { createTDGClassAbilities } = functionsTDG;
 
 const guildianLearnings = createTDGClassAbilities(
     sword, runicSword,
-    bow, chakram,
     leatherArmor, titanSkinRitual,
+    bow, chakram,
     null,
     healingPotion, multistrike 
 );

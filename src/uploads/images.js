@@ -14,8 +14,10 @@ import guildianLearnings from './TDG/guildianLearnings/guildianLearnings';
 import horns from './TDG/horns.png';
 import leftClaw from './TDG/leftClaw.png';
 import rightClaw from './TDG/rightClaw.png';
-import psiPushLeftHand from './TDG/psiPushLeftHand.png';
-import psiPushRightHand from './TDG/psiPushRightHand.png';
+import psiBladesLeftHand from './TDG/psiBladesLeftHand.png';
+import psiBladesRightHand from './TDG/psiBladesRightHand.png';
+import psiLightningLeftHand from './TDG/psiLightningLeftHand.png';
+import psiLightningRightHand from './TDG/psiLightningRightHand.png';
 import acidBreathingMouth from './TDG/acidBreathingMouth.png';
 import cyborgSkull from './TDG/cyborgSkull.png';
 
@@ -36,8 +38,10 @@ const images = {
     horns,
     leftClaw,
     rightClaw,
-    psiPushLeftHand,
-    psiPushRightHand,
+    psiBladesLeftHand,
+    psiBladesRightHand,
+    psiLightningLeftHand,
+    psiLightningRightHand,
     acidBreathingMouth,
     cyborgSkull
 };

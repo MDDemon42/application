@@ -1,7 +1,7 @@
 const createTDGClassAbilities = (
     melee_basic, melee_advanced,
+    armor_basic, armor_advanced,
     range_basic, range_advanced,
-    armor_basic, armor_advanced, 
     flight_basic,
     special_basic, special_advanced
 ) => { 
@@ -22,15 +22,15 @@ const createTDGClassAbilities = (
                 basic: range_basic,
                 advanced: range_advanced
             },
-            special: {
-                title: 'Special',
-                basic: special_basic,
-                advanced: special_advanced
-            },
             flight: {
                 title: 'Flight',
                 basic: flight_basic,
                 advanced: null
+            },
+            special: {
+                title: 'Special',
+                basic: special_basic,
+                advanced: special_advanced
             }            
         }
     )

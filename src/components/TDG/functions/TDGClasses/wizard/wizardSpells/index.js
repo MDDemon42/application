@@ -10,8 +10,8 @@ const { createTDGClassAbilities } = functionsTDG;
 
 const wizardSpells = createTDGClassAbilities(
     null, null,
-    magicBolt, fireball,
     defensiveCharms, defensiveRunes,
+    magicBolt, fireball,
     flyingCharms,
     golem, teleport
 );

@@ -11,8 +11,8 @@ const { createTDGClassAbilities } = functionsTDG;
 
 const normalItems = createTDGClassAbilities(
     sword, greataxe,
-    bow, crossbow,
     leatherArmor, steelArmor,
+    bow, crossbow,
     null,
     acidBomb, healingPotion
 );

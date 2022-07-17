@@ -10,8 +10,8 @@ const { createTDGClassAbilities } = functionsTDG;
 
 const cyborgDetails = createTDGClassAbilities(
     powerFist, energyWhip,
-    laser, rocket,
     nanoVest, nanoMatrix,
+    laser, rocket,
     reactiveFeet,
     null, null
 );

@@ -10,8 +10,8 @@ const { createTDGClassAbilities } = functionsTDG;
 
 const mutantEvolvings = createTDGClassAbilities(
     clawsAndHorns, tailWithSting,
-    null, null,
     fur, scales,
+    null, null,
     wings,
     twoExtraPincers, acidBreathing
 );

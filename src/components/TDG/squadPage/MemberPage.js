@@ -6,8 +6,9 @@ import images from '../../../uploads/images';
 const { 
     standartBody, standartHead, standartLeftHand,
     standartRightHand, horns, leftClaw, rightClaw,
-    psiPushLeftHand, psiPushRightHand,
-    acidBreathingMouth, cyborgSkull
+    psiBladesLeftHand, psiBladesRightHand,
+    acidBreathingMouth, cyborgSkull,
+    psiLightningLeftHand, psiLightningRightHand,
 } = images;
 
 const MemberPage = ({member}) => {
@@ -18,7 +19,6 @@ const MemberPage = ({member}) => {
     };
 
     console.log('rendering MemberPage', nick_name);
-    console.log(member)
 
     const color = member.TDGClass.color;
 
@@ -37,14 +37,24 @@ const MemberPage = ({member}) => {
         title: 'Right Claw'
     };
 
-    const psiPushLeftHandImage = {
-        image: psiPushLeftHand,
-        title: 'Psi Push Left Hand'
+    const psiBladesLeftHandImage = {
+        image: psiBladesLeftHand,
+        title: 'Psi Blades Left Hand'
     };
 
-    const psiPushRightHandImage = {
-        image: psiPushRightHand,
-        title: 'Psi Push Right Hand'
+    const psiBladesRightHandImage = {
+        image: psiBladesRightHand,
+        title: 'Psi Blades Right Hand'
+    };
+
+    const psiLightningLeftHandImage = {
+        image: psiLightningLeftHand,
+        title: 'Psi Lightning Left Hand'
+    };
+
+    const psiLightningRightHandImage = {
+        image: psiLightningRightHand,
+        title: 'Psi Lightning Right Hand'
     };
 
     const acidBreathingMouthImage = {
@@ -92,14 +102,22 @@ const MemberPage = ({member}) => {
                 <ImageBlock image={special[1]} item={'special'}/>:
                 <ImageBlock image={acidBreathingMouthImage} item={'special'}/>
             }
-
             {
-                range.title !== 'Rocket' ?
-                <ImageBlock image={range} item={'range'}/> :
+                range.title === 'Psi-Lightning' && 
                 <>
-                    <ImageBlock image={member.TDGClass.abilities.range.basic} item={'range'}/>
-                    <ImageBlock image={range} item={'range'}/>
+                    <ImageBlock image={psiLightningLeftHandImage} item={'range'}/>
+                    <ImageBlock image={psiLightningRightHandImage} item={'range'}/>
                 </>
+            }
+            {
+                range.title !== 'Psi-Lightning' &&  (
+                    range.title !== 'Rocket' ?
+                    <ImageBlock image={range} item={'range'}/> :
+                    <>
+                        <ImageBlock image={member.TDGClass.abilities.range.basic} item={'range'}/>
+                        <ImageBlock image={range} item={'range'}/>
+                    </>
+                )
             }            
             <img src={standartHead} 
                 className={styles.MemberPage_ImagesBlock_StandartHead}
@@ -110,7 +128,7 @@ const MemberPage = ({member}) => {
                 (
                     melee.title !== 'Power Fist' &&
                     melee.title !== 'Energy Whip' &&
-                    melee.title !== 'Psi-Push' &&
+                    melee.title !== 'Psi-Blades' &&
                     melee.title !== 'Claws and Horns' &&
                     melee.title !== 'Tail with Sting' 
                 ) &&
@@ -122,7 +140,7 @@ const MemberPage = ({member}) => {
             }
             {
                 (
-                    melee.title !== 'Psi-Push' &&
+                    melee.title !== 'Psi-Blades' &&
                     melee.title !== 'Claws and Horns' &&
                     melee.title !== 'Tail with Sting' &&
                     range.title !== 'Laser' &&
@@ -137,7 +155,7 @@ const MemberPage = ({member}) => {
             
             {
                 (
-                    melee.title !== 'Psi-Push' &&
+                    melee.title !== 'Psi-Blades' &&
                     melee.title !== 'Claws and Horns'
                 ) &&
                 <ImageBlock image={melee} item={'melee'}/>
@@ -157,14 +175,11 @@ const MemberPage = ({member}) => {
             }
 
             {
-                (
-                    melee.title === 'Psi-Push'
-                ) && (
+                melee.title === 'Psi-Blades' &&
                 <>
-                    <ImageBlock image={psiPushLeftHandImage} item={'melee'}/>
-                    <ImageBlock image={psiPushRightHandImage} item={'melee'}/>
+                    <ImageBlock image={psiBladesLeftHandImage} item={'melee'}/>
+                    <ImageBlock image={psiBladesRightHandImage} item={'melee'}/>
                 </>
-                )
             }
         </div>
     </div>
