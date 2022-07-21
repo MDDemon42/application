@@ -5,9 +5,14 @@
   "dependencies": {
     "@loadable/component": "^5.15.0",
     "@types/express": "^4.17.13",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-router": "^5.1.18",
     "axios": "^0.21.4",
     "babel-cli": "^6.26.0",
     "bootstrap": "^5.1.1",
+    "concurrently": "^7.3.0",
     "cra-template": "1.1.2",
     "express": "^4.17.1",
     "node": "^16.6.1",
@@ -18,10 +23,15 @@
     "react-redux": "^7.2.5",
     "react-router": "^5.2.1",
     "react-scripts": "4.0.3",
+    "react-types": "^0.1.0",
     "redux": "^4.1.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "typescript": "^4.7.4"
   },
   "scripts": {
+    "launch-build": "tsc -w",
+    "launch-run": "react-scripts start",
+    "launch": "concurrently \"npm run launch-run\" \"npm run launch-build\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

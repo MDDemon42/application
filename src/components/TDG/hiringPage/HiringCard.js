@@ -19,7 +19,7 @@ const HiringCard = ({TDGClass, onClose, onAdd, members}) => {
     const randomNumber = Math.floor(Math.random()*(possibleNickNames.length));
     const nick_name = possibleNickNames[randomNumber];
 
-    const [character, startingAbility] = createTDGCharacterOnHire(nick_name, TDGClass);
+    const {character, startingAbility} = createTDGCharacterOnHire(nick_name, TDGClass);
     // console.log(character)
 
     return (
