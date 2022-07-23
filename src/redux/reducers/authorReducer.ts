@@ -1,9 +1,21 @@
 import C from '../constants';
 import createInitialAABAuthors from '../../components/AAB/helpFunctions/functions/createInitialAABAuthors';
+import { OneAABAuthor } from '../../components/AAB/helpFunctions/functions/createOneAABAuthor';
+
+export interface Action {
+    type: string,
+    id: number,
+    last_name?: string,
+    first_name?: string
+}
+
+export interface AuthorState {
+    authors: OneAABAuthor[]
+}
 
 let initialState = (localStorage['MDDemon42-application'] && JSON.parse(localStorage['MDDemon42-application']).authors) || createInitialAABAuthors(); 
 
-const authorReducer = (state= {authors: initialState}, action) => {
+const authorReducer = (state: AuthorState = {authors: initialState}, action: Action) => {
     let authors = [...state.authors]
     switch (action.type) {
         case C.DELETE_AUTHOR:
@@ -14,8 +26,8 @@ const authorReducer = (state= {authors: initialState}, action) => {
         case C.SAVE_AUTHOR:
             authors.forEach(author => {
                 if (author.id === action.id) {
-                    author.last_name = action.last_name
-                    author.first_name = action.first_name
+                    author.last_name = action.last_name ? action.last_name : '';
+                    author.first_name = action.first_name ? action.first_name: '';
                 }
             })
             return {
@@ -23,11 +35,12 @@ const authorReducer = (state= {authors: initialState}, action) => {
                 authors
             }
         case C.ADD_AUTHOR:
-            authors = authors.concat({
+            const newAuthor: OneAABAuthor = {
                 id: action.id,
-                last_name: action.last_name,
-                first_name: action.first_name,
-            })
+                last_name: action.last_name ? action.last_name : '',
+                first_name: action.first_name ? action.first_name: ''
+            }
+            authors = authors.concat(newAuthor)
             return {
                 ...state,
                 authors

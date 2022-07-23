@@ -6,6 +6,7 @@ import React from "react";
 import C from '../../../redux/constants';
 import Info from './blocks/Info';
 import Header from '../loneComponents/LoneHeader';
+import { AuthorState } from '../../../redux/reducers/authorReducer';
 
 const AuthorsPage = ({authors}) => {
     const headerItems = ['Фамилия автора', 'Имя автора'];

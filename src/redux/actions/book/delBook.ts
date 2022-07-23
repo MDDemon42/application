@@ -1,6 +1,6 @@
 import C from '../../constants';
 
-function delBook(id) {
+function delBook(id: number) {
     return {
         type: C.DELETE_BOOK,
         id

@@ -1,6 +1,7 @@
 import createOneAABAuthor from './createOneAABAuthor';
+import { OneAABAuthor } from './createOneAABAuthor';
 
-const createInitialAABAuthors = () => {
+const createInitialAABAuthors = (): OneAABAuthor[] => {
 
     const id_one = Math.floor(Math.random()*10000);
     const author_one = createOneAABAuthor(

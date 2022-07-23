@@ -1,6 +1,6 @@
 import C from '../../constants';
 
-function deleteMember(id) {
+function deleteMember(id: number) {
     return {
         type: C.DELETE_MEMBER,
         id
