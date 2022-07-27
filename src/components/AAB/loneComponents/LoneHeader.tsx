@@ -3,7 +3,12 @@ import bookClasses from '../booksPage/blocks/Book.module.css';
 import authorClasses from '../authorsPage/blocks/Author.module.css';
 import C from '../../../redux/constants';
 
-const Header = ({type, items}) => {
+interface HeaderProps {
+    type: string,
+    items: string[]
+}
+
+const Header = ({type, items}: HeaderProps) => {
     return (
         <div className={type === C.BOOK ? bookClasses.BookHeader : authorClasses.AuthorHeader}>
             {

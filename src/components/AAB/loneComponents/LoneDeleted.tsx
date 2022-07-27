@@ -1,6 +1,9 @@
-import React from "react";
+interface LoneDeletedProps {
+    className: string,
+    text: string
+}
 
-const LoneDeleted = ({className, text}) => {
+const LoneDeleted = ({className, text}: LoneDeletedProps) => {
     return (
         <div className={className}>
             <h1>

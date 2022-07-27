@@ -1,4 +1,8 @@
-const getValidationResult = (criterion_1= '', criterion_2= '', criterion_3= 0) => {
+const getValidationResult = (
+    criterion_1: string = '', 
+    criterion_2: string = '', 
+    criterion_3: number = 0
+): boolean => {
     return criterion_1.length > 0 &&
         criterion_2.length > 0 &&
         String(criterion_3).length > 0 &&

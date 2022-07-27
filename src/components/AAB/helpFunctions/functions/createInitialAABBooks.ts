@@ -1,7 +1,8 @@
 import createOneAABBook from "./createOneAABBook";
 import images from '../../../../uploads/images';
+import { OneAABBook } from "./createOneAABBook";
 
-const createInitialAABBooks = () => {
+const createInitialAABBooks = (): OneAABBook[] => {
 
     const id_one = Math.floor(Math.random()*10000) * 100;
     const book_one = createOneAABBook(
