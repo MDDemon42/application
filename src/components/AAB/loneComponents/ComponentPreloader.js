@@ -28,21 +28,6 @@ const Lines = loadable( () =>
     import(/*webpackChunkName: "Lines"*/ '../../general/linesPage/blocks/Lines'));
 const ComplexPart = loadable( () => 
     import(/*webpackChunkName: "ComplexPart"*/ '../../general/linesPage/blocks/ComplexPart'));
-
-const SquadPage = loadable( () => 
-    import(/*webpackChunkName: "SquadPage"*/ '../../TDG/squadPage/SquadPage'));
-const LoneAbility = loadable( () => 
-    import(/*webpackChunkName: "LoneAbility"*/ '../../TDG/hiringPage/LoneAbility'));
-const ClassCard = loadable( () => 
-    import(/*webpackChunkName: "ClassCard"*/ '../../TDG/hiringPage/ClassCard'));
-const AbilityCard = loadable( () => 
-    import(/*webpackChunkName: "AbilityCard"*/ '../../TDG/hiringPage/AbilityCard'));
-const WizardRiddle = loadable( () => 
-    import(/*webpackChunkName: "WizardRiddle"*/ '../../TDG/hiringPage/wizardRiddleModule/WizardRiddle'));
-const WizardAnswer = loadable( () => 
-    import(/*webpackChunkName: "WizardAnswer"*/ '../../TDG/hiringPage/wizardRiddleModule/WizardAnswer'));
-const WizardLetter = loadable( () => 
-    import(/*webpackChunkName: "WizardLetter"*/ '../../TDG/hiringPage/wizardRiddleModule/WizardLetter'));
 // const images = loadable( () => 
     // import(/*webpackChunkName: "images"*/ '../../uploads/images'));
 const preload = component => component.preload && component.preload();
@@ -63,14 +48,6 @@ const ComponentPreloader = () => {
         preload(Lines);
         preload(ComplexPart);
         // preload(images);
-        
-        preload(SquadPage);
-        preload(LoneAbility);
-        preload(ClassCard);
-        preload(AbilityCard);
-        preload(WizardAnswer);
-        preload(WizardLetter);
-        preload(WizardRiddle);
     }, []);
 
     return (
